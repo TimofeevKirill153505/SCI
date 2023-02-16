@@ -6,8 +6,8 @@ avrg_sentence_length = 'avrg_sentence_length'
 avrg_word_length = 'avrg_word_length'
 ngrams_list = 'ngrams_list'
 
-sentence_template = r'[^\.|\.\.\.]+(\.|\.\.\.|?|!|?!)' #must be tested
-word_template = r'\d*\w+[\w\d]*' #test too
+sentence_template = r'([^\.(\.\.\.)\?\!(\?\!)]+(\.|\.\.\.|\?|\!|(\?\!)))' #must be tested
+word_template = r'(\d*[A-Za-z]+[\w]*)'    #test too
 
 def analyze_text(text, N, K):
     result_dict = {}
@@ -34,9 +34,9 @@ def analyze_text(text, N, K):
 
 
 def analyze_sentence(sentence):
-    is_decl = sentence.group(1) == '.' or sentence.group(1)=='...'
+    is_decl:bool = sentence[1] == '.' or sentence[1] == '...'
 
-    words = re.findall(word_template, sentence)
+    words = re.findall(word_template, sentence[0])
     symbols_in_sentence = 0
     for word in words:
         symbols_in_sentence += len(word)
@@ -45,15 +45,15 @@ def analyze_sentence(sentence):
 
 
 def list_of_ngrams(text, N, K):
-    ngram_template = r'[\d\w]{' + str(N) + r'}'
+    ngram_template = r'([\w]{' + str(N) + r'})'
     ngrams = re.findall(ngram_template, text)
 
     ngram_dict = {}
 
     for ngram in ngrams:
-        if ngram_dict[ngram.group(0)] == None:
-            ngram_dict.update({ngram.group(0) : 1})
+        if ngram_dict.get(ngram) == None:
+            ngram_dict.update({ngram : 1})
         else:
-            ngram_dict[ngram.group(0)] += 1
+            ngram_dict[ngram] += 1
 
-    return sorted(ngram_dict)[-K::-1]
+    return sorted(ngram_dict.items(), key = lambda item: item[1])[:-K-1:-1]

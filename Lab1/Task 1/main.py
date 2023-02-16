@@ -12,8 +12,8 @@ text = get_text(input_type)
 
 if text == None: quit()
 
-N = input("Input N for N-gram search\n")
-K = input("Input K for N-gram search\n")
+N = int(input("Input N for N-gram search\n"))
+K = int(input("Input K for N-gram search\n"))
 
 result = t_a.analyze_text(text, N, K)
 
