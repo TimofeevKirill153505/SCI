@@ -1,4 +1,6 @@
-from inputmodule import get_data
+from input_module import get_text
+
+import text_analysis as t_a
 
 input_type = input("Do you want input text by file(f) or by console message(m)" + "\n")
 
@@ -6,6 +8,13 @@ if input_type != "m" and input_type != "f":
     print("Error in input")
     quit()
 
-data = get_data(input_type)
+text = get_text(input_type)
 
-print(data)
+if text == None: quit()
+
+N = input("Input N for N-gram search\n")
+K = input("Input K for N-gram search\n")
+
+result = t_a.analyze_text(text, N, K)
+
+print(result)

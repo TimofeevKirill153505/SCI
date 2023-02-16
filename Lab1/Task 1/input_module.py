@@ -1,4 +1,4 @@
-def get_data(flag):
+def get_text(flag):
     if flag == "f":
         return fileread()
     elif flag == "m":
