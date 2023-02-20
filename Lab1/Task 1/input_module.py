@@ -1,3 +1,5 @@
+file = '/home/user/Documents/SCI/Lab1/Task 1/input.txt'
+
 def get_text(flag):
     if flag == "f":
         return fileread()
@@ -10,7 +12,7 @@ def fileread():
     file_data = None
 
     try:
-        file = open('/home/user/Documents/SCI/Lab1/Task 1/input.txt', 'rt')
+        file = open(file, 'rt')
         file_data = file.read()
         file.close()
     except OSError:
