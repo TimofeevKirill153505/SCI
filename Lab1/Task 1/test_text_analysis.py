@@ -28,8 +28,4 @@ class MyTest(unittest.TestCase):
         tupl = (True, 4, 23)
         sentence_match = re.findall(t_a.sentence_template ,"Apple, pie, thing, a1b2o3b4a5.")
         self.assertEqual(t_a.analyze_sentence(sentence_match[0]), tupl)
-
-test = MyTest()
-test.test_analyze_sentences()
-
     

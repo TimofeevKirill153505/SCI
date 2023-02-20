@@ -45,7 +45,7 @@ def analyze_sentence(sentence):
 
 
 def list_of_ngrams(text, N, K):
-    ngram_template = r'([\w]{' + str(N) + r'})'
+    ngram_template = r'(\b[\w]{' + str(N) + r'}\b)'
     ngrams = re.findall(ngram_template, text)
 
     ngram_dict = {}
