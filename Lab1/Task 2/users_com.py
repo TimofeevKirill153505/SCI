@@ -5,7 +5,7 @@ def authorize():
     if usrs == False: return False
 
     while True:
-        username:str = input("Enter username\n")
+        username:str = input("Enter username or :c to create a new user or :q to exit app\n")
         
         if username == ":q":
             return False

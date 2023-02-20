@@ -69,4 +69,16 @@ def switch(args:str):
     return "smth"
 
 def helpme(args:str):
+    print(
+    """Format: <command> \"<args>\"
+    Commands: 
+    add <arg>
+    remove <arg>
+    save
+    load
+    grep <arg>
+    list
+    find <arg>
+    switch
+    helpme""")
     pass
