@@ -1,9 +1,11 @@
 import file_module as f_m
 import re
 
-curr_container:set = {}
+curr_container:set = set()
 
 curr_usr:str = None
+
+reg:str = r"(\w+)(\s+\"(.+)\")?"
 
 def do_commands(usr:str)->bool:
     global curr_usr
@@ -16,22 +18,22 @@ def do_commands(usr:str)->bool:
         if cl_text == ":q":
             return False
         
-        reg:str = r"(\w+)\s+(\"(.+)\")?"
         match = re.match(reg, cl_text)
 
         if match == None :
             print("Try again. Enter heplme for documentation")
             
         command = match.group(1)
+
         if command in commands.keys():
             stay = commands[command](match.group(3))
-
             if stay != None: return True 
+        else:
+            print("There is no such command. Type helpme for documentation")
 
 
 def add(arg:str):
-    curr_container.update(arg)
-    pass
+    curr_container.update({arg})
 
 def remove(arg:str):
     curr_container.difference_update(arg)
@@ -63,7 +65,8 @@ def switch(args:str):
     global curr_container
     global curr_usr
     curr_usr = None
-    curr_container = {}
+    curr_container = set()
+    return "smth"
 
 def helpme(args:str):
     pass
