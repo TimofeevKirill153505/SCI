@@ -6,14 +6,16 @@ avrg_sentence_length = 'avrg_sentence_length'
 avrg_word_length = 'avrg_word_length'
 ngrams_list = 'ngrams_list'
 
-sentence_template = r'([^\.(\.\.\.)\?\!(\?\!)]+(\.|\.\.\.|\?|\!|(\?\!)))' #must be tested
+sentence_template = r'([^\.(\.\.\.)\?\!(\?\!)]+' +\
+    r'(?<![Mm]r)(?<!etc)(?<!vs)(?<![Jj]r)(?<![Ss]r)(?<![Ss]mth)(?<![Ss]mb)(?<!p)(?<![Ee]x)(?<!P\.S)(?<!in)(?<!sec)' +\
+    r'(\.|\.\.\.|\?|\!|(\?\!)))' #must be tested
 word_template = r'(\d*[A-Za-z]+[\w]*)'    #test too
 
 def analyze_text(text, N, K):
     result_dict = {}
 
     sentences = re.findall(sentence_template, text)
-    result_dict.update({numb_of_sentences: len(sentences)})
+    result_dict[numb_of_sentences] = len(sentences)
 
     proxy_dict = {numb_of_nondecl:0, 'sentences length':0, 'words count':0}
     for sentence in sentences:
@@ -24,12 +26,12 @@ def analyze_text(text, N, K):
         proxy_dict['words count'] += sentence_info[1]
         proxy_dict['sentences length'] += sentence_info[2]
 
-    result_dict.update ({avrg_sentence_length : proxy_dict['sentences length']//result_dict[numb_of_sentences]})
-    result_dict.update({avrg_word_length : proxy_dict['sentences length'] // proxy_dict['words count']})
+    result_dict[avrg_sentence_length] = proxy_dict['sentences length'] // result_dict[numb_of_sentences]
+    result_dict[avrg_word_length ] = proxy_dict['sentences length'] // proxy_dict['words count']
 
-    result_dict.update({numb_of_nondecl : proxy_dict[numb_of_nondecl]})
+    result_dict[numb_of_nondecl] = proxy_dict[numb_of_nondecl]
 
-    result_dict.update({ngrams_list:list_of_ngrams(text, N, K)})
+    result_dict[ngrams_list] = list_of_ngrams(text, N, K)
     return result_dict
 
 
