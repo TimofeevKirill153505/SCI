@@ -6,9 +6,9 @@ avrg_sentence_length = 'avrg_sentence_length'
 avrg_word_length = 'avrg_word_length'
 ngrams_list = 'ngrams_list'
 
-sentence_template = r'([^\.(\.\.\.)\?\!(\?\!)]+' +\
-    r'(?<![Mm]r)(?<!etc)(?<!vs)(?<![Jj]r)(?<![Ss]r)(?<![Ss]mth)(?<![Ss]mb)(?<!p)(?<![Ee]x)(?<!P\.S)(?<!in)(?<!sec)' +\
-    r'(\.|\.\.\.|\?|\!|(\?\!)))' #must be tested
+sentence_template = r'([^\.(?:\.\.\.)\?\!(\?\!)]+' +\
+    r'(?<![Mm]r)(?<!etc)(?<!vs)(?<![Jj]r)(?<![Ss]r)(?<![Ss]mth)(?<![Ss]mb)(?<![Pp])(?<![Ee]x)(?<!P\.S)(?<!in)(?<!sec)' +\
+    r'(\.|\.\.\.|\?|\!|(\?\!)))'    #must be tested
 word_template = r'(\d*[A-Za-z]+[\w]*)'    #test too
 
 def analyze_text(text, N, K):
@@ -54,8 +54,8 @@ def list_of_ngrams(text, N, K):
 
     for ngram in ngrams:
         if ngram_dict.get(ngram) == None:
-            ngram_dict.update({ngram : 1})
+            ngram_dict[ngram] = 1
         else:
             ngram_dict[ngram] += 1
 
-    return sorted(ngram_dict.items(), key = lambda item: item[1])[:-K-1:-1]
+    return sorted(ngram_dict.items(), key = lambda item: item[1], reverse = True)[:K-1]
