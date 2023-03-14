@@ -1,7 +1,9 @@
 FROM python:3
 
-COPY . /Task
+VOLUME [ "/data" ]
 
-WORKDIR /Task
+COPY . .
+COPY /input.txt /data/
+
 
 CMD ["python", "main.py"]

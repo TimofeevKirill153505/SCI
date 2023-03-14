@@ -1,4 +1,4 @@
-fileName = '/home/user/Documents/SCI/Lab1/Task 1/input.txt'
+fileName = 'data/input.txt'
 
 def get_text(flag):
     if flag == "f":

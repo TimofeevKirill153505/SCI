@@ -1,3 +1,6 @@
 FROM python:3
 
-COPY . /workdir
+VOLUME ["/data"]
+COPY . .
+
+CMD ["python", "main.py"]

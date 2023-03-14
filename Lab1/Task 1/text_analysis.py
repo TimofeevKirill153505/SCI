@@ -58,4 +58,4 @@ def list_of_ngrams(text, N, K):
         else:
             ngram_dict[ngram] += 1
 
-    return sorted(ngram_dict.items(), key = lambda item: item[1], reverse = True)[:K-1]
+    return sorted(ngram_dict.items(), key = lambda item: item[1], reverse = True)[:K - 1]
