@@ -1,6 +1,6 @@
 import json
 
-filename:str = "/data/data.json"
+filename:str = "/home/user/Documents/SCI/Lab1/Task 2/data.json"
 
 def get_all()->dict:
     file = open(filename)

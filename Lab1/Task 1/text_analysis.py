@@ -21,7 +21,8 @@ def analyze_text(text, N, K):
     for sentence in sentences:
         sentence_info = analyze_sentence(sentence)
 
-        if sentence_info[0] == False :proxy_dict[numb_of_nondecl] += 1
+        if sentence_info[0] == False :
+            proxy_dict[numb_of_nondecl] += 1
 
         proxy_dict['words count'] += sentence_info[1]
         proxy_dict['sentences length'] += sentence_info[2]
@@ -58,4 +59,4 @@ def list_of_ngrams(text, N, K):
         else:
             ngram_dict[ngram] += 1
 
-    return sorted(ngram_dict.items(), key = lambda item: item[1], reverse = True)[:K - 1]
+    return sorted(ngram_dict.items(), key=lambda item: item[1], reverse=True)[:K + 1]
