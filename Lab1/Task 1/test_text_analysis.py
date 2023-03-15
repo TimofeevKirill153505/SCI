@@ -11,6 +11,7 @@ class MyTest(unittest.TestCase):
         self.assertTrue(re.match(t_a.sentence_template,"Am i a simple sentence?"))
         self.assertTrue(re.match(t_a.sentence_template, "What? There is another sentence?!"))
         self.assertEqual(len(re.findall(t_a.sentence_template, "I am the first sentence. And i am the second one.")), 2)
+        self.assertEqual(len(re.findall(t_a.sentence_template, "Mr. Me. keke p. 1134!")), 2)
 
 
     def test_word_expr(self):
@@ -28,4 +29,5 @@ class MyTest(unittest.TestCase):
         tupl = (True, 4, 23)
         sentence_match = re.findall(t_a.sentence_template ,"Apple, pie, thing, a1b2o3b4a5.")
         self.assertEqual(t_a.analyze_sentence(sentence_match[0]), tupl)
+
     
