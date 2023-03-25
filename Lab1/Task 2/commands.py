@@ -96,20 +96,22 @@ def grep(arg:str):
         print('arg error')
         return
     
+    bl = False
     for element in curr_container:
         if(re.match(arg, element)):
             print(element)
-            return
+            bl = True
+            
         
-        
-    print("No such elements")
+    if bl is not True:
+        print("No such elements")
 
 def save(args:str):
     f_m.save_container(curr_usr, curr_container)
 
 def load(args:str):
     global curr_container
-    curr_container = f_m.get_set(curr_usr)
+    curr_container.update(f_m.get_set(curr_usr))
 
 def switch(args:str):
     global curr_container
@@ -136,4 +138,3 @@ def helpme(args:str):
     find <arg>
     switch
     helpme""")
-    pass
