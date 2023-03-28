@@ -98,7 +98,7 @@ def grep(arg:str):
     
     bl = False
     for element in curr_container:
-        if(re.match(arg, element, flags=re._FlagsType.LOCALE)):
+        if(re.match(r'\b' + arg + r'\b', element)):
             print(element)
             bl = True
             
