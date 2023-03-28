@@ -25,7 +25,7 @@ def do_commands(usr:str)->bool:
             print("Do you wnat to save y/n?")
             choice = input()
             if choice == 'y':
-                save()
+                save('')
             return False
         
         match = re.match(reg, cl_text)
@@ -98,7 +98,7 @@ def grep(arg:str):
     
     bl = False
     for element in curr_container:
-        if(re.match(arg, element)):
+        if(re.match(arg, element, flags=re._FlagsType.LOCALE)):
             print(element)
             bl = True
             
@@ -127,7 +127,7 @@ def switch(args:str):
 
 def helpme(args:str):
     print(
-    """Format: <command> \"<args>\"
+    """Format: <command> <args>
     Commands: 
     add <arg>
     remove <arg>
