@@ -119,7 +119,7 @@ def switch(args:str):
     print("Do you wnat to save y/n?")
     choice = input()
     if choice == 'y':
-        save()
+        save('')
     curr_usr = None
     curr_container = set()
 
