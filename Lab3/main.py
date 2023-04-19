@@ -1,12 +1,9 @@
-import json
-import yaml
-import xml
-import pickle
-import inspect
-import sys
+from serlib import *
 import re
+import inspect
 
 path = "/home/user/Documents/SCI/Lab3/"
+
 
 class Sass:
     def __init__(self, a, b):
@@ -14,10 +11,10 @@ class Sass:
         self.b = b
         self.__hop = "hop" + a
         self.__poh = "jej" + str(b)
-        
+
     def method(self):
         return self.a + str(self.b)
-    
+
     def ppp(self, c):
         print(str(c) + self.a + str(self.b))
 
@@ -30,13 +27,33 @@ class Sass:
         }
         """
 
-        
+
+def f():
+    print(8)
+    h = 7 + 7.4
+    print(h)
+    return "kikiki"
+
 
 def main():
-    reg = r'g (...)'
-    text = 'g jjj g jkl'
-    print(re.search(reg, text))
-    
-    
+    d = {"one": 1, "string": "str", "float": 1.25, "bool": False,
+         "set": {1, 2, 3}, "list": [], "tuple": (1, 2, 3), 'empty dict': {}}
+    ser = serialize(d)
+    print(ser)
+    print("\n\n")
+    print(deserialize(ser))
+    src = inspect.getsource(f)
+    print(src)
+    rv = None
+
+    def sf(param):
+        nonlocal rv
+        rv = param
+    src = src + '\nsf(f())'
+    rv = 1
+    exec(src, {'sf': sf})
+    print("rv" + rv)
+
+
 if __name__ == "__main__":
     main()
