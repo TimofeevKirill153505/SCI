@@ -1,8 +1,28 @@
 import inspect
+import functools
+import re
+
+
+def shield_str(txt: str) -> str:
+    txt = txt.replace('\\', '\\\\')
+    txt = txt.replace('"', '\\"')
+    txt = txt.replace("'", "\\'")
+    txt = txt.replace('\n', '\\n')
+    txt = txt.replace('\t', '\\t')
+
+    return txt
+
+
+def f():
+    pass
+
+
+func = type(f)
 
 
 def serialize(obj):
-    default_types = [int, str, bool, dict, tuple, float, list, set, bool, type]
+    default_types = [int, str, bool, dict, tuple,
+                     float, list, set, bool, type, func]
     if type(obj) in default_types:
         return '{' + basic_serailize(obj) + '}'
 
@@ -28,7 +48,7 @@ def basic_serailize(obj) -> str:
         return serialize_set(obj)
     elif isinstance(obj, tuple):
         return serialize_tuple(obj)
-    elif isinstance(obj, function):
+    elif isinstance(obj, func):
         return serialize_func(obj)
 
 
@@ -65,7 +85,7 @@ def serialize_float(obj) -> str:
 
 
 def serialize_string(obj) -> str:
-    return basic.format(type="str", val='"'+obj+'"', t_p='{}')
+    return basic.format(type="str", val='"'+shield_str(obj)+'"', t_p='{}')
 
 
 def serialize_dict(obj: dict) -> str:
@@ -91,13 +111,16 @@ def serialize_list(obj):
     return basic.format(type="list", val=val, t_p='{}')
 
 
-def serialize_func(obj: function):
-    val_dict = '{}'
+def serialize_func(obj):
+    val_dict = {}
     lines = inspect.getsource(obj)
+    name_regex = r'def\s+(\w+)\s*\('
+    func_name = re.match(name_regex, lines)
+    val_dict['name'] = func_name.group(1)
     val_dict['source lines'] = lines
     value = dict_jsonobj(val_dict)
 
-    return basic.format(type='func', val=value, t_p='{}')
+    return basic.format(type='function', val=value, t_p='{}')
 
 
 def dict_jsonobj(d: dict) -> str:

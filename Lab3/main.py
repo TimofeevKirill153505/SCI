@@ -36,23 +36,29 @@ def f():
 
 
 def main():
-    d = {"one": 1, "string": "str", "float": 1.25, "bool": False,
-         "set": {1, 2, 3}, "list": [], "tuple": (1, 2, 3), 'empty dict': {}}
-    ser = serialize(d)
-    print(ser)
-    print("\n\n")
-    print(deserialize(ser))
+    # d = {"one": 1, "string": "str", "float": 1.25, "bool": False,
+    #      "set": {1, 2, 3}, "list": [], "tuple": (1, 2, 3), 'empty dict': {}}
+    # ser = serialize(d)
+    # print(ser)
+    # print("\n\n")
+    # print(deserialize(ser))
     src = inspect.getsource(f)
     print(src)
     rv = None
 
-    def sf(param):
-        nonlocal rv
-        rv = param
-    src = src + '\nsf(f())'
-    rv = 1
-    exec(src, {'sf': sf})
-    print("rv" + rv)
+    # def sf(param):
+    #     nonlocal rv
+    #     rv = param
+    # src = src + '\nsf(f())'
+    # rv = 1
+    # exec(src, {'sf': sf})
+    # print("rv" + rv)
+
+    f_str = serialize(f)
+    # f_str = type(f)
+    print(f_str)
+    smth = deserialize(f_str)
+    print(smth())
 
 
 if __name__ == "__main__":

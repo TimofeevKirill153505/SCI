@@ -1,6 +1,23 @@
 import re
 
 
+def f():
+    pass
+
+
+func = type(f)
+
+
+def deshield_str(txt: str) -> str:
+    txt = txt.replace('\\t', '\t')
+    txt = txt.replace('\\n', '\n')
+    txt = txt.replace('\\"', '"')
+    txt = txt.replace('\\\\', '\\')
+
+    print(txt)
+    return txt
+
+
 # возвращает кортеж для среза скобок
 def parse_brackets(text: str, is_figure: bool) -> tuple[int, int]:
     begin = -1
@@ -9,16 +26,33 @@ def parse_brackets(text: str, is_figure: bool) -> tuple[int, int]:
     bracket = r'[]'
     if is_figure:
         bracket = r'{}'
-
+    flag = False
     for n, ch in enumerate(text):
 
-        if ch == bracket[0]:
+        if ch == '"' and text[n-1] != '\\':
+            flag = not flag
+        if ch == bracket[0] and not flag:
             count += 1
             if begin == -1:
                 begin = n
-        if ch == bracket[1]:
+        if ch == bracket[1] and not flag:
             count -= 1
             if count == 0:
+                end = n + 1
+                break
+
+    return begin, end
+
+
+def parse_quotes(txt) -> tuple[int, int]:
+    begin = -1
+    end = -1
+    flag = True
+    for n, ch in enumerate(txt):
+        if ch == '"' and (txt[n-1] != '\\' or n == 0):
+            if begin == -1:
+                begin = n
+            else:
                 end = n + 1
                 break
 
@@ -29,8 +63,8 @@ def find_value(txt: str) -> tuple[int, int]:
     first_symb = re.search(r'[^\s:]', txt)
     val: str = ""
     if txt[first_symb.start()] == '"':
-        srch = re.search(r'"(?:[^"]|(?<=\\)")*"', txt)
-        return srch.span()
+        beg, end = parse_quotes(txt)
+        return beg, end
 
     elif txt[first_symb.start()] == '[':
         return parse_brackets(txt, False)
@@ -60,7 +94,7 @@ def parse_to_kv(txt: str) -> dict:
 def deserialize(txt: str):
     basic_types = {"str", "dict", "tuple",
                    "function", "bool", "set",
-                   "int", "float", "type", "list"
+                   "int", "float", "type", "list", "function"
                    }
     kv = parse_to_kv(txt)
     # print(kv)
@@ -89,12 +123,31 @@ def basic_deserialize(txt: str, kv):
         return deseialize_set(v)
     elif t == 'dict':
         return deserialize_dict(v)
-    else:
-        return None
+    elif t == 'function':
+        return deserialize_function(v)
+
+
+def deserialize_function(val):
+    kv = parse_to_kv(val)
+    func_name = deserialize(kv['name'])
+    func_lines = deserialize(kv['source lines'])
+
+    def __smth__(*args):
+        rv = None
+
+        def chngrv(val):
+            nonlocal rv
+            rv = val
+        gl = {'chngrv': chngrv, 'args': args}
+        exec(func_lines + f'\nchngrv({func_name}(*args))')
+
+        return rv
+
+    return __smth__
 
 
 def deserialize_string(val) -> str:
-    return val[1:-1]
+    return deshield_str(val[1:-1])
 
 
 def deserialize_int(val) -> int:
