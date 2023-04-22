@@ -1,6 +1,10 @@
-from serlib import *
+import serlib
 import re
 import inspect
+import math
+import sys
+import os.path
+import importlib
 
 path = "/home/user/Documents/SCI/Lab3/"
 
@@ -28,10 +32,14 @@ class Sass:
         """
 
 
-def f():
+i = 5
+
+
+def f(a: int):
     print(8)
     h = 7 + 7.4
     print(h)
+    print(math.sin(i * a))
     return "kikiki"
 
 
@@ -44,21 +52,24 @@ def main():
     # print(deserialize(ser))
     src = inspect.getsource(f)
     print(src)
-    rv = None
 
-    # def sf(param):
-    #     nonlocal rv
-    #     rv = param
-    # src = src + '\nsf(f())'
-    # rv = 1
-    # exec(src, {'sf': sf})
-    # print("rv" + rv)
+    # f_str = serialize(f)
+    # print(f_str)
+    # smth = deserialize(f_str)
+    # print(smth(78))
+    # print(f.__closure__)
+    # print(f.__module__)
+    d = dict(inspect.getclosurevars(f).globals)
 
-    f_str = serialize(f)
-    # f_str = type(f)
-    print(f_str)
-    smth = deserialize(f_str)
-    print(smth())
+    sys.path.insert(0, 'D:\\Mcha\\Lab11Py\\')
+    # pol = importlib.import_module('Polynom', 'D:\\Mcha\\Lab11Py')
+    # print(f.__builtins__)
+    import Polynom
+    # print(math.__file__)
+    juj = serlib.serialize(Polynom)
+    print(juj)
+    mod = serlib.deserialize(juj)
+    print(mod)
 
 
 if __name__ == "__main__":

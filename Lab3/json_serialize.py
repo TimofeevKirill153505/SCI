@@ -18,11 +18,12 @@ def f():
 
 
 func = type(f)
+module = type(re)
 
 
 def serialize(obj):
     default_types = [int, str, bool, dict, tuple,
-                     float, list, set, bool, type, func]
+                     float, list, set, bool, type, func, module]
     if type(obj) in default_types:
         return '{' + basic_serailize(obj) + '}'
 
@@ -50,6 +51,22 @@ def basic_serailize(obj) -> str:
         return serialize_tuple(obj)
     elif isinstance(obj, func):
         return serialize_func(obj)
+    elif isinstance(obj, module):
+        return serialize_module(obj)
+
+
+def serialize_module(obj):
+    val_dict = {}
+    line = str(obj)
+    srch = re.search(r'\\\\', line)
+    if srch is None:
+        val_dict['path'] = 'basic'
+    else:
+        val_dict['path'] = re.search(r'from \'(.*)\'', line).group(1)
+
+    val_dict['name'] = re.search(r'module \'([^\']*)\'', line).group(1)
+
+    return basic.format(type='module', t_p='{}', val=dict_jsonobj(val_dict))
 
 
 def serialize_tuple(obj):
@@ -118,6 +135,11 @@ def serialize_func(obj):
     func_name = re.match(name_regex, lines)
     val_dict['name'] = func_name.group(1)
     val_dict['source lines'] = lines
+
+    cl_vars = inspect.getclosurevars(obj)
+    val_dict['global closure'] = dict(cl_vars.globals)
+    val_dict['nonlocal closure'] = dict(cl_vars.nonlocals)
+
     value = dict_jsonobj(val_dict)
 
     return basic.format(type='function', val=value, t_p='{}')

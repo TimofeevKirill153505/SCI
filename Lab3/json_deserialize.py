@@ -1,4 +1,6 @@
 import re
+import sys
+import importlib
 
 
 def f():
@@ -7,6 +9,8 @@ def f():
 
 func = type(f)
 
+mod_ind = 0
+
 
 def deshield_str(txt: str) -> str:
     txt = txt.replace('\\t', '\t')
@@ -14,7 +18,7 @@ def deshield_str(txt: str) -> str:
     txt = txt.replace('\\"', '"')
     txt = txt.replace('\\\\', '\\')
 
-    print(txt)
+    # print(txt)
     return txt
 
 
@@ -94,7 +98,8 @@ def parse_to_kv(txt: str) -> dict:
 def deserialize(txt: str):
     basic_types = {"str", "dict", "tuple",
                    "function", "bool", "set",
-                   "int", "float", "type", "list", "function"
+                   "int", "float", "type", "list",
+                   "function", "module"
                    }
     kv = parse_to_kv(txt)
     # print(kv)
@@ -125,6 +130,18 @@ def basic_deserialize(txt: str, kv):
         return deserialize_dict(v)
     elif t == 'function':
         return deserialize_function(v)
+    elif t == 'module':
+        return deserialize_module(v)
+
+
+def deserialize_module(val):
+    global mod_ind
+    kv = parse_to_kv(val)
+    if kv['path'] != 'basic':
+        sys.path.insert(mod_ind, deserialize(kv['path']))
+        mod_ind += 1
+
+    return importlib.import_module(deserialize(kv['name']))
 
 
 def deserialize_function(val):
@@ -139,7 +156,7 @@ def deserialize_function(val):
             nonlocal rv
             rv = val
         gl = {'chngrv': chngrv, 'args': args}
-        exec(func_lines + f'\nchngrv({func_name}(*args))')
+        exec(func_lines + f'\nchngrv({func_name}(*args))', gl)
 
         return rv
 
