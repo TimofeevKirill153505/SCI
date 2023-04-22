@@ -149,14 +149,20 @@ def deserialize_function(val):
     func_name = deserialize(kv['name'])
     func_lines = deserialize(kv['source lines'])
 
+    gl: dict = deserialize(kv['globals'])
+    nonl: dict = deserialize(kv['nonlocals'])
+    gl.update(nonl)
+
     def __smth__(*args):
+        nonlocal gl
         rv = None
 
         def chngrv(val):
             nonlocal rv
             rv = val
-        gl = {'chngrv': chngrv, 'args': args}
-        exec(func_lines + f'\nchngrv({func_name}(*args))', gl)
+
+        gl.update({'__chngrv__': chngrv, '__args__': args})
+        exec(func_lines + f'\n__chngrv__({func_name}(*__args__))', gl)
 
         return rv
 

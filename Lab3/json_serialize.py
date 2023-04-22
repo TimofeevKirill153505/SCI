@@ -137,8 +137,8 @@ def serialize_func(obj):
     val_dict['source lines'] = lines
 
     cl_vars = inspect.getclosurevars(obj)
-    val_dict['global closure'] = dict(cl_vars.globals)
-    val_dict['nonlocal closure'] = dict(cl_vars.nonlocals)
+    val_dict['globals'] = dict(cl_vars.globals)
+    val_dict['nonlocals'] = dict(cl_vars.nonlocals)
 
     value = dict_jsonobj(val_dict)
 
