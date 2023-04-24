@@ -12,6 +12,12 @@ def shield_str(txt: str) -> str:
 
     return txt
 
+def change_indent(src:str) -> str:
+    while(src[:3] != 'def'):
+        src = src.replace('    def', 'def', 1)
+        src = src.replace('\n    ', '\n')
+    
+    return src
 
 def f():
     pass
@@ -19,13 +25,17 @@ def f():
 
 func = type(f)
 module = type(re)
+none = type(None)
 
 
 def serialize(obj):
     default_types = [int, str, bool, dict, tuple,
-                     float, list, set, bool, type, func, module]
+                     float, list, set, bool, type,
+                     func, module, type]
     if type(obj) in default_types:
         return '{' + basic_serailize(obj) + '}'
+    else:
+        return '{' + serialize_none() + '}'
 
 
 basic: str = ' "type": "{type}", "type properties": {t_p}, "value": {val} '
@@ -53,7 +63,33 @@ def basic_serailize(obj) -> str:
         return serialize_func(obj)
     elif isinstance(obj, module):
         return serialize_module(obj)
+    elif isinstance(obj, type):
+        return serialize_type(obj)
+    else:
+        return serialize_none()
 
+def type_to_dict(obj:type) -> dict:
+    dct = obj.__dict__
+    
+    ret_dct:dict = {'__name__': obj.__name__}
+    for k,v in dct.items():
+        if k == '__module__':
+            continue
+        
+        ret_dct[k] = v
+
+        # print(ret_dct)
+    return ret_dct
+        
+def serialize_none():
+    return basic.format(type='none', t_p='{}', val='{}')
+
+def serialize_type(obj:type) -> str:
+    # print(obj.__dict__)
+    dct = type_to_dict(obj)
+    
+    return basic.format(type='type', t_p='{}', val = dict_jsonobj(dct))
+        
 
 def serialize_module(obj):
     val_dict = {}
@@ -130,9 +166,9 @@ def serialize_list(obj):
 
 def serialize_func(obj):
     val_dict = {}
-    lines = inspect.getsource(obj)
+    lines = change_indent(inspect.getsource(obj))
     name_regex = r'def\s+(\w+)\s*\('
-    func_name = re.match(name_regex, lines)
+    func_name = re.search(name_regex, lines)
     val_dict['name'] = func_name.group(1)
     val_dict['source lines'] = lines
 

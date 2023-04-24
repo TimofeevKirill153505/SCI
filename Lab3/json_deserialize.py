@@ -99,7 +99,7 @@ def deserialize(txt: str):
     basic_types = {"str", "dict", "tuple",
                    "function", "bool", "set",
                    "int", "float", "type", "list",
-                   "function", "module"
+                   "function", "module", "type", "none"
                    }
     kv = parse_to_kv(txt)
     # print(kv)
@@ -132,7 +132,20 @@ def basic_deserialize(txt: str, kv):
         return deserialize_function(v)
     elif t == 'module':
         return deserialize_module(v)
+    elif t == 'type':
+        return deserialize_type(v)
+    elif t =='none':
+        return None
 
+
+def deserialize_type(val):
+    kv = parse_to_kv(val)
+    for k,v in kv.items():
+        print(k)
+        kv[k] = deserialize(v)
+    
+    return type(kv['__name__'], (), kv)
+    
 
 def deserialize_module(val):
     global mod_ind
