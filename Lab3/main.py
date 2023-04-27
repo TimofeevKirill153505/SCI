@@ -32,7 +32,7 @@ class Sass:
     def method(self):
         return self.a + str(self.b)
 
-    def ppp(self, c):
+    def ppp(self, c: int):
         print(str(c) + self.a + str(self.b))
 
         """
@@ -50,7 +50,7 @@ class Sass:
     def __private(self):
         print("private")
 
-    def _protected():
+    def _protected(self):
         print("protected")
 
     def prpuk(self):
@@ -81,6 +81,10 @@ def print_dict(d: dict):
         print(str(k) + " : " + str(v))
 
 
+def func(a, b):
+    print(a - b)
+
+
 def main():
     t = 0
 
@@ -93,31 +97,15 @@ def main():
         print(math.sin(i * a + t))
         return "kikiki"
 
-    # code = f.__code__
-    # for smth in code.co_lines():
-    #     print(smth)
-
-    # print(code.co_linetable.__str__())
-    # print(code.co_lnotab)
-
-    # print_tuple_list(inspect.getmembers(code))
-    # print(f.__closure__)
-    # print(f.__globals__)
-    code = f.__code__
-    gl = dict(inspect.getclosurevars(f).globals)
-    gl.update(inspect.getclosurevars(f).nonlocals)
-    print(gl)
-    defs = inspect.getfullargspec(f).defaults
-    closure = inspect.getclosurevars(f).nonlocals
-
-    cells = []
-    for key, clvar in closure.items():
-        print("closure be like " + str(clvar))
-        kkk = Cell(clvar)
-        cells.append(kkk)
-
-    fff = types.FunctionType(code, dict(gl), "f", defs, tuple(cells))
-    print(fff(7))
+    # types.CodeType()
+    sass_str = serlib.serialize(Sass)
+    print(sass_str)
+    sass = serlib.deserialize(sass_str)
+    s = sass("a", 2)
+    print(s.method())
+    print(s.ppp(8))
+    print(s._Sass__private())
+    print(s._protected())
 
 
 if __name__ == "__main__":

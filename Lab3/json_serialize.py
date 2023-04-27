@@ -45,6 +45,8 @@ def serialize(obj):
         func,
         module,
         type,
+        types.CodeType,
+        bytes,
     ]
     if type(obj) in default_types:
         return "{" + basic_serailize(obj) + "}"
@@ -79,6 +81,10 @@ def basic_serailize(obj) -> str:
         return serialize_module(obj)
     elif isinstance(obj, type):
         return serialize_type(obj)
+    elif isinstance(obj, types.CodeType):
+        return serialize_code(obj)
+    elif isinstance(obj, bytes):
+        return serialize_bytes(obj)
     else:
         return serialize_none()
 
@@ -128,6 +134,8 @@ def serialize_tuple(obj):
         val += serialize(it) + ", "
 
     val = val[:-2] + "]"
+    if val == "]":
+        val = "[]"
 
     return basic.format(type="tuple", val=val, t_p="{}")
 
@@ -180,15 +188,69 @@ def serialize_list(obj):
     return basic.format(type="list", val=val, t_p="{}")
 
 
-def serialize_func2(obj: func):
-    types.FunctionType()
-    obj.__code__
+def serialize_bytes(obj: bytes):
+    lst = list(obj)
+    return basic.format(type="bytes", t_p="{}", val=str(lst))
+
+
+def serialize_code(obj: types.CodeType):
+    tpl = (
+        obj.co_argcount,
+        obj.co_posonlyargcount,
+        obj.co_kwonlyargcount,
+        obj.co_nlocals,
+        obj.co_stacksize,
+        obj.co_flags,
+        obj.co_code,
+        obj.co_consts,
+        obj.co_names,
+        obj.co_varnames,
+        "",
+        obj.co_name,
+        obj.co_firstlineno,
+        obj.co_linetable,
+        obj.co_freevars,
+        obj.co_cellvars,
+    )
+    # types.CodeType()
+    # tpl = {
+    #     "__argcount": obj.co_argcount,
+    #     "__posonlyargcount": obj.co_posonlyargcount,
+    #     "__kwonlyargcount": obj.co_kwonlyargcount,
+    #     "__nlocals": obj.co_nlocals,
+    #     "__stacksize": obj.co_stacksize,
+    #     "__flags": obj.co_flags,
+    #     "__codestring": obj.co_code,
+    #     "__constants": obj.co_consts,
+    #     "__names": obj.co_names,
+    #     "__varnames": obj.co_varnames,
+    #     "__filename": "",
+    #     "__name": obj.co_name,
+    #     "__firstlineno": obj.co_firstlineno,
+    #     "__linetable": obj.co_linetable,
+    #     "__freevars": obj.co_freevars,
+    #     "__cellvars": obj.co_cellvars,
+    # }
+    value = serialize(tpl)
+    return basic.format(val=value, type="code", t_p="{}")
+
+
+def serialize_func(obj: func):
+    info = inspect.getclosurevars(obj)
     val_dict = {}
-    glbs = {}
-    nonlocls = {}
+    val_dict["globals"] = dict(info.globals)
+    val_dict["argdefs"] = inspect.getfullargspec(obj).defaults
+    val_dict["closure"] = tuple([v for k, v in info.nonlocals.items()])
+    val_dict["name"] = [
+        val for key, val in inspect.getmembers(obj) if key == "__name__"
+    ][0]
+
+    val_dict["code"] = obj.__code__
+
+    return basic.format(type="function", val=dict_jsonobj(val_dict), t_p="{}")
 
 
-def serialize_func(obj):
+def serialize_func2(obj):
     val_dict = {}
     lines = change_indent(inspect.getsource(obj))
     name_regex = r"def\s+(\w+)\s*\("
