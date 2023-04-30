@@ -189,6 +189,12 @@ def deserialize_code(val):
 
 def deserialize_type(val):
     kv = parse_to_kv(val)
+    if kv.get("builtin type") is not None:
+        v = deserialize(kv["builtin type"])
+        for bk, bv in __builtins__.items():
+            if bk == v:
+                return bv
+
     for k, v in kv.items():
         # print(k)
         kv[k] = deserialize(v)

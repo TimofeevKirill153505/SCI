@@ -108,10 +108,11 @@ def main():
 
     s = Sass("a", 2)
     s.puk = 89.9
-    txt = serlib.serialize(s)
+    txt = serlib.serialize(dict)
     print(txt)
-    obj = serlib.deserialize(txt)
-    print(obj.__dict__)
+    print(serlib.deserialize(txt))
+    # obj = serlib.deserialize(txt)
+    # print(obj.__dict__)
     # print(txt)
     # obj = serlib.deserialize(txt)
     # print(obj.__dict__)

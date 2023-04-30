@@ -94,6 +94,10 @@ def basic_serailize(obj) -> str:
 def type_to_dict(obj: type) -> dict:
     dct = obj.__dict__
 
+    if obj in __builtins__.values():
+        ret_dct = {"builtin type": obj.__name__}
+        return ret_dct
+
     ret_dct: dict = {"__name__": obj.__name__}
     for k, v in dct.items():
         if k == "__module__" or k == "__dict__" or k == "__weakref__":
@@ -271,9 +275,9 @@ def serialize_func2(obj):
 
 def dict_jsonobj(d: dict) -> str:
     rstr = "{"
-    print(d)
+    # print(d)
     for key, val in d.items():
-        print(key)
+        # print(key)
         rstr += f'"{key}": {serialize(val)}, '
 
     rstr = rstr[:-2:]
