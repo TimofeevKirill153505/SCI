@@ -50,6 +50,8 @@ def serialize(obj):
     ]
     if type(obj) in default_types:
         return "{" + basic_serailize(obj) + "}"
+    elif type(obj) is not types.NoneType:
+        return serialize_object(obj)
     else:
         return "{" + serialize_none() + "}"
 
@@ -94,7 +96,7 @@ def type_to_dict(obj: type) -> dict:
 
     ret_dct: dict = {"__name__": obj.__name__}
     for k, v in dct.items():
-        if k == "__module__":
+        if k == "__module__" or k == "__dict__" or k == "__weakref__":
             continue
 
         ret_dct[k] = v
@@ -269,10 +271,21 @@ def serialize_func2(obj):
 
 def dict_jsonobj(d: dict) -> str:
     rstr = "{"
+    print(d)
     for key, val in d.items():
+        print(key)
         rstr += f'"{key}": {serialize(val)}, '
 
     rstr = rstr[:-2:]
     rstr += "}"
 
     return rstr
+
+
+def serialize_object(obj) -> str:
+    type_dict = type_to_dict(type(obj))
+    val = obj.__dict__
+
+    return basic.format(
+        type="object", t_p=dict_jsonobj(type_dict), val=dict_jsonobj(val)
+    )

@@ -56,6 +56,10 @@ class Sass:
     def prpuk(self):
         print(self.__puk)
 
+    # @property
+    # def __dict__(self):
+    #     return {"наёбка для уёбка": "nayobka"}
+
 
 def dec(func):
     def d(*args):
@@ -66,9 +70,6 @@ def dec(func):
 
 
 i = 5
-
-
-# @dec
 
 
 def print_tuple_list(d: list):
@@ -85,6 +86,14 @@ def func(a, b):
     print(a - b)
 
 
+def to_dict(thing) -> dict:
+    dct = {}
+    for k, v in thing:
+        dct[k] = v
+
+    return dct
+
+
 def main():
     t = 0
 
@@ -97,15 +106,16 @@ def main():
         print(math.sin(i * a + t))
         return "kikiki"
 
-    # types.CodeType()
-    sass_str = serlib.serialize(Sass)
-    print(sass_str)
-    sass = serlib.deserialize(sass_str)
-    s = sass("a", 2)
-    print(s.method())
-    print(s.ppp(8))
-    print(s._Sass__private())
-    print(s._protected())
+    s = Sass("a", 2)
+    s.puk = 89.9
+    txt = serlib.serialize(s)
+    print(txt)
+    obj = serlib.deserialize(txt)
+    print(obj.__dict__)
+    # print(txt)
+    # obj = serlib.deserialize(txt)
+    # print(obj.__dict__)
+    # print(type(obj))
 
 
 if __name__ == "__main__":

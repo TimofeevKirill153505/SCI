@@ -131,10 +131,12 @@ def deserialize(txt: str):
     # print(kv)
     kv["type"] = kv["type"][1:-1]
     if kv["type"] in basic_types:
-        return basic_deserialize(txt, kv)
+        return basic_deserialize(kv)
+    else:
+        return deserialize_object(kv)
 
 
-def basic_deserialize(txt: str, kv):
+def basic_deserialize(kv):
     t = kv["type"]
     v = kv["value"]
 
@@ -190,8 +192,8 @@ def deserialize_type(val):
     for k, v in kv.items():
         # print(k)
         kv[k] = deserialize(v)
-
-    return type(kv["__name__"], (), kv)
+    name = kv.pop("__name__")
+    return type(name, (), kv)
 
 
 def deserialize_module(val):
@@ -310,3 +312,23 @@ def deserialize_dict(val) -> dict:
         val = val[tpl[1] : :]
 
     return d
+
+
+def deserialize_object(kv) -> str:
+    t_p = kv["type properties"]
+    type_kv = parse_to_kv(t_p)
+    for k, v in type_kv.items():
+        type_kv[k] = deserialize(v)
+
+    name = type_kv.pop("__name__")
+    typ = type(name, (), kv)
+
+    obj = typ.__new__(typ)
+
+    val_kv = parse_to_kv(kv["value"])
+    for k, v in val_kv.items():
+        val_kv[k] = deserialize(v)
+
+    obj.__dict__ = val_kv
+
+    return obj
