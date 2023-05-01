@@ -127,6 +127,8 @@ def deserialize(txt: str):
         "code",
         "bytes",
         "property",
+        "classmethod",
+        "staticmethod",
     }
     kv = parse_to_kv(txt)
     # print(kv)
@@ -169,8 +171,22 @@ def basic_deserialize(kv):
         return deserialize_bytes(v)
     elif t == "property":
         return deserialize_property(v)
+    elif t == "staticmethod":
+        return deserialize_staticmethod(v)
+    elif t == "classmethod":
+        return deserialize_classmethod(v)
     elif t == "none":
         return None
+
+
+def deserialize_classmethod(val):
+    f = deserialize(val)
+    return classmethod(f)
+
+
+def deserialize_staticmethod(val):
+    f = deserialize(val)
+    return staticmethod(f)
 
 
 def deserialize_property(val):

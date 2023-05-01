@@ -78,6 +78,8 @@ def serialize(obj):
         types.CodeType,
         bytes,
         property,
+        classmethod,
+        staticmethod,
     ]
     if type(obj) in default_types:
         return "{" + basic_serailize(obj) + "}"
@@ -120,8 +122,24 @@ def basic_serailize(obj) -> str:
         return serialize_bytes(obj)
     elif isinstance(obj, property):
         return serialize_property(obj)
+    elif isinstance(obj, staticmethod):
+        return serialize_staticmethod(obj)
+    elif isinstance(obj, classmethod):
+        return serialize_classmethod(obj)
     else:
         return serialize_none()
+
+
+def serialize_staticmethod(obj: staticmethod):
+    func = obj.__func__
+
+    return basic.format(type="staticmethod", t_p="{}", val=serialize(func))
+
+
+def serialize_classmethod(obj: classmethod):
+    func = obj.__func__
+
+    return basic.format(type="classmethod", t_p="{}", val=serialize(func))
 
 
 def type_to_dict(obj: type) -> dict:
