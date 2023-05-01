@@ -77,6 +77,7 @@ def serialize(obj):
         type,
         types.CodeType,
         bytes,
+        property,
     ]
     if type(obj) in default_types:
         return "{" + basic_serailize(obj) + "}"
@@ -117,6 +118,8 @@ def basic_serailize(obj) -> str:
         return serialize_code(obj)
     elif isinstance(obj, bytes):
         return serialize_bytes(obj)
+    elif isinstance(obj, property):
+        return serialize_property(obj)
     else:
         return serialize_none()
 
@@ -142,6 +145,11 @@ def type_to_dict(obj: type) -> dict:
     print(obj.mro())
 
     return ret_dct
+
+
+def serialize_property(obj: property):
+    tpl = obj.fget, obj.fset, obj.fdel
+    return basic.format(type="property", t_p="{}", val=serialize(tpl))
 
 
 def serialize_none():

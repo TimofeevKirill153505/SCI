@@ -126,6 +126,7 @@ def deserialize(txt: str):
         "none",
         "code",
         "bytes",
+        "property",
     }
     kv = parse_to_kv(txt)
     # print(kv)
@@ -166,8 +167,15 @@ def basic_deserialize(kv):
         return deserialize_code(v)
     elif t == "bytes":
         return deserialize_bytes(v)
+    elif t == "property":
+        return deserialize_property(v)
     elif t == "none":
         return None
+
+
+def deserialize_property(val):
+    tpl = deserialize(val)
+    return property(*tpl)
 
 
 def deserialize_bytes(val):
