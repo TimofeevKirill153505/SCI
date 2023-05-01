@@ -3,6 +3,36 @@ import types
 import re
 
 
+def gap_func(string: str):
+    out_string: str = ""
+    indent: int = 4
+    opened_brackets: int = 0
+    i: int = 0
+
+    while i < len(string):
+        if string[i] == "{" and string[i + 1] != "}":
+            if string[i + 1] == " ":
+                out_string += string[i] + "\n" + " " * (indent - 1)
+            else:
+                out_string += string[i] + "\n" + " " * indent
+            opened_brackets += 1
+            out_string += " " * indent * (opened_brackets - 1)
+        elif string[i] == ":" and string[i + 2] == "{" and string[i + 3] != "}":
+            out_string += string[i] + "\n" + " " * indent * opened_brackets
+            i += 1
+        elif string[i] == "}" and string[i - 1] != "{":
+            opened_brackets -= 1
+            out_string += "\n" + " " * indent * opened_brackets + string[i]
+        elif string[i] == ",":
+            out_string += string[i] + "\n" + " " * indent * opened_brackets
+            i += 1
+        else:
+            out_string += string[i]
+        i += 1
+
+    return out_string
+
+
 def shield_str(txt: str) -> str:
     txt = txt.replace("\\", "\\\\")
     txt = txt.replace('"', '\\"')
@@ -51,7 +81,7 @@ def serialize(obj):
     if type(obj) in default_types:
         return "{" + basic_serailize(obj) + "}"
     elif type(obj) is not types.NoneType:
-        return serialize_object(obj)
+        return "{" + serialize_object(obj) + "}"
     else:
         return "{" + serialize_none() + "}"
 
@@ -105,7 +135,12 @@ def type_to_dict(obj: type) -> dict:
 
         ret_dct[k] = v
 
-        # print(ret_dct)
+    ret_dct["parents"] = tuple(obj.mro())[1:]
+
+    if ret_dct["parents"] == (object,):
+        ret_dct["parents"] = tuple()
+    print(obj.mro())
+
     return ret_dct
 
 

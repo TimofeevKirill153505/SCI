@@ -22,7 +22,17 @@ def funcuc():
 Cell = type(funcuc().__closure__[0])
 
 
-class Sass:
+class Bass:
+    def base():
+        print("раз раз раз это хардбас")
+
+
+class Hard:
+    def hard():
+        print("yeah boooooah")
+
+
+class Sass(Hard, Bass):
     def __init__(self, a: str, b: int):
         self.a = a
         self.b = b
@@ -54,7 +64,7 @@ class Sass:
         print("protected")
 
     def prpuk(self):
-        print(self.__puk)
+        print(self.puk)
 
     # @property
     # def __dict__(self):
@@ -108,15 +118,16 @@ def main():
 
     s = Sass("a", 2)
     s.puk = 89.9
-    txt = serlib.serialize(dict)
-    print(txt)
-    print(serlib.deserialize(txt))
-    # obj = serlib.deserialize(txt)
-    # print(obj.__dict__)
-    # print(txt)
-    # obj = serlib.deserialize(txt)
-    # print(obj.__dict__)
-    # print(type(obj))
+    txt = serlib.serialize(s)
+    file = open("D:\SCILabs\SCI\Lab3\kuk.json", "w")
+    print(serlib.gap_func(txt), file=file)
+    file.close()
+    s = serlib.deserialize(txt)
+    print(s.__dict__)
+    print(type(s))
+    print(type(s).mro())
+    print(s.method())
+    s.prpuk()
 
 
 if __name__ == "__main__":

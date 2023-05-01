@@ -199,7 +199,8 @@ def deserialize_type(val):
         # print(k)
         kv[k] = deserialize(v)
     name = kv.pop("__name__")
-    return type(name, (), kv)
+    parents = kv.pop("parents")
+    return type(name, parents, kv)
 
 
 def deserialize_module(val):
@@ -326,8 +327,9 @@ def deserialize_object(kv) -> str:
     for k, v in type_kv.items():
         type_kv[k] = deserialize(v)
 
+    parents = type_kv.pop("parents")
     name = type_kv.pop("__name__")
-    typ = type(name, (), kv)
+    typ = type(name, parents, type_kv)
 
     obj = typ.__new__(typ)
 
