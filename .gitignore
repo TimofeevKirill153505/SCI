@@ -3,3 +3,4 @@ todo
 input.txt
 __pycache__
 env
+*.json

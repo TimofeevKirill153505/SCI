@@ -66,13 +66,13 @@ class Sass(Hard, Bass):
     def prpuk(self):
         print(self.puk)
 
-    def set_x(self, value: int):
-        self._x = value * 10
-
-    def get_x(self):
+    @property
+    def x(self):
         return self._x
 
-    x = property(get_x, set_x)
+    @x.setter
+    def x(self, value: int):
+        self._x = value * 10
 
     @classmethod
     def class_method(cls):
@@ -137,21 +137,9 @@ def main():
     s.x = 76
     print(s.x)
     print()
-    txt = serlib.serialize(s)
-    file = open("D:\SCILabs\SCI\Lab3\kuk.json", "w")
-    print(serlib.gap_func(txt), file=file)
-    file.close()
-    s = serlib.deserialize(txt)
-    print(s.__dict__)
-    print(type(s))
-    print(type(s).mro())
-    print(s.method())
-    s.prpuk()
-    print(s.x)
-    s.x = 90
-    print(s.x)
-    s.static()
-    s.class_method()
+    ser = serlib.Serdeser()
+    print(ser.serialize(s))
+    print(types._Cell)
 
 
 if __name__ == "__main__":
