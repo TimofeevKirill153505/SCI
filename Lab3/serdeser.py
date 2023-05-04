@@ -4,6 +4,8 @@ import re
 import sys
 import importlib
 
+mod_ind = 0
+
 
 class Serdeser:
     def __init__(self, mode: str = "json"):
@@ -56,7 +58,7 @@ class Serdeser:
     def __add_attribute(txt: str, attr_name: str, attr_val: str) -> str:
         reg = r"<\s*\w+\s*>"
         beg, end = re.search(reg, txt).span()
-        txt = txt[: end - 1 :] + f" {attr_name}={attr_val}" + txt[end - 1 : :]
+        txt = txt[: end - 1 :] + f' {attr_name}="{attr_val}"' + txt[end - 1 : :]
 
         return txt
 
@@ -120,8 +122,6 @@ class Serdeser:
             return self.serialize_tuple(obj)
         elif isinstance(obj, types.FunctionType):
             return self.serialize_func(obj)
-        elif isinstance(obj, types.FunctionType):
-            return self.serialize_module(obj)
         elif isinstance(obj, type):
             return self.serialize_type(obj)
         elif isinstance(obj, types.CodeType):
@@ -134,6 +134,8 @@ class Serdeser:
             return self.serialize_staticmethod(obj)
         elif isinstance(obj, classmethod):
             return self.serialize_classmethod(obj)
+        elif isinstance(obj, types.ModuleType):
+            return self.serialize_module(obj)
         else:
             return self.serialize_none()
 
@@ -174,7 +176,10 @@ class Serdeser:
         return self.basic.format(type="property", val=self.serialize(tpl))
 
     def serialize_none(self):
-        return self.basic.format(type="none", val="{}")
+        if self.__mode == "json":
+            return self.basic.format(type="none", val="{}")
+        else:
+            return self.basic.format(type="none", val="")
 
     def serialize_type(self, obj: type) -> str:
         dct = self.type_to_dict(obj)
@@ -235,8 +240,8 @@ class Serdeser:
         form = "<keyval> {key} {val} </keyval> "
         for k, v in obj.items():
             val += form.format(
-                key=self.__add_attribute(self.serialize(k), "key", '"key"'),
-                val=self.__add_attribute(self.serialize(v), "key", '"value"'),
+                key=self.__add_attribute(self.serialize(k), "key", "key"),
+                val=self.__add_attribute(self.serialize(v), "key", "value"),
             )
 
         return self.basic.format(type="dict", val=val)
@@ -334,14 +339,23 @@ class Serdeser:
         return self.basic.format(type="function", val=self.dict_to_obj(val_dict))
 
     def dict_to_obj(self, d: dict) -> str:
-        rstr = "{"
-        for key, val in d.items():
-            rstr += f'"{key}": {self.serialize(val)}, '
+        if self.__mode == "json":
+            rstr = "{"
+            for key, val in d.items():
+                rstr += f'"{key}": {self.serialize(val)}, '
 
-        rstr = rstr[:-2:]
-        rstr += "}"
+            rstr = rstr[:-2:]
+            rstr += "}"
 
-        return rstr
+            return rstr
+        else:
+            rstr = ""
+            for key, val in d.items():
+                rstr += (
+                    " " + self.__add_attribute(self.serialize(val), "key", key) + " "
+                )
+
+            return rstr
 
     def serialize_object(self, obj) -> str:
         type_dict = self.type_to_dict(type(obj))
@@ -349,8 +363,6 @@ class Serdeser:
         val["type properties"] = type_dict
 
         return self.basic.format(type="object", val=self.dict_to_obj(val))
-
-    mod_ind = 0
 
     @staticmethod
     def deshield_str(txt: str) -> str:

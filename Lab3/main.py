@@ -121,12 +121,12 @@ def to_dict(thing) -> dict:
 
 
 def main():
-    t = 0
+    t = 3.1415 / 2
 
-    @dec
+    # @dec
     def f(a: int):
         print(8)
-        h = 7 + 7.4
+        h = t + 7.4
         print(h)
         print(i)
         print(math.sin(i * a + t))
@@ -135,9 +135,11 @@ def main():
     i = 2
     ser = serdeser.Serdeser(mode="xml")
     d = {1: "str", "set": {1, 2, 3}, "tuple": (1, 2.78, 3), "bool": False}
-    txt = ser.serialize(d)
+    txt = ser.serialize(f)
     print(txt)
-    print(ser.deserialize(txt))
+    f_s = ser.deserialize(txt)
+    print(f_s)
+    f_s(0)
 
 
 if __name__ == "__main__":
