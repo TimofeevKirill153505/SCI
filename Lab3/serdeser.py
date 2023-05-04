@@ -6,6 +6,13 @@ import importlib
 
 
 class Serdeser:
+    def __init__(self, mode: str = "json"):
+        self.__mode = mode
+        if self.__mode == "json":
+            self.basic = '"type": "{type}", "value": {val}'
+        else:
+            self.basic = "<{type}> {val} </{type}>"
+
     def gap_func(self, string: str):
         out_string: str = ""
         indent: int = 4
@@ -45,19 +52,20 @@ class Serdeser:
 
         return txt
 
+    @staticmethod
+    def __add_attribute(txt: str, attr_name: str, attr_val: str) -> str:
+        reg = r"<\s*\w+\s*>"
+        beg, end = re.search(reg, txt).span()
+        txt = txt[: end - 1 :] + f" {attr_name}={attr_val}" + txt[end - 1 : :]
+
+        return txt
+
     def change_indent(src: str) -> str:
         while src[:3] != "def":
             src = src.replace("    def", "def", 1)
             src = src.replace("\n    ", "\n")
 
         return src
-
-    def f():
-        pass
-
-    func = type(f)
-    module = type(re)
-    none = type(None)
 
     def serialize(self, obj):
         default_types = [
@@ -80,14 +88,17 @@ class Serdeser:
             classmethod,
             staticmethod,
         ]
+        res = ""
         if type(obj) in default_types:
-            return "{" + self.basic_serailize(obj) + "}"
+            res = self.basic_serailize(obj)
         elif type(obj) is not types.NoneType:
-            return "{" + self.serialize_object(obj) + "}"
+            res = self.serialize_object(obj)
         else:
-            return "{" + self.serialize_none() + "}"
+            res = self.serialize_none()
 
-    basic: str = ' "type": "{type}", "type properties": {t_p}, "value": {val} '
+        if self.__mode == "json":
+            return "{" + res + "}"
+        return res
 
     def basic_serailize(self, obj) -> str:
         # int, float, string, dict, tuple, list, set, type, bool, function
@@ -129,14 +140,12 @@ class Serdeser:
     def serialize_staticmethod(self, obj: staticmethod):
         func = obj.__func__
 
-        return self.basic.format(
-            type="staticmethod", t_p="{}", val=self.serialize(func)
-        )
+        return self.basic.format(type="staticmethod", val=self.serialize(func))
 
     def serialize_classmethod(self, obj: classmethod):
         func = obj.__func__
 
-        return self.basic.format(type="classmethod", t_p="{}", val=self.serialize(func))
+        return self.basic.format(type="classmethod", val=self.serialize(func))
 
     @staticmethod
     def type_to_dict(obj: type) -> dict:
@@ -157,22 +166,20 @@ class Serdeser:
 
         if ret_dct["parents"] == (object,):
             ret_dct["parents"] = tuple()
-        print(obj.mro())
 
         return ret_dct
 
     def serialize_property(self, obj: property):
         tpl = obj.fget, obj.fset, obj.fdel
-        return self.basic.format(type="property", t_p="{}", val=self.serialize(tpl))
+        return self.basic.format(type="property", val=self.serialize(tpl))
 
     def serialize_none(self):
-        return self.basic.format(type="none", t_p="{}", val="{}")
+        return self.basic.format(type="none", val="{}")
 
     def serialize_type(self, obj: type) -> str:
-        # print(obj.__dict__)
         dct = self.type_to_dict(obj)
 
-        return self.basic.format(type="type", t_p="{}", val=self.dict_to_obj(dct))
+        return self.basic.format(type="type", val=self.dict_to_obj(dct))
 
     def serialize_module(self, obj):
         val_dict = {}
@@ -185,45 +192,58 @@ class Serdeser:
 
         val_dict["name"] = re.search(r"module \'([^\']*)\'", line).group(1)
 
-        return self.basic.format(
-            type="module", t_p="{}", val=self.dict_to_obj(val_dict)
-        )
+        return self.basic.format(type="module", val=self.dict_to_obj(val_dict))
 
     def serialize_tuple(self, obj):
-        val = "["
+        val = ""
         for it in obj:
-            val += self.serialize(it) + ", "
-
-        val = val[:-2] + "]"
-        if val == "]":
-            val = "[]"
-
-        return self.basic.format(type="tuple", val=val, t_p="{}")
+            val += self.serialize(it)
+            if self.__mode == "json":
+                val += ", "
+            else:
+                val += " "
+        if self.__mode == "json":
+            val = "[" + val + "]"
+        return self.basic.format(type="tuple", val=val)
 
     def serialize_set(self, obj):
-        val = "["
+        val = ""
         for it in obj:
-            val += self.serialize(it) + ", "
-
-        val = val[:-2] + "]"
-
-        return self.basic.format(type="set", val=val, t_p="{}")
+            val += self.serialize(it)
+            if self.__mode == "json":
+                val += ", "
+            else:
+                val += " "
+        if self.__mode == "json":
+            val = "[" + val + "]"
+        return self.basic.format(type="set", val=val)
 
     def serialize_bool(self, obj) -> str:
-        return self.basic.format(type="bool", val=str(obj).lower(), t_p="{}")
+        return self.basic.format(type="bool", val=str(obj).lower())
 
     def serialize_int(self, obj) -> str:
-        return self.basic.format(type="int", val=str(obj), t_p="{}")
+        return self.basic.format(type="int", val=str(obj))
 
     def serialize_float(self, obj) -> str:
-        return self.basic.format(type="float", val=str(obj), t_p="{}")
+        return self.basic.format(type="float", val=str(obj))
 
     def serialize_string(self, obj) -> str:
-        return self.basic.format(
-            type="str", val='"' + self.__shield_str(obj) + '"', t_p="{}"
-        )
+        return self.basic.format(type="str", val='"' + self.__shield_str(obj) + '"')
+
+    def serialize_dict_xml(self, obj: dict) -> str:
+        val = ""
+        form = "<keyval> {key} {val} </keyval> "
+        for k, v in obj.items():
+            val += form.format(
+                key=self.__add_attribute(self.serialize(k), "key", '"key"'),
+                val=self.__add_attribute(self.serialize(v), "key", '"value"'),
+            )
+
+        return self.basic.format(type="dict", val=val)
 
     def serialize_dict(self, obj: dict) -> str:
+        if self.__mode != "json":
+            return self.serialize_dict_xml(obj)
         val = "["
         for it in obj.items():
             val += (
@@ -237,21 +257,26 @@ class Serdeser:
         val = val[:-2] + "]"
         if val == "]":
             val = "[]"
-        return self.basic.format(type="dict", val=val, t_p="{}")
+        return self.basic.format(type="dict", val=val)
 
     def serialize_list(self, obj):
-        val = "["
+        val = ""
         for it in obj:
-            val += self.serialize(it) + ", "
-
-        val = val[:-2] + "]"
-        if val == "]":
-            val = "[]"
-        return self.basic.format(type="list", val=val, t_p="{}")
+            val += self.serialize(it)
+            if self.__mode == "json":
+                val += ", "
+            else:
+                val += " "
+        if self.__mode == "json":
+            val = "[" + val + "]"
+        return self.basic.format(type="list", val=val)
 
     def serialize_bytes(self, obj: bytes):
         lst = list(obj)
-        return self.basic.format(type="bytes", t_p="{}", val=str(lst))
+        val = str(lst)
+        if self.__mode != "json":
+            val = val[1:-1]
+        return self.basic.format(type="bytes", val=val)
 
     def serialize_code(self, obj: types.CodeType):
         tpl = (
@@ -292,9 +317,9 @@ class Serdeser:
         #     "__cellvars": obj.co_cellvars,
         # }
         value = self.serialize(tpl)
-        return self.basic.format(val=value, type="code", t_p="{}")
+        return self.basic.format(val=value, type="code")
 
-    def serialize_func(self, obj: func):
+    def serialize_func(self, obj: types.FunctionType):
         info = inspect.getclosurevars(obj)
         val_dict = {}
         val_dict["globals"] = dict(info.globals)
@@ -306,15 +331,11 @@ class Serdeser:
 
         val_dict["code"] = obj.__code__
 
-        return self.basic.format(
-            type="function", val=self.dict_to_obj(val_dict), t_p="{}"
-        )
+        return self.basic.format(type="function", val=self.dict_to_obj(val_dict))
 
     def dict_to_obj(self, d: dict) -> str:
         rstr = "{"
-        # print(d)
         for key, val in d.items():
-            # print(key)
             rstr += f'"{key}": {self.serialize(val)}, '
 
         rstr = rstr[:-2:]
@@ -325,10 +346,9 @@ class Serdeser:
     def serialize_object(self, obj) -> str:
         type_dict = self.type_to_dict(type(obj))
         val = obj.__dict__
+        val["type properties"] = type_dict
 
-        return self.basic.format(
-            type="object", t_p=self.dict_to_obj(type_dict), val=self.dict_to_obj(val)
-        )
+        return self.basic.format(type="object", val=self.dict_to_obj(val))
 
     mod_ind = 0
 
@@ -340,7 +360,6 @@ class Serdeser:
         txt = txt.replace("\\'", "'")
         txt = txt.replace("\\\\", "\\")
 
-        # print(txt)
         return txt
 
     # возвращает кортеж для среза скобок
@@ -385,7 +404,6 @@ class Serdeser:
 
     @classmethod
     def find_value(cls, txt: str) -> tuple[int, int]:
-        # print(txt)
         first_symb = re.search(r"[^\s:]", txt)
         val: str = ""
         if txt[first_symb.start()] == '"':
@@ -401,20 +419,92 @@ class Serdeser:
         else:
             return re.search(r"[^\s:}]+", txt).span()
 
-    @classmethod
-    def parse_to_kv(cls, txt: str) -> dict:
+    def parse_to_kv(self, txt: str) -> dict:
         d = {}
-        while True:
-            key_match = re.search(r'"[^"]*"', txt)
-            if not key_match:
-                break
-            key = txt[key_match.start() + 1 : key_match.end() - 1]
-            txt = txt[key_match.end() : :]
-            val_tpl = cls.find_value(txt)
-            d[key] = txt[val_tpl[0] : val_tpl[1]]
-            txt = txt[val_tpl[1] : :]
+        if self.__mode == "xml":
+            while True:
+                beg, end = self.parse_xml_tag(txt)
+                if beg == -1:
+                    return d
+                obj = txt[beg:end]
+                key = re.search(r'key\s*=\s*"([^"]*)"', obj).group(1)
+                d[key] = obj
+                txt = txt[end::]
+        else:
+            while True:
+                key_match = re.search(r'"[^"]*"', txt)
+                if not key_match:
+                    break
+                key = txt[key_match.start() + 1 : key_match.end() - 1]
+                txt = txt[key_match.end() : :]
+                val_tpl = self.find_value(txt)
+                d[key] = txt[val_tpl[0] : val_tpl[1]]
+                txt = txt[val_tpl[1] : :]
 
         return d
+
+    def parse_xml_to_tv(self, txt):
+        reg = r"<\s*(\w+)[^>]*>"
+        mtch = re.search(reg, txt)
+        tagname = mtch.group(1)
+        beg1, val_beg = mtch.span()
+
+        cltag = r"<\s*/\s*" + tagname + r"[^>]*>"
+        optag = r"<\s*" + tagname + r"[^>]*>"
+        thing = r"(?:" + optag + "|" + cltag + ")"
+
+        count = 0
+        val_end = val_beg
+
+        mtchs = re.finditer(thing, txt)
+        for mtch in mtchs:
+            if re.match(optag, mtch.group(0)):
+                count += 1
+            else:
+                count -= 1
+            if count == 0:
+                val_end = mtch.span()[0]
+                break
+
+        return tagname, txt[val_beg:val_end]
+
+    def parse_xml_tag(self, txt) -> tuple[int, int]:
+        reg = r"<\s*(\w+)[^>]*>"
+        mtch = re.search(reg, txt)
+        if not mtch:
+            return -1, -1
+        tagname = mtch.group(1)
+        beg, end = mtch.span()
+
+        cltag = r"<\s*/\s*" + tagname + r"[^>]*>"
+        optag = r"<\s*" + tagname + r"[^>]*>"
+        thing = r"(?:" + optag + "|" + cltag + ")"
+
+        count = 0
+        mtchs = re.finditer(thing, txt)
+        for mtch in mtchs:
+            if re.match(optag, mtch.group(0)):
+                count += 1
+            else:
+                count -= 1
+            if count == 0:
+                end = mtch.span()[1]
+                break
+
+        return (beg, end)
+
+    def get_type_value(self, txt: str) -> str:
+        if self.__mode == "json":
+            kv = self.parse_to_kv(txt)
+            return kv["type"][1:-1], kv["value"]
+        else:
+            return self.parse_xml_to_tv(txt)
+
+    def parse_object(self, txt) -> str:
+        if self.__mode == "json":
+            return self.parse_brackets(txt, True)
+        else:
+            return self.parse_xml_tag(txt)
 
     def deserialize(self, txt: str):
         basic_types = {
@@ -438,9 +528,8 @@ class Serdeser:
             "classmethod",
             "staticmethod",
         }
-        kv = self.parse_to_kv(txt)
-        # print(kv)
-        kv["type"] = kv["type"][1:-1]
+        tpl = self.get_type_value(txt)
+        kv = {"type": tpl[0], "value": tpl[1]}
         if kv["type"] in basic_types:
             return self.basic_deserialize(kv)
         else:
@@ -521,7 +610,6 @@ class Serdeser:
                     return bv
 
         for k, v in kv.items():
-            # print(k)
             kv[k] = self.deserialize(v)
         name = kv.pop("__name__")
         parents = kv.pop("parents")
@@ -549,12 +637,17 @@ class Serdeser:
         return types.FunctionType(**dct)
 
     def deserialize_string(self, val) -> str:
-        return self.deshield_str(val[1:-1])
+        if self.__mode == "json":
+            return self.deshield_str(val[1:-1])
+        else:
+            return self.deshield_str(val[2:-2])
 
     def deserialize_int(self, val) -> int:
         return int(val)
 
     def deserialize_bool(self, val) -> bool:
+        if self.__mode == "xml":
+            val = val[1:-1]
         return val == "true"
 
     def deserialize_float(self, val) -> float:
@@ -564,7 +657,7 @@ class Serdeser:
         lst = []
 
         while True:
-            tpl = self.parse_brackets(val, True)
+            tpl = self.parse_object(val)
             if tpl[0] == -1:
                 break
             lst.append(self.deserialize(val[tpl[0] : tpl[1]]))
@@ -576,7 +669,7 @@ class Serdeser:
         lst = []
 
         while True:
-            tpl = self.parse_brackets(val, True)
+            tpl = self.parse_object(val)
             if tpl[0] == -1:
                 break
             lst.append(self.deserialize(val[tpl[0] : tpl[1]]))
@@ -588,7 +681,7 @@ class Serdeser:
         lst = []
 
         while True:
-            tpl = self.parse_brackets(val, True)
+            tpl = self.parse_object(val)
             if tpl[0] == -1:
                 break
             lst.append(self.deserialize(val[tpl[0] : tpl[1]]))
@@ -599,10 +692,13 @@ class Serdeser:
     def deserialize_dict(self, val) -> dict:
         d = {}
         while True:
-            tpl = self.parse_brackets(val, True)
+            tpl = self.parse_object(val)
             if tpl[0] == -1:
                 break
-            kv = self.parse_to_kv(val[tpl[0] : tpl[1]])
+            txt = val[tpl[0] : tpl[1]]
+            txt = self.parse_xml_to_tv(txt)[1]
+
+            kv = self.parse_to_kv(txt)
             key = self.deserialize(kv["key"])
             value = self.deserialize(kv["value"])
             d[key] = value
@@ -611,10 +707,9 @@ class Serdeser:
         return d
 
     def deserialize_object(self, kv) -> str:
-        t_p = kv["type properties"]
-        type_kv = self.parse_to_kv(t_p)
-        for k, v in type_kv.items():
-            type_kv[k] = self.deserialize(v)
+        val_kv = self.parse_to_kv(kv["value"])
+        type_kv = val_kv.pop("type properties")
+        type_kv = self.deserialize(type_kv)
 
         parents = type_kv.pop("parents")
         name = type_kv.pop("__name__")
@@ -622,7 +717,6 @@ class Serdeser:
 
         obj = typ.__new__(typ)
 
-        val_kv = self.parse_to_kv(kv["value"])
         for k, v in val_kv.items():
             val_kv[k] = self.deserialize(v)
 

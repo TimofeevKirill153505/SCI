@@ -1,4 +1,4 @@
-import serlib
+import serdeser
 import re
 import inspect
 import math
@@ -132,14 +132,12 @@ def main():
         print(math.sin(i * a + t))
         return "kikiki"
 
-    s = Sass("a", 2)
-    s.puk = 89.9
-    s.x = 76
-    print(s.x)
-    print()
-    ser = serlib.Serdeser()
-    print(ser.serialize(s))
-    print(types._Cell)
+    i = 2
+    ser = serdeser.Serdeser(mode="xml")
+    d = {1: "str", "set": {1, 2, 3}, "tuple": (1, 2.78, 3), "bool": False}
+    txt = ser.serialize(d)
+    print(txt)
+    print(ser.deserialize(txt))
 
 
 if __name__ == "__main__":
