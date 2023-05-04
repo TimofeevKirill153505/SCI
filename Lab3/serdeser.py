@@ -15,6 +15,20 @@ class Serdeser:
         else:
             self.basic = "<{type}> {val} </{type}>"
 
+    def dumps(self, obj) -> str:
+        return self.serialize(obj)
+
+    def dump(self, obj, filepath: str):
+        with open(filepath, "w") as file:
+            print(self.serialize(obj), file=file)
+
+    def load(self, filepath: str):
+        with open(filepath, "r") as file:
+            return self.deserialize(file.read())
+
+    def loads(self, txt: str):
+        return self.deserialize(txt)
+
     def gap_func(self, string: str):
         out_string: str = ""
         indent: int = 4
@@ -207,7 +221,9 @@ class Serdeser:
                 val += ", "
             else:
                 val += " "
+
         if self.__mode == "json":
+            val = val[:-2]
             val = "[" + val + "]"
         return self.basic.format(type="tuple", val=val)
 
@@ -220,6 +236,7 @@ class Serdeser:
             else:
                 val += " "
         if self.__mode == "json":
+            val = val[:-2]
             val = "[" + val + "]"
         return self.basic.format(type="set", val=val)
 
@@ -273,6 +290,7 @@ class Serdeser:
             else:
                 val += " "
         if self.__mode == "json":
+            val = val[:-2:]
             val = "[" + val + "]"
         return self.basic.format(type="list", val=val)
 
@@ -703,12 +721,14 @@ class Serdeser:
 
     def deserialize_dict(self, val) -> dict:
         d = {}
+
         while True:
             tpl = self.parse_object(val)
             if tpl[0] == -1:
                 break
             txt = val[tpl[0] : tpl[1]]
-            txt = self.parse_xml_to_tv(txt)[1]
+            if self.__mode == "xml":
+                txt = self.parse_xml_to_tv(txt)[1]
 
             kv = self.parse_to_kv(txt)
             key = self.deserialize(kv["key"])

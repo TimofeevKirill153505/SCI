@@ -8,6 +8,7 @@ import importlib
 import types
 
 path = "/home/user/Documents/SCI/Lab3/"
+filepath = "D:\SCILabs\SCI\Lab3\kuk.json"
 
 
 def funcuc():
@@ -133,13 +134,17 @@ def main():
         return "kikiki"
 
     i = 2
-    ser = serdeser.Serdeser(mode="xml")
+    ser = serdeser.Serdeser(mode="json")
     d = {1: "str", "set": {1, 2, 3}, "tuple": (1, 2.78, 3), "bool": False}
-    txt = ser.serialize(f)
+    s = Sass("string", 89)
+    s.puk = 78.9
+    txt = ser.dump(s, filepath)
     print(txt)
-    f_s = ser.deserialize(txt)
-    print(f_s)
-    f_s(0)
+    s_s = ser.load(filepath)
+    print(s_s)
+    print(s_s.method())
+    s_s.ppp(9)
+    s_s.prpuk()
 
 
 if __name__ == "__main__":
