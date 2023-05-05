@@ -134,17 +134,19 @@ def main():
         return "kikiki"
 
     i = 2
-    ser = serdeser.Serdeser(mode="json")
-    d = {1: "str", "set": {1, 2, 3}, "tuple": (1, 2.78, 3), "bool": False}
-    s = Sass("string", 89)
-    s.puk = 78.9
-    txt = ser.dump(s, filepath)
-    print(txt)
-    s_s = ser.load(filepath)
-    print(s_s)
-    print(s_s.method())
-    s_s.ppp(9)
-    s_s.prpuk()
+    # ser = serdeser.Serdeser(mode="json")
+    # d = {1: "str", "set": {1, 2, 3}, "tuple": (1, 2.78, 3), "bool": False}
+    # s = Sass("string", 89)
+    # s.puk = 78.9
+    # txt = ser.dump(s, filepath)
+    # print(txt)
+    # s_s = ser.load(filepath)
+    # print(s_s)
+    # print(s_s.method())
+    # s_s.ppp(9)
+    # s_s.prpuk()
+    m: types.ModuleType = __builtins__
+    print(m.__dict__)
 
 
 if __name__ == "__main__":

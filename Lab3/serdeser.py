@@ -3,6 +3,7 @@ import types
 import re
 import sys
 import importlib
+import argparse as argp
 
 mod_ind = 0
 
@@ -167,7 +168,7 @@ class Serdeser:
     def type_to_dict(obj: type) -> dict:
         dct = obj.__dict__
 
-        if obj in __builtins__.values():
+        if obj in __builtins__.__dict__.values():
             ret_dct = {"builtin type": obj.__name__}
             return ret_dct
 
@@ -635,7 +636,7 @@ class Serdeser:
         kv = self.parse_to_kv(val)
         if kv.get("builtin type") is not None:
             v = self.deserialize(kv["builtin type"])
-            for bk, bv in __builtins__.items():
+            for bk, bv in __builtins__.__dict__.items():
                 if bk == v:
                     return bv
 
@@ -755,3 +756,30 @@ class Serdeser:
         obj.__dict__ = val_kv
 
         return obj
+
+
+def main():
+    if not sys.argv[1::]:
+        print("Run tests")
+        return
+    parser = argp.ArgumentParser(description="from one file to another")
+    parser.add_argument("inputfile", type=str, help="Absolute path of input file")
+    parser.add_argument(
+        "inputformat", type=str, help="format, from which will be constructed object"
+    )
+    parser.add_argument("outputfile", type=str, help="Absolute path to the output file")
+    parser.add_argument(
+        "outputformat",
+        type=str,
+        help="format, to which will be serialized object from input file",
+    )
+    args = parser.parse_args()
+
+    serin = Serdeser(args.inputformat)
+    obj = serin.load(args.inputfile)
+    serout = Serdeser(args.outputformat)
+    serout.dump(obj, args.outputfile)
+
+
+if __name__ == "__main__":
+    main()
