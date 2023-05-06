@@ -104,6 +104,8 @@ class Serdeser:
             property,
             classmethod,
             staticmethod,
+            types.MethodType,
+            types.BuiltinFunctionType,
         ]
         res = ""
         if type(obj) in default_types:
@@ -119,40 +121,53 @@ class Serdeser:
 
     def basic_serailize(self, obj) -> str:
         # int, float, string, dict, tuple, list, set, type, bool, function
-        if isinstance(obj, bool):
+        if type(obj) == bool:
             return self.serialize_bool(obj)
-        elif isinstance(obj, int):
+        elif type(obj) == int:
             return self.serialize_int(obj)
-        elif isinstance(obj, float):
+        elif type(obj) == float:
             return self.serialize_float(obj)
-        elif isinstance(obj, str):
+        elif type(obj) == str:
             return self.serialize_string(obj)
-        elif isinstance(obj, dict):
+        elif type(obj) == dict:
             return self.serialize_dict(obj)
-        elif isinstance(obj, list):
+        elif type(obj) == list:
             return self.serialize_list(obj)
-        elif isinstance(obj, set):
+        elif type(obj) == set:
             return self.serialize_set(obj)
-        elif isinstance(obj, tuple):
+        elif type(obj) == tuple:
             return self.serialize_tuple(obj)
-        elif isinstance(obj, types.FunctionType):
+        elif type(obj) == types.FunctionType:
             return self.serialize_func(obj)
-        elif isinstance(obj, type):
+        elif type(obj) == type:
             return self.serialize_type(obj)
-        elif isinstance(obj, types.CodeType):
+        elif type(obj) == types.CodeType:
             return self.serialize_code(obj)
-        elif isinstance(obj, bytes):
+        elif type(obj) == bytes:
             return self.serialize_bytes(obj)
-        elif isinstance(obj, property):
+        elif type(obj) == property:
             return self.serialize_property(obj)
-        elif isinstance(obj, staticmethod):
+        elif type(obj) == staticmethod:
             return self.serialize_staticmethod(obj)
-        elif isinstance(obj, classmethod):
+        elif type(obj) == classmethod:
             return self.serialize_classmethod(obj)
-        elif isinstance(obj, types.ModuleType):
+        elif type(obj) == types.ModuleType:
             return self.serialize_module(obj)
+        elif type(obj) == types.MethodType:
+            return self.serialize_method(obj)
+        elif type(obj) == types.BuiltinFunctionType:
+            return self.serialize_builtin_function(obj)
         else:
             return self.serialize_none()
+
+    def serialize_builtin_function(self, obj: types.BuiltinFunctionType):
+        return self.basic.format(
+            type="builtinfunction", val=self.serialize(obj.__name__)
+        )
+
+    def serialize_method(self, obj: types.MethodType):
+        tpl = obj.__func__, obj.__self__
+        return self.basic.format(type="method", val=self.serialize(tpl))
 
     def serialize_staticmethod(self, obj: staticmethod):
         func = obj.__func__
@@ -168,7 +183,11 @@ class Serdeser:
     def type_to_dict(obj: type) -> dict:
         dct = obj.__dict__
 
-        if obj in __builtins__.__dict__.values():
+        thing = __builtins__
+        if not isinstance(thing, dict):
+            thing = thing.__dict__
+
+        if obj in thing.values():
             ret_dct = {"builtin type": obj.__name__}
             return ret_dct
 
@@ -378,6 +397,7 @@ class Serdeser:
 
     def serialize_object(self, obj) -> str:
         type_dict = self.type_to_dict(type(obj))
+        print(obj)
         val = obj.__dict__
         val["type properties"] = type_dict
 
@@ -558,6 +578,8 @@ class Serdeser:
             "property",
             "classmethod",
             "staticmethod",
+            "method",
+            "builtinfunction",
         }
         tpl = self.get_type_value(txt)
         kv = {"type": tpl[0], "value": tpl[1]}
@@ -602,8 +624,28 @@ class Serdeser:
             return self.deserialize_staticmethod(v)
         elif t == "classmethod":
             return self.deserialize_classmethod(v)
+        elif t == "method":
+            return self.deserialize_method(v)
+        elif t == "builtinfunction":
+            return self.deserialize_builtin_function(v)
         elif t == "none":
             return None
+
+    def deserialize_builtin_function(self, val):
+        st = self.deserialize(val)
+
+        thing = __builtins__
+        if not isinstance(thing, dict):
+            thing = thing.__dict__
+
+        for k, v in thing.items():
+            if k == st:
+                return v
+
+    def deserialize_method(self, val):
+        tpl = self.deserialize(val)
+
+        return types.MethodType(*tpl)
 
     def deserialize_classmethod(self, val):
         f = self.deserialize(val)
@@ -636,7 +678,12 @@ class Serdeser:
         kv = self.parse_to_kv(val)
         if kv.get("builtin type") is not None:
             v = self.deserialize(kv["builtin type"])
-            for bk, bv in __builtins__.__dict__.items():
+
+            thing = __builtins__
+            if not isinstance(thing, dict):
+                thing = thing.__dict__
+
+            for bk, bv in thing.items():
                 if bk == v:
                     return bv
 

@@ -6,6 +6,7 @@ import sys
 import os.path
 import importlib
 import types
+import itertools
 
 path = "/home/user/Documents/SCI/Lab3/"
 filepath = "D:\SCILabs\SCI\Lab3\kuk.json"
@@ -96,6 +97,30 @@ def dec(func):
     return d
 
 
+class MyClass:
+    class_variable = "class_variable"
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def method(self, c):
+        return self.a + self.b + c
+
+    @staticmethod
+    def static_method(d):
+        return d
+
+    @classmethod
+    def class_method(cls, e):
+        return cls.class_variable + e
+
+
+class MySubclass(MyClass):
+    def method(self, c):
+        return 2 * self.a + 2 * self.b + c
+
+
 i = 5
 
 
@@ -133,20 +158,20 @@ def main():
         print(math.sin(i * a + t))
         return "kikiki"
 
-    i = 2
-    # ser = serdeser.Serdeser(mode="json")
-    # d = {1: "str", "set": {1, 2, 3}, "tuple": (1, 2.78, 3), "bool": False}
-    # s = Sass("string", 89)
-    # s.puk = 78.9
-    # txt = ser.dump(s, filepath)
-    # print(txt)
-    # s_s = ser.load(filepath)
-    # print(s_s)
-    # print(s_s.method())
-    # s_s.ppp(9)
-    # s_s.prpuk()
-    m: types.ModuleType = __builtins__
-    print(m.__dict__)
+    s = serdeser.Serdeser("json")
+
+    def my_gen():
+        for i in range(3):
+            yield i
+
+    thing = __builtins__
+    if not isinstance(thing, dict):
+        thing = thing.__dict__
+
+    s.dump(MyClass.class_method, filepath)
+    func = s.load(filepath)
+    print(func("tututu"))
+    print(func)
 
 
 if __name__ == "__main__":
