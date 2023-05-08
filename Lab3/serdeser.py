@@ -3,7 +3,6 @@ import types
 import re
 import sys
 import importlib
-import argparse as argp
 
 mod_ind = 0
 
@@ -397,7 +396,7 @@ class Serdeser:
 
     def serialize_object(self, obj) -> str:
         type_dict = self.type_to_dict(type(obj))
-        print(obj)
+        # print(obj)
         val = obj.__dict__
         val["type properties"] = type_dict
 
@@ -803,30 +802,3 @@ class Serdeser:
         obj.__dict__ = val_kv
 
         return obj
-
-
-def main():
-    if not sys.argv[1::]:
-        print("Run tests")
-        return
-    parser = argp.ArgumentParser(description="from one file to another")
-    parser.add_argument("inputfile", type=str, help="Absolute path of input file")
-    parser.add_argument(
-        "inputformat", type=str, help="format, from which will be constructed object"
-    )
-    parser.add_argument("outputfile", type=str, help="Absolute path to the output file")
-    parser.add_argument(
-        "outputformat",
-        type=str,
-        help="format, to which will be serialized object from input file",
-    )
-    args = parser.parse_args()
-
-    serin = Serdeser(args.inputformat)
-    obj = serin.load(args.inputfile)
-    serout = Serdeser(args.outputformat)
-    serout.dump(obj, args.outputfile)
-
-
-if __name__ == "__main__":
-    main()
