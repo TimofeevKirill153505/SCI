@@ -197,7 +197,7 @@ class Serdeser:
 
             ret_dct[k] = v
 
-        ret_dct["parents"] = tuple(obj.mro())[1:]
+        ret_dct["parents"] = tuple(obj.__bases__)
 
         if ret_dct["parents"] == (object,):
             ret_dct["parents"] = tuple()
@@ -364,9 +364,23 @@ class Serdeser:
     def serialize_func(self, obj: types.FunctionType):
         info = inspect.getclosurevars(obj)
         val_dict = {}
-        val_dict["globals"] = dict(info.globals)
+
+        gl_dict = dict(info.globals)
+        for k,v in gl_dict.items():
+            if k == obj.__name__:
+                gl_dict[k] = obj.__name__
+                break
+            
+        val_dict["globals"] = gl_dict
         val_dict["argdefs"] = inspect.getfullargspec(obj).defaults
-        val_dict["closure"] = tuple([v for k, v in info.nonlocals.items()])
+
+        cl_arr = []
+        for k, v in info.nonlocals.items():
+            if v.__name__ == obj.__name__:
+                v = v.__name__
+            cl_arr.append(v)
+
+        val_dict["closure"] = tuple(cl_arr)
         val_dict["name"] = [
             val for key, val in inspect.getmembers(obj) if key == "__name__"
         ][0]
@@ -706,12 +720,20 @@ class Serdeser:
         dct = {}
         for k, v in kv.items():
             dct[k] = self.deserialize(v)
+
         arr = []
-        for it in dct["closure"]:
+        for it in dct['closure']:
             arr.append(types.CellType(it))
 
         dct["closure"] = tuple(arr)
-        return types.FunctionType(**dct)
+
+        func = types.FunctionType(**dct)
+
+
+        if func.__globals__.get(func.__name__):
+            func.__globals__.update({func.__name__:func})
+
+        return func
 
     def deserialize_string(self, val) -> str:
         if self.__mode == "json":

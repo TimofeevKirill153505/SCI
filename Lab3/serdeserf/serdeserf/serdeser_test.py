@@ -1,10 +1,19 @@
 import unittest
-import serdeser
+import os
+import sys
+import importlib
+
+from .main_class import Serdeser
+
+SerDeser = Serdeser()
+SerDeserXML = Serdeser("xml")
 
 
-SerDeser = serdeser.Serdeser()
-SerDeserXML = serdeser.Serdeser("xml")
-
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
 
 class MyClass:
     class_variable = "class_variable"
@@ -210,17 +219,12 @@ class BasicSerDeSer(unittest.TestCase):
     #         list(SerDeserXML.deserialize(SerDeserXML.serialize(gen_obj))), [0, 1, 2]
     #     )
 
-    # def test_recursion(self):
-    #     def factorial(n):
-    #         if n == 0:
-    #             return 1
-    #         else:
-    #             return n * factorial(n - 1)
+    def test_recursion(self):        
 
-    #     self.assertEqual(SerDeser.deserialize(SerDeser.serialize(factorial))(5), 120)
-    #     self.assertEqual(
-    #         SerDeserXML.deserialize(SerDeserXML.serialize(factorial))(5), 120
-    #     )
+        self.assertEqual(SerDeser.deserialize(SerDeser.serialize(factorial))(5), 120)
+        self.assertEqual(
+            SerDeserXML.deserialize(SerDeserXML.serialize(factorial))(5), 120
+        )
 
     def test_decorator(self):
         def my_decorator(func):
@@ -239,9 +243,9 @@ class BasicSerDeSer(unittest.TestCase):
         )
 
 
-def main():
+def do_test():
     unittest.main("serdeser_test")
 
 
 if __name__ == "__main__":
-    main()
+    do_test()
