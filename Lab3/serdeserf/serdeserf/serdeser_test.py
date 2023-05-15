@@ -3,7 +3,7 @@ import os
 import sys
 import importlib
 
-from .main_class import Serdeser
+from main_class import Serdeser
 
 SerDeser = Serdeser()
 SerDeserXML = Serdeser("xml")

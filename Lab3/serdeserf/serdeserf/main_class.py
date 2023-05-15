@@ -6,7 +6,7 @@ import importlib
 
 mod_ind = 0
 
-
+types.CodeType()
 class Serdeser:
     def __init__(self, mode: str = "json"):
         self.__mode = mode
@@ -337,7 +337,7 @@ class Serdeser:
             obj.co_firstlineno,
             obj.co_linetable,
             obj.co_freevars,
-            obj.co_cellvars,
+            obj.co_cellvars
         )
         # types.CodeType()
         # tpl = {

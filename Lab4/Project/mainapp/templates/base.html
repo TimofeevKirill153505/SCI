@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>{%block title%} {%endblock title%}</title>
+    <meta charset="utf-8" />
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <a href="main">Главная</a>
+            </td>
+            <td>
+                <a href="catalog">Каталог</a>
+            </td>
+
+            <td>
+                <a href="login">Вход</a>
+            </td>
+        </tr>
+    </table>
+    <hr />
+
+    {%block content%}{%endblock content%}
+
+</body>
+
+</html>

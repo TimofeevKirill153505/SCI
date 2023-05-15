@@ -5,14 +5,14 @@ import importlib
 import os
 
 
-from .serdeser_test import do_test
-from .main_class import Serdeser
+from serdeser_test import do_test
+from main_class import Serdeser
 
 
 def main():
     if not sys.argv[1::]:
         print("Run tests")
-        serdeser_test.main()
+        do_test()
         return
 
     parser = argp.ArgumentParser(description="from one file to another")
