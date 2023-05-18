@@ -1,5 +1,5 @@
 """
-URL configuration for Project project.
+URL configuration for Lab4 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -17,13 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.contrib.auth import views as auth_views
+
 from mainapp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.redirect_index),
     path("main", views.index),
-    path("login", views.login),
+    path("login", auth_views.LoginView.as_view(template_name="login.html")),
     path("catalog", views.catalog),
     path("order", views.order),
+    path('registration', views.registration),
+    path('user', views.personal),
+    path("logout", views.logout_out),
+
 ]
