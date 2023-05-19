@@ -112,15 +112,15 @@ class ClientModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     phone = models.CharField(max_length=15)
     adress = models.CharField(max_length=100)
-    discounts = models.ManyToManyField(DiscountModel)
-    penalties = models.ManyToManyField(PenaltyModel)
+    discounts = models.ManyToManyField(DiscountModel, null=True, default=None)
+    # penalties = models.ManyToManyField(PenaltyModel, null=True, default=None)
 
 
 class OrderModel(models.Model):
     id = models.AutoField(primary_key=True)
     dateBegin = models.DateTimeField()
     dateEnd = models.DateTimeField()
-    timeOfRent = models.DurationField()
+    dateEndFact = models.DateTimeField(null=True)
     isActive = models.BooleanField()
     car = models.ForeignKey(AutoModel, on_delete=models.PROTECT)
     discounts = models.ManyToManyField(DiscountModel)

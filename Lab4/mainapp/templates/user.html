@@ -3,4 +3,7 @@
 {%block content%}
 <h1>Личный кабинет</h1>
 <p>Username: {{request.user.username}}</p>
+{%for d in d_p%}
+<p>{{d}}</p>
+{%endfor%}
 {%endblock content%}

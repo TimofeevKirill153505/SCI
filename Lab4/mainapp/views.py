@@ -4,7 +4,7 @@ import json
 from requests import get
 import django.http.request as req
 from .models import CarModel, ClientModel, AutoModel
-from .forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm, OrderForm
 from .forms import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -62,12 +62,16 @@ def logout_out(request:HttpRequest):
 
 def order(request: HttpRequest):
     if request.method == "GET":
+        form = OrderForm()
         if not request.user.is_authenticated:
             return HttpResponseRedirect("login")
-
-        return render(request, "order.html")
+        id = request.GET.get("id")
+        if not AutoModel.objects.filter(carModel_id=id):
+            return HttpResponseRedirect("catalog")
+        return render(request, "order.html", {'form':form, 'id':id})
     elif request.method == "POST":
-        pass
+        print(request.POST.get('id', None))
+        return HttpResponseRedirect("user")
         
 
 
@@ -77,10 +81,11 @@ def catalog(request: HttpRequest):
         tmp_list = list()
         i = 0
         for carModel in CarModel.objects.all():
+            print(carModel)
             if i % columnCount == 0 and i != 0:
                 lst.append(tmp_list)
                 tmp_list = list()
-            if carModel.automodel_set.get(status=AutoModel.FREE):
+            if AutoModel.objects.filter(status=AutoModel.FREE, carModel=carModel):
                 tmp_list.append(carModel)
                 i += 1
 
@@ -102,6 +107,9 @@ def registration(request: HttpRequest):
         if form.is_valid():
             usr = form.save(commit = False)
             client = ClientModel()
+            client.f = pst.get('f')
+            client.i = pst.get('i')
+            client.o = pst.get('o')
             client.adress = pst.get('adress')
             client.phone = pst.get('phone')
             client.user = usr
@@ -113,4 +121,15 @@ def registration(request: HttpRequest):
     return render(request, "registration.html", {'form': form})
 
 def personal(request:HttpRequest):
-    return render(request, "user.html")
+    lst = list()
+    clt = ClientModel.objects.get(user=request.user)
+    try:
+        lst += [str(p) for p in clt.penalties.all()]
+    except:
+        print('error in discs')
+    try:
+        lst += [str(d) for d in clt.discounts.all()]
+    except:
+        print('error in penalties')
+
+    return render(request, "user.html", {'d_p':lst})

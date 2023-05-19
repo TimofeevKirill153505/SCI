@@ -4,6 +4,7 @@
 <h1>Оформление заказа</h1>
 <form method="post">
     {%csrf_token%}
+    <input type="hidden" name="id" value="{{id}}">
     {{form}}
     <input type="submit">Заказать</input>
 </form>
