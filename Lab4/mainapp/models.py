@@ -113,6 +113,8 @@ class ClientModel(models.Model):
     phone = models.CharField(max_length=15)
     adress = models.CharField(max_length=100)
     discounts = models.ManyToManyField(DiscountModel, null=True, default=None)
+    def __str__(self):
+        return f"{self.f} {self.i} {self.o} {self.phone}"
     # penalties = models.ManyToManyField(PenaltyModel, null=True, default=None)
 
 
@@ -121,9 +123,11 @@ class OrderModel(models.Model):
     dateBegin = models.DateTimeField()
     dateEnd = models.DateTimeField()
     dateEndFact = models.DateTimeField(null=True)
-    isActive = models.BooleanField()
-    car = models.ForeignKey(AutoModel, on_delete=models.PROTECT)
+    isActive = models.BooleanField(default=False)
+    auto = models.ForeignKey(AutoModel, on_delete=models.PROTECT)
     discounts = models.ManyToManyField(DiscountModel)
     penalties = models.ManyToManyField(PenaltyModel)
-    price = models.IntegerField()
+    price = models.IntegerField(default=0)
     client = models.ForeignKey(ClientModel, on_delete=models.PROTECT)
+    def __str__(self):
+        return f"{self.client.f} {self.client.i} {self.client.o} {self.dateBegin}-{self.dateEnd} {self.auto.carModel}"

@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 import json
 from requests import get
 import django.http.request as req
-from .models import CarModel, ClientModel, AutoModel
+from .models import CarModel, ClientModel, AutoModel, OrderModel
 from .forms import RegistrationForm, OrderForm
 from .forms import User
 from django.contrib.auth import authenticate, login, logout
@@ -27,33 +27,33 @@ def index(request: HttpRequest):
         )
 
 
-def login_in(request: HttpRequest):
-    form = LoginForm()
-    print(request.user.is_authenticated)
-    print(request.user.username)
-    print(request.method)
-    if request.method == 'POST':
-        print('Method is POST')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+# def login_in(request: HttpRequest):
+#     form = LoginForm()
+#     print(request.user.is_authenticated)
+#     print(request.user.username)
+#     print(request.method)
+#     if request.method == 'POST':
+#         print('Method is POST')
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
 
-        try:
-            user = User.objects.get(username=username)
-        except:
-            print('troubles no such user')
-            messages.error(request, "Такого пользователя не существует")
-        else:
-            print(f'there is user named {username}')
-        user = authenticate(request, username=username)
-        if user is not None:
-            print('try to login')
-            login(request, user)
-            return HttpResponseRedirect('user')
-        else:  
-            print('toubles wrong data')     
-            messages.error(
-                request, 'Некорректный логин ИЛИ пароль. Проверьте введённые давнные.')
-    return render(request, "login.html", {'form':form})
+#         try:
+#             user = User.objects.get(username=username)
+#         except:
+#             print('troubles no such user')
+#             messages.error(request, "Такого пользователя не существует")
+#         else:
+#             print(f'there is user named {username}')
+#         user = authenticate(request, username=username)
+#         if user is not None:
+#             print('try to login')
+#             login(request, user)
+#             return HttpResponseRedirect('user')
+#         else:  
+#             print('toubles wrong data')     
+#             messages.error(
+#                 request, 'Некорректный логин ИЛИ пароль. Проверьте введённые давнные.')
+#     return render(request, "login.html", {'form':form})
 
 def logout_out(request:HttpRequest):
     logout(request)
@@ -70,7 +70,24 @@ def order(request: HttpRequest):
             return HttpResponseRedirect("catalog")
         return render(request, "order.html", {'form':form, 'id':id})
     elif request.method == "POST":
-        print(request.POST.get('id', None))
+        print(request.POST)
+        pst = request.POST
+        ordr = OrderModel()
+        ordr.dateBegin = pst.get('dateTimeBegin')
+        ordr.dateEnd = pst.get('dateTimeEnd')
+        clt = ClientModel.objects.get(user=request.user)
+        ordr.client = clt
+        auto = AutoModel.objects.filter(carModel__id=int(pst.get('id')), status=AutoModel.FREE).first()
+        ordr.auto = auto
+        ordr.save()
+        
+        auto.status = AutoModel.ON_ORDER
+        auto.save()
+        ordr.price = CarModel.objects.get(id=int(pst.get('id'))).price
+        
+        ordr.discounts.set(clt.discounts.all())
+        ordr.save()
+
         return HttpResponseRedirect("user")
         
 
@@ -124,12 +141,14 @@ def personal(request:HttpRequest):
     lst = list()
     clt = ClientModel.objects.get(user=request.user)
     try:
-        lst += [str(p) for p in clt.penalties.all()]
+        lst += [str(p) for p in clt.discounts.all()]
     except:
-        print('error in discs')
+        print('error in discounts')
     try:
-        lst += [str(d) for d in clt.discounts.all()]
+        lst += [str(d) for d in clt.penalties.all()]
     except:
         print('error in penalties')
+    
+    ordrs = OrderModel.objects.filter(client__user=request.user)
 
-    return render(request, "user.html", {'d_p':lst})
+    return render(request, "user.html", {'d_p':lst, "ordrs":ordrs})

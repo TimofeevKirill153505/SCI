@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{%block title%}Оформление заказа{%endblock title%}
 {%block content%}
 
 <h1>Оформление заказа</h1>
 <form method="post">
     {%csrf_token%}
     <input type="hidden" name="id" value="{{id}}">
-    {{form}}
-    <input type="submit">Заказать</input>
+    <div><input type="datetime-local" id="dtb" name="dateTimeBegin"> <label for="dtb">Начало заказа</label></div>
+    <div><input type="datetime-local" id="dte" name="dateTimeEnd"> <label for="dte">Конец заказа</label></div>
+    <div><input type="submit" name=""></div>
 </form>
 {%endblock content%}

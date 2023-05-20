@@ -3,9 +3,17 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 class OrderForm(forms.Form):
-    dateBegin = forms.DateTimeField(widget=forms.DateTimeInput())
-    dateEnd = forms.DateTimeField(widget=forms.DateTimeInput())
+    dateBegin = forms.DateField(widget=forms.SelectDateWidget())
+    timeBegin = forms.TimeField(widget=forms.TimeInput)
+    dateEnd = forms.DateField(widget=forms.SelectDateWidget)
+    timeEnd = forms.TimeField()
     
+    class Meta:
+        fields = ('dateBegin', 'dateEnd')
+        widgets = {
+            'dateBegin': forms.DateTimeField(),
+            'dateEnd': forms.DateTimeField()
+        }
 
 # class LoginForm(forms.Form):
 #     username = forms.CharField(label='Логин', widget=forms.TextInput(
