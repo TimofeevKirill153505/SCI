@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
 import re
+import math
 
 def car_number_validator(numb:str)->bool:
     if re.match(r"\d\d\d\d [A-Z][A-Z]-\d", numb) or \
@@ -122,12 +123,29 @@ class OrderModel(models.Model):
     id = models.AutoField(primary_key=True)
     dateBegin = models.DateTimeField()
     dateEnd = models.DateTimeField()
-    dateEndFact = models.DateTimeField(null=True)
+    dateEndFact = models.DateTimeField(null=True, blank=True, default=None)
     isActive = models.BooleanField(default=False)
     auto = models.ForeignKey(AutoModel, on_delete=models.PROTECT)
-    discounts = models.ManyToManyField(DiscountModel)
-    penalties = models.ManyToManyField(PenaltyModel)
+    discounts = models.ManyToManyField(DiscountModel, default=None, blank=True)
+    penalties = models.ManyToManyField(PenaltyModel, default=None, blank=True)
     price = models.IntegerField(default=0)
     client = models.ForeignKey(ClientModel, on_delete=models.PROTECT)
     def __str__(self):
         return f"{self.client.f} {self.client.i} {self.client.o} {self.dateBegin}-{self.dateEnd} {self.auto.carModel}"
+    
+    def count_price(self) -> None:
+        time = self.dateEnd - self.dateBegin
+        hours = math.ceil(time.days*24 + time.seconds / 3600)
+        percent = 0
+        if self.discounts:
+            for d in self.discounts.all():
+                percent -= d.percent
+        if self.penalties:
+            for p in self.penalties.all():
+                percent += p.percent
+        print('seconds' + str(time.seconds))
+        print('hours ' + str(hours))
+        print('car ' + str(self.auto.carModel.price))
+        self.price = (hours * self.auto.carModel.price) * (1 + percent/100)
+        print(self.price)
+        

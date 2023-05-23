@@ -3,11 +3,25 @@
 {%block content%}
 <h1>Личный кабинет</h1>
 <p>Username: {{request.user.username}}</p>
+<h3>Список скидок:</h3>
+<div>
 {%for d in d_p%}
 <p>{{d}}</p>
 {%endfor%}
+</div>
+<h3>Список будущих заказов:</h3>
 {%for o in ordrs%}
-<p>{{o}}</p>
+<p>
+    {{o}}
+    <a href="cancel?id={{o.id}}">Отменить</a>
+</p>
+{%endfor%}
+
+<h3>Список активных заказов:</h3>
+{%for o in ordrsActive%}
+<p>
+    {{o}}
+</p>
 {%endfor%}
 
 {%endblock content%}

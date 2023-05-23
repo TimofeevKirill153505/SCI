@@ -1,0 +1,46 @@
+{%extends "base.html" %}
+{%block title%} Информация о клиенте{% endblock title %}
+{%block content%}
+<h1>Кабинет сотрудника</h1>
+<p>Клиент: {{client}}</p>
+<h3>Список доступных скидок</h3>
+<select name="penalties" multiple="multiple" form="form{{o.id}}">
+    {%for d in discs%}
+    <option> {{d}} </option>
+{%endfor%}
+</select>
+<h3>Список неактивных заказов</h3>
+{%for o in ordrsUnactive%}  
+<p>
+    {{o}}
+    <a href="activate?id={{o.id}}&f={{client.f}}&i={{client.i}}&o={{client.o}}&phone={{phone}}">Активировать</a>
+    <a href="cancel?id={{o.id}}">Отменить</a>
+</p>
+{%endfor%}
+
+<h3>Список активных заказов:</h3>
+{%for o in ordrsActive%}
+<p>
+    <form method="post" id="form{{o.id}}">
+        {%csrf_token%}
+        <input type="hidden" name="f" value="{{client.f}}">
+        <input type="hidden" name="i" value="{{client.i}}">
+        <input type="hidden" name="o" value="{{client.o}}">        
+        <input type="hidden" name="phone" value="{{phone}}">
+
+        <input type="hidden" name="type" value="stop">
+        <input type="hidden" name="id" value="{{o.id}}">
+        {{o}}
+        <select name="penalties" multiple="multiple" form="form{{o.id}}">
+        {%for p in pens%}
+            <option value="{{p.id}}"> {{p}} </option>
+        {%endfor%}
+        </select>
+        <input type="submit">
+    </form>
+    
+</p>
+{%endfor%}
+
+
+{%endblock content%}
