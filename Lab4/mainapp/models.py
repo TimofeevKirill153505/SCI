@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 import re
 import math
+import datetime
 
 def car_number_validator(numb:str)->bool:
     if re.match(r"\d\d\d\d [A-Z][A-Z]-\d", numb) or \
@@ -113,7 +114,7 @@ class ClientModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     phone = models.CharField(max_length=15)
     adress = models.CharField(max_length=100)
-    discounts = models.ManyToManyField(DiscountModel, null=True, default=None)
+    discounts = models.ManyToManyField(DiscountModel, null=True, default=None, blank=True)
     def __str__(self):
         return f"{self.f} {self.i} {self.o} {self.phone}"
     # penalties = models.ManyToManyField(PenaltyModel, null=True, default=None)
@@ -134,7 +135,15 @@ class OrderModel(models.Model):
         return f"{self.client.f} {self.client.i} {self.client.o} {self.dateBegin}-{self.dateEnd} {self.auto.carModel}"
     
     def count_price(self) -> None:
-        time = self.dateEnd - self.dateBegin
+        
+        dateBegin = self.dateBegin
+        dateEnd = self.dateEnd
+        if type(dateBegin) == str:
+            dateBegin = datetime.datetime.strptime(self.dateBegin, "%Y-%m-%dT%H:%M")
+        if type(dateEnd) == str:
+            dateEnd = datetime.datetime.strptime(self.dateEnd, "%Y-%m-%dT%H:%M")
+        time = dateEnd - dateBegin
+
         hours = math.ceil(time.days*24 + time.seconds / 3600)
         percent = 0
         if self.discounts:
@@ -143,9 +152,9 @@ class OrderModel(models.Model):
         if self.penalties:
             for p in self.penalties.all():
                 percent += p.percent
-        print('seconds' + str(time.seconds))
-        print('hours ' + str(hours))
-        print('car ' + str(self.auto.carModel.price))
+        # print('seconds' + str(time.seconds))
+        # print('hours ' + str(hours))
+        # print('car ' + str(self.auto.carModel.price))
         self.price = (hours * self.auto.carModel.price) * (1 + percent/100)
-        print(self.price)
+        # print(self.price)
         

@@ -40,7 +40,7 @@ class RegistrationForm(UserCreationForm):
     adress = forms.CharField(
         label='Адрес', widget=forms.TextInput(attrs={'class': 'form-input'}))
     phone = forms.CharField(
-        label='Телефонный номер', widget=forms.TextInput(attrs={'class': 'form-input'}))
+        label='Телефонный номер (+375(XX)XXXXXXX)', widget=forms.TextInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(
         label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput(

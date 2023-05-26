@@ -10,11 +10,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 import datetime
+import re
+import plotly.graph_objects as pltl
 
 # Create your views here.
 
 columnCount = 4
 
+def check_number(number:str)->bool:
+    return re.match(r'\+375\(\d\d\)\d{7}', number)
 
 def index(request: HttpRequest):
     if request.method == "GET":
@@ -73,8 +77,20 @@ def order(request: HttpRequest):
         print(request.POST)
         pst = request.POST
         ordr = OrderModel()
-        ordr.dateBegin = pst.get('dateTimeBegin')
-        ordr.dateEnd = pst.get('dateTimeEnd')
+        now = datetime.datetime.now()
+        beg = datetime.datetime.strptime(
+            pst.get('dateTimeBegin'), "%Y-%m-%dT%H:%M")
+        if beg < now:
+            return HttpResponseRedirect(f"order?id={pst.get('id')}")
+        
+        end = datetime.datetime.strptime(
+            pst.get('dateTimeEnd'), "%Y-%m-%dT%H:%M")
+        if end - beg < datetime.timedelta(hours=1) or end < beg:
+            return HttpResponseRedirect(f"order?id={pst.get('id')}")
+
+        ordr.dateBegin = beg
+
+        ordr.dateEnd = end
         ordr.dateEndFact = None
         clt = ClientModel.objects.get(user=request.user)
         ordr.client = clt
@@ -124,6 +140,11 @@ def registration(request: HttpRequest):
         pst = request.POST
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
+            if not check_number(pst.get('phone')):
+                return render(request, "registration.html", {'form': form})
+            if pst.get('password1') != pst.get('password2'):
+                return render(request, "registration.html", {'form': form})
+
             usr = form.save(commit = False)
             client = ClientModel()
             client.f = pst.get('f')
@@ -144,6 +165,8 @@ def stuff(request:HttpRequest):
         return render(request, 'stuff.html')
     if request.method == "POST":
         print(request.POST)
+        if not check_number(request.POST.get('phone')):
+            return render(request, "stuff.html")
         f = request.POST.get('f')
         i = request.POST.get('i')
         o = request.POST.get('o')
@@ -180,7 +203,7 @@ def stopOrder(request:HttpRequest):
     i = pst.get('i')
     o = pst.get('o')
     phone = pst.get('phone')
-    print(pst)
+    # print(pst)
     ordr = OrderModel.objects.get(id=pst.get('id'))
     ordr.isActive = False
 
@@ -245,7 +268,7 @@ def activate(request:HttpRequest):
         i = gt.get('i')
         o = gt.get('o')
         phone = gt.get('phone')
-        print(gt)
+        # print(gt)
         ordr = OrderModel.objects.get(id=gt.get('id'))
         ordr.isActive = True
         ordr.save(update_fields=['isActive'])
@@ -258,10 +281,40 @@ def cancelOrder(request:HttpRequest):
         i = gt.get('i')
         o = gt.get('o')
         phone = gt.get('phone')
-        print(gt)
+        # print(gt)
         ordr = OrderModel.objects.get(id=gt.get('id'))
         ordr.auto.status = AutoModel.FREE
         ordr.auto.save(update_fields=["status"])
         ordr.delete()
         return HttpResponseRedirect(f"userinfo?f={f}&i={i}&o={o}&phone={phone}")
+    
+def diagram(request:HttpRequest):
+    models = CarModel.objects.all()
+    models_names = [str(carModel) for carModel in models]
+    usages = [carModel.usageCount for carModel in models]
+    print('usages' + str(usages))
+    print('models' + str(models_names))
+
+    data = pltl.Bar(x=models_names, y=usages, marker=dict(color=['pink', 'gray', 'white']))
+    layout = pltl.Layout(title='Статистика моделей по популярности',
+                    xaxis=dict(title='модели'),
+                    yaxis=dict(title='Общее количество заказов'))
+    fig = pltl.Figure(data=data, layout=layout)
+    plot_div = fig.to_html(full_html=False)
+
+    return render(
+        request,
+        'diagram.html',
+        context={'plot_div': plot_div, }
+    )
+
+def statistics(request:HttpRequest):
+    max_usage_carmodel = max(CarModel.objects.all(), key= lambda cm: cm.usageCount)
+    max_usage_auto = max(AutoModel.objects.all(), key= lambda auto: auto.usageCount)
+    max_user = max(ClientModel.objects.all(), key=lambda clt: len(OrderModel.objects.filter(client=clt)))
+    staff_count = len(User.objects.filter(is_staff=True))   
+
+    data = {'model':max_usage_carmodel, 'auto':max_usage_auto, 'usr':max_user, 'staff_count':staff_count}
+
+    return render(request, 'statistics.html', data)
     

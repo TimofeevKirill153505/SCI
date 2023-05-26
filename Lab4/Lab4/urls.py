@@ -31,8 +31,11 @@ urlpatterns = [
     path('registration', views.registration),
     path('user', views.personal),
     path("logout", views.logout_out),
-    path('cancel', views.cancelOrder),
+    path('cancel', views.cancel),
     path('stuff', views.stuff),
     path('userinfo', views.userinfo),
     path('activate', views.activate),
+    path('cancelOrder', views.cancelOrder),
+    path('diagram', views.diagram),
+    path('statistics', views.statistics)
 ]
