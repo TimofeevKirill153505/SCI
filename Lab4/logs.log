@@ -1,0 +1,58 @@
+2023-05-26 19:40:07,059 INFO     Watching for file changes with StatReloader
+2023-05-26 19:40:38,288 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:40:39,097 INFO     Watching for file changes with StatReloader
+2023-05-26 19:42:49,609 INFO     D:\SCI2\SCI\Lab4\Lab4\settings.py changed, reloading.
+2023-05-26 19:42:50,407 INFO     Watching for file changes with StatReloader
+2023-05-26 19:47:28,079 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:47:28,709 INFO     Watching for file changes with StatReloader
+2023-05-26 19:47:31,203 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:47:31,795 INFO     Watching for file changes with StatReloader
+2023-05-26 19:47:33,813 INFO     somebody on the main page
+2023-05-26 19:47:33,818 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-26 19:47:35,075 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-26 19:48:42,246 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:48:42,971 INFO     Watching for file changes with StatReloader
+2023-05-26 19:49:01,924 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:49:02,540 INFO     Watching for file changes with StatReloader
+2023-05-26 19:49:18,394 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:49:18,957 INFO     Watching for file changes with StatReloader
+2023-05-26 19:50:00,413 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:50:00,984 INFO     Watching for file changes with StatReloader
+2023-05-26 19:51:06,050 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:51:06,696 INFO     Watching for file changes with StatReloader
+2023-05-26 19:51:17,425 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:51:18,075 INFO     Watching for file changes with StatReloader
+2023-05-26 19:51:22,615 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:51:23,359 INFO     Watching for file changes with StatReloader
+2023-05-26 19:51:35,109 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:51:35,762 INFO     Watching for file changes with StatReloader
+2023-05-26 19:52:06,991 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:52:07,652 INFO     Watching for file changes with StatReloader
+2023-05-26 19:52:15,294 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:52:15,965 INFO     Watching for file changes with StatReloader
+2023-05-26 19:52:36,925 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:52:37,575 INFO     Watching for file changes with StatReloader
+2023-05-26 19:52:47,278 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:52:47,979 INFO     Watching for file changes with StatReloader
+2023-05-26 19:52:59,727 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:00,367 INFO     Watching for file changes with StatReloader
+2023-05-26 19:53:06,952 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:07,567 INFO     Watching for file changes with StatReloader
+2023-05-26 19:53:16,245 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:16,889 INFO     Watching for file changes with StatReloader
+2023-05-26 19:53:23,497 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:24,189 INFO     Watching for file changes with StatReloader
+2023-05-26 19:53:30,826 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:31,508 INFO     Watching for file changes with StatReloader
+2023-05-26 19:53:37,111 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:37,744 INFO     Watching for file changes with StatReloader
+2023-05-26 19:53:53,566 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:53:54,207 INFO     Watching for file changes with StatReloader
+2023-05-26 19:54:01,858 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:54:02,535 INFO     Watching for file changes with StatReloader
+2023-05-26 19:54:17,413 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:54:18,068 INFO     Watching for file changes with StatReloader
+2023-05-26 19:54:34,960 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:54:35,593 INFO     Watching for file changes with StatReloader
+2023-05-26 19:54:41,181 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-26 19:54:41,802 INFO     Watching for file changes with StatReloader

@@ -12,15 +12,38 @@ from django.contrib import messages
 import datetime
 import re
 import plotly.graph_objects as pltl
+import logging as log
 
 # Create your views here.
+NOTSET = 0
+DEBUG = 10
+INFO = 20
+WARN = 30
+ERROR = 40
+CRITICAL = 50
 
 columnCount = 4
 
 def check_number(number:str)->bool:
     return re.match(r'\+375\(\d\d\)\d{7}', number)
 
+def staffpage(func):
+    def _(request):
+        if not request.user.is_staff:
+            return HttpResponseRedirect('main')
+        return func(request)
+    return _
+
+
+def userpage(func):
+    def _(request:HttpRequest):
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect("login")
+        return func(request)
+    return _
+
 def index(request: HttpRequest):
+    log.log(INFO, "somebody on the main page")
     if request.method == "GET":
         resp = get("https://official-joke-api.appspot.com/random_joke")
         joke = json.loads(resp.text)
@@ -63,12 +86,13 @@ def logout_out(request:HttpRequest):
     logout(request)
     return HttpResponseRedirect('main')
 
-
+@userpage
 def order(request: HttpRequest):
+    log.log(INFO, "somebody on the order page")
+
     if request.method == "GET":
         form = OrderForm()
-        if not request.user.is_authenticated:
-            return HttpResponseRedirect("login")
+        
         id = request.GET.get("id")
         if not AutoModel.objects.filter(carModel_id=id):
             return HttpResponseRedirect("catalog")
@@ -155,25 +179,31 @@ def registration(request: HttpRequest):
             client.user = usr
             usr.save()
             client.save()
+            log.log(INFO, "new client created")
+
             return HttpResponseRedirect('login')
         else:
             messages.error(request, 'Во время регистрации возникла ошибка')
     return render(request, "registration.html", {'form': form})
 
-def stuff(request:HttpRequest):
+@staffpage
+def staff(request:HttpRequest):
+    log.log(INFO, "somebody enter the staff page")
+
     if request.method == "GET":
-        return render(request, 'stuff.html')
+        return render(request, 'staff.html')
     if request.method == "POST":
         print(request.POST)
         if not check_number(request.POST.get('phone')):
-            return render(request, "stuff.html")
+            return render(request, "staff.html")
         f = request.POST.get('f')
         i = request.POST.get('i')
         o = request.POST.get('o')
         phone = request.POST.get('phone')[1::]
 
         return HttpResponseRedirect(f'userinfo?f={f}&i={i}&o={o}&phone={phone}')
-    
+
+@staffpage
 def userinfo(request:HttpRequest):
     if request.method == "GET":
         f = request.GET.get('f')
@@ -184,7 +214,7 @@ def userinfo(request:HttpRequest):
         try:
             clt = ClientModel.objects.get(f=f, i=i, o=o, phone=phone)
         except ClientModel.DoesNotExist:
-            return HttpResponseRedirect("stuff")
+            return HttpResponseRedirect("staff")
 
         ordrs = OrderModel.objects.filter(client=clt)
         ordrsUnactive = ordrs.filter(isActive=False, dateEndFact=None)
@@ -196,7 +226,7 @@ def userinfo(request:HttpRequest):
     if request.method == 'POST':
         return stopOrder(request)
     
-
+@staffpage
 def stopOrder(request:HttpRequest):
     pst = request.POST
     f = pst.get('f')
@@ -230,9 +260,8 @@ def stopOrder(request:HttpRequest):
     ordr.save(update_fields=['isActive', 'dateEndFact', 'price'])
     return HttpResponseRedirect(f"userinfo?f={f}&i={i}&o={o}&phone={phone}")
 
+@userpage
 def personal(request:HttpRequest):
-    if request.user.is_staff:
-        return HttpResponseRedirect("stuff")
     lst = list()
     clt = ClientModel.objects.get(user=request.user)
     try:
@@ -250,6 +279,7 @@ def personal(request:HttpRequest):
 
     return render(request, "user.html", {'d_p':lst, "ordrs":ordrsUnactive, "ordrsActive":ordrsActive})
 
+@userpage
 def cancel(request:HttpRequest):
     id = int(request.GET.get('id'))
     order = OrderModel.objects.get(id=id)
@@ -260,7 +290,7 @@ def cancel(request:HttpRequest):
     order.delete()
     return HttpResponseRedirect("user")
 
-
+@staffpage
 def activate(request:HttpRequest):
     if request.method == "GET":
         gt = request.GET
@@ -274,6 +304,7 @@ def activate(request:HttpRequest):
         ordr.save(update_fields=['isActive'])
         return HttpResponseRedirect(f"userinfo?f={f}&i={i}&o={o}&phone={phone}")
 
+@staffpage
 def cancelOrder(request:HttpRequest):
     if request.method == "GET":
         gt = request.GET
@@ -287,7 +318,8 @@ def cancelOrder(request:HttpRequest):
         ordr.auto.save(update_fields=["status"])
         ordr.delete()
         return HttpResponseRedirect(f"userinfo?f={f}&i={i}&o={o}&phone={phone}")
-    
+
+@staffpage
 def diagram(request:HttpRequest):
     models = CarModel.objects.all()
     models_names = [str(carModel) for carModel in models]
@@ -308,6 +340,7 @@ def diagram(request:HttpRequest):
         context={'plot_div': plot_div, }
     )
 
+@staffpage
 def statistics(request:HttpRequest):
     max_usage_carmodel = max(CarModel.objects.all(), key= lambda cm: cm.usageCount)
     max_usage_auto = max(AutoModel.objects.all(), key= lambda auto: auto.usageCount)

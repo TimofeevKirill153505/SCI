@@ -32,7 +32,7 @@ urlpatterns = [
     path('user', views.personal),
     path("logout", views.logout_out),
     path('cancel', views.cancel),
-    path('stuff', views.stuff),
+    path('staff', views.staff),
     path('userinfo', views.userinfo),
     path('activate', views.activate),
     path('cancelOrder', views.cancelOrder),
