@@ -78,7 +78,7 @@ class AutoModel(models.Model):
     id = models.AutoField(primary_key=True)
     carModel = models.ForeignKey(CarModel, on_delete=models.PROTECT)
     number = models.CharField(max_length=9, validators=[car_number_validator])
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=FREE)
     usageCount = models.IntegerField(default=0)
 
     def __str__(self):

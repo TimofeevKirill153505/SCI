@@ -37,5 +37,13 @@ urlpatterns = [
     path('activate', views.activate),
     path('cancelOrder', views.cancelOrder),
     path('diagram', views.diagram),
-    path('statistics', views.statistics)
+    path('statistics', views.statistics),
+    path('addmodel', views.addmodel),
+    path('addauto', views.addauto),
+    path('searchuser', views.searchuser),
+    path('editmodel', views.editmodel),
+    path('modellist', views.modellist),
+    path('delete', views.delete),
+    path('autolist', views.autolist),
+    path('editauto', views.editauto)
 ]

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block title%} Список автомобилей {% endblock title %}
+{% block content %}
+<h1>Список моделей</h1>
+<table>
+    {%for autosRaw in autos%}
+    <tr>
+    {%for auto in autosRaw%}
+    <td>
+        <ul>
+            <li>Модель: {{auto.carModel}}</li>
+            <li>Номер: {{auto.number}}</li>
+            <li>Статус: {{auto.status}}</li>
+            <li>Количество использований: {{auto.usageCount}}</li>
+            <a href="editauto?id={{auto.id}}">Редактировать</a>
+            <a href="delete?model=auto&id={{auto.id}}">Удалить</a>
+        </ul>
+    </td>
+    {%endfor%}
+    </tr>
+    {%endfor%}
+</table>
+{% endblock content %}

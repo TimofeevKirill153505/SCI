@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{%block title%} Редактирование модели {% endblock title %}
+{%block content%}
+<h1>Редактирование модели</h1>
+<form method="POST" id="form">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{id}}">
+    {%if fail%}
+    <p> Проверьте ввденные данные</p>
+    {%endif%}
+    <select name="brand" form="form">
+        <option value="{{brand}}">{{brand}}</option>
+        {%for b in brands%}
+            <option value="{{b}}"> {{b}} </option>
+        {%endfor%}
+    </select>
+
+    <p>
+        <label> Цена аренды за час</label>
+        <input type="number" name="price" value="{{obj.price}}">
+    </p>
+
+    <p>
+        <label> Цена автомобиля</label>
+        <input type="number" name="car_price" value="{{obj.car_price}}">
+    </p>
+
+    <p>
+        <label> Год выпуска </label>
+        <input type="number" name="year" value="{{obj.year}}">
+    </p>
+
+    <p>
+        <label> Кузов </label>
+        
+        <select name="body" form="form">
+            <option value="{{body.0}}"> {{body.1}}</option>
+            {%for b in bodies%}
+            <option value="{{b.0}}"> {{b.1}} </option>
+            {%endfor%}
+        </select>
+    </p>
+    <input type="submit">
+
+</form>
+{%endblock content%}

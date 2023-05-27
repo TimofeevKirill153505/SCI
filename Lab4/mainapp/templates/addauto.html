@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{%block title%} Регистрация автомобиля {% endblock title %}
+{%block content%}
+<h1>Регистрация автомобиля</h1>
+<form method="POST" id="form">
+    <input type="hidden" name="edit" value="{{isEdit}}">
+    {% csrf_token %}
+    {%if fail%}
+    <p> Проверьте ввденные данные</p>
+    {%endif%}
+    <select name="auto" form="form">
+        {%for c in cars%}
+            <option value="{{c.id}}"> {{c}} </option>
+        {%endfor%}
+    </select>
+    <p>
+        <label> Номер</label>
+        <input type="text" name="number">
+    </p>
+    <input type="submit">
+</form>
+{%endblock content%}

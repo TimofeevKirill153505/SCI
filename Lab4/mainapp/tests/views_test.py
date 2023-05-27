@@ -1,8 +1,8 @@
 import pytest
 from django.urls import reverse
-from .constants import BASE_VIEWS, SPECIFIC_VIEWS
+from constants import BASE_VIEWS, SPECIFIC_VIEWS
 from django.test import Client
-
+from fixts import user, client
 
 @pytest.mark.parametrize('view', BASE_VIEWS)
 @pytest.mark.django_db

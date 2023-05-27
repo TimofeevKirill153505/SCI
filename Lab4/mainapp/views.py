@@ -24,8 +24,13 @@ CRITICAL = 50
 
 columnCount = 4
 
-def check_number(number:str)->bool:
+def check_phonenumber(number:str)->bool:
     return re.match(r'\+375\(\d\d\)\d{7}', number)
+
+def check_number(numb:str)->bool:
+    return re.match(r"\d\d\d\d [A-Z][A-Z]-\d", numb) or \
+            re.match(r"[A-Z][A-Z]-\d \d\d\d\d", numb) or \
+            re.match(r"\d[A-Z][A-Z]T \d\d\d\d", numb)
 
 def staffpage(func):
     def _(request):
@@ -47,10 +52,12 @@ def index(request: HttpRequest):
     if request.method == "GET":
         resp = get("https://official-joke-api.appspot.com/random_joke")
         joke = json.loads(resp.text)
+        fact = json.loads(get("https://catfact.ninja/fact").text)['fact']
+
         return render(
             request,
             "index.html",
-            {"setup": joke["setup"], "punchline": joke["punchline"]},
+            {"setup": joke["setup"], "punchline": joke["punchline"], "fact":fact},
         )
 
 
@@ -164,7 +171,7 @@ def registration(request: HttpRequest):
         pst = request.POST
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            if not check_number(pst.get('phone')):
+            if not check_phonenumber(pst.get('phone')):
                 return render(request, "registration.html", {'form': form})
             if pst.get('password1') != pst.get('password2'):
                 return render(request, "registration.html", {'form': form})
@@ -187,14 +194,14 @@ def registration(request: HttpRequest):
     return render(request, "registration.html", {'form': form})
 
 @staffpage
-def staff(request:HttpRequest):
+def searchuser(request:HttpRequest):
     log.log(INFO, "somebody enter the staff page")
 
     if request.method == "GET":
-        return render(request, 'staff.html')
+        return render(request, 'searchuser.html')
     if request.method == "POST":
         print(request.POST)
-        if not check_number(request.POST.get('phone')):
+        if not check_phonenumber(request.POST.get('phone')):
             return render(request, "staff.html")
         f = request.POST.get('f')
         i = request.POST.get('i')
@@ -351,3 +358,155 @@ def statistics(request:HttpRequest):
 
     return render(request, 'statistics.html', data)
     
+@staffpage
+def addmodel(request:HttpRequest):
+    fail = False
+    if request.method == "POST":
+        pst = request.POST
+
+        year = int(pst.get('year'))
+        if year >= 2010 and year <= datetime.datetime.now().year:
+            mod = CarModel()
+            mod.body = CarModel.BODY_CHOICES[int(pst.get('body'))][0]
+            log.log(DEBUG, f"Adding auto model by brand {pst.get('brand')}")
+            mod.brand = pst.get('brand')
+            mod.car_price = int(pst.get('car_price'))
+            mod.price = int(pst.get('price'))
+            mod.year = int(pst.get('year'))
+            mod.save()
+        else:
+            fail = True
+    
+    brands = [brand[0] for brand in CarModel.BRAND_CHOICES]
+    bodies = [(i, body[1]) for i,body in enumerate(CarModel.BODY_CHOICES)]
+    return render(request, "addmodel.html", {"brands":brands, "bodies":bodies, 'fail':fail})
+
+@staffpage
+def addauto(request:HttpRequest):
+    fail = False
+    if request.method == "POST":
+        pst = request.POST
+        if check_number(pst.get('number')):
+            auto = AutoModel()
+            auto.carModel = CarModel.objects.get(id=int(pst.get('auto')))
+            auto.number = pst.get('number')
+            auto.save()
+        else:
+            fail = True
+        
+    cars = CarModel.objects.all()
+    return render(request, "addauto.html", {'cars':cars, 'fail':fail})
+
+@staffpage
+def staff(request):
+    return render(request, "staff.html")
+
+@staffpage
+def delete(request:HttpRequest):
+    if request.method == "GET":
+        gt = request.GET
+        id = int(gt.get('id'))
+        if gt.get('model') == 'carmod':
+            CarModel.objects.get(id=id).delete()
+            return HttpResponseRedirect('modellist')
+        elif gt.get('model') == 'auto':
+            AutoModel.objects.get(id=id).delete()
+            return HttpResponseRedirect('autolist')
+    
+    log.log(ERROR, "Tried to delete unknown model")
+    return HttpResponseRedirect('main')
+
+@staffpage
+def editmodel(request:HttpRequest):
+    fail = False
+    id = 0
+    if request.method == "POST":
+        pst = request.POST
+        year = int(pst.get('year'))
+        if year >= 2010 and year <= datetime.datetime.now().year:
+            id = int(pst.get('id'))
+            mod = CarModel.objects.get(id=id)
+            mod.body = CarModel.BODY_CHOICES[int(pst.get('body'))][0]
+            log.log(DEBUG, f"Adding auto model by brand {pst.get('brand')}")
+            mod.brand = pst.get('brand')
+            mod.car_price = int(pst.get('car_price'))
+            mod.price = int(pst.get('price'))
+            mod.year = int(pst.get('year'))
+            mod.save()
+        else:
+            fail = True
+    else:
+        id = int(request.GET.get('id'))
+        mod = CarModel.objects.get(id=id)
+    
+    brands = [brand[0] for brand in CarModel.BRAND_CHOICES if brand[0] != mod.brand]
+    bodies = [(i, body[1]) for i,body in enumerate(CarModel.BODY_CHOICES) if body[0] != mod.body]
+
+    body = None
+    for i, body_choice in enumerate(CarModel.BODY_CHOICES):
+        if body_choice[0] == mod.body:
+            body = (i, body_choice[1])
+            break
+    brand = mod.brand
+
+    return render(request, "editmodel.html", 
+                  {"brands":brands, "bodies":bodies, 'fail':fail, 'obj':mod, "body":body, "brand":brand, 'id':id})
+
+@staffpage
+def modellist(request:HttpRequest):
+    if request.method == "GET":
+        lst = []
+        tmp_list = list()
+        i = 0
+        for carModel in CarModel.objects.all():
+            print(carModel)
+            if i % columnCount == 0 and i != 0:
+                lst.append(tmp_list)
+                tmp_list = list()
+            tmp_list.append(carModel)
+            i += 1
+
+        if tmp_list:
+            lst.append(tmp_list)
+        print(lst)
+        return render(request, "modellist.html", {"models": lst})
+    
+@staffpage
+def autolist(request: HttpRequest):
+    if request.method == "GET":
+        lst = []
+        tmp_list = list()
+        i = 0
+        for auto in AutoModel.objects.all():
+            print(auto)
+            if i % columnCount == 0 and i != 0:
+                lst.append(tmp_list)
+                tmp_list = list()
+            tmp_list.append(auto)
+            i += 1
+
+        if tmp_list:
+            lst.append(tmp_list)
+        print(lst)
+        return render(request, "autolist.html", {"autos": lst})
+
+@staffpage
+def editauto(request: HttpRequest):
+    fail = False
+    id = 0
+    if request.method == "POST":
+        pst = request.POST
+        id = pst.get('id')
+        auto = AutoModel.objects.get(id=id)
+        if check_number(pst.get('number')):
+            auto.carModel = CarModel.objects.get(id=int(pst.get('auto')))
+            auto.number = pst.get('number')
+            auto.save()
+        else:
+            fail = True
+    else:
+        id = int(request.GET.get('id'))
+        auto = AutoModel.objects.get(id=id)
+    cars = [mod for mod in CarModel.objects.all() if mod.id != id]
+    car = auto.carModel
+    return render(request, "editauto.html", {'cars':cars, 'fail':fail, "car":car, "obj":auto, "id":id})

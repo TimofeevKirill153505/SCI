@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{%block title%} Добавление модели {% endblock title %}
+{%block content%}
+<h1>Добавление модели</h1>
+<form method="POST" id="form">
+    {% csrf_token %}
+    <input type="hidden" name="edit" value="{{isEdit}}">
+    <input type="hidden" name="id" value="{{id}}">
+    {%if fail%}
+    <p> Проверьте ввденные данные</p>
+    {%endif%}
+    <select name="brand" form="form">
+        {%for b in brands%}
+            <option value="{{b}}"> {{b}} </option>
+        {%endfor%}
+    </select>
+
+    <p>
+        <label> Цена аренды за час</label>
+        <input type="number" name="price">
+    </p>
+
+    <p>
+        <label> Цена автомобиля</label>
+        <input type="number" name="car_price">
+    </p>
+
+    <p>
+        <label> Год выпуска </label>
+        <input type="number" name="year">
+    </p>
+
+    <p>
+        <label> Кузов </label>
+        
+        <select name="body" form="form">
+            {%for b in bodies%}
+            <option value="{{b.0}}"> {{b.1}} </option>
+            {%endfor%}
+        </select>
+    </p>
+    <input type="submit">
+
+</form>
+{%endblock content%}

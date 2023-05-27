@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%block title%} Список моделей {% endblock title %}
+{% block content %}
+<h1>Список моделей</h1>
+<table>
+    {%for modelsRaw in models%}
+    <tr>
+    {%for model in modelsRaw%}
+    <td>
+        <ul>
+            <li>Марка: {{model.brand}}</li>
+            <li>Кузов: {{model.body}}</li>
+            <li>Год выпуска: {{model.year}}</li>
+            <li>Стоимость: {{model.price}}</li>
+            <li>Количество заказов: {{model.usageCount}}</li>
+            <a href="editmodel?id={{model.id}}">Редактировать</a>
+            <a href="delete?model=carmod&id={{model.id}}">Удалить</a>
+        </ul>
+    </td>
+    {%endfor%}
+    </tr>
+    {%endfor%}
+</table>
+{% endblock content %}
