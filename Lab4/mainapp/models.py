@@ -15,7 +15,7 @@ def car_number_validator(numb:str)->bool:
     else:
         raise ValidationError("Введенный номер не подходит ни под один разрешенный формат")
 
-class CarModel(models.Model):
+class CarModel(models.Model):   
     SEDAN = "Седан"
     CROSS = "Кроссовер"
     COUPE = "Купе"

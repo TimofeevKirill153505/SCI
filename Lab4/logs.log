@@ -496,3 +496,231 @@ mainapp.models.AutoModel.DoesNotExist: AutoModel matching query does not exist.
 2023-05-27 17:29:07,932 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
 2023-05-27 17:29:07,936 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
 2023-05-27 17:29:08,366 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-28 14:01:20,090 INFO     Watching for file changes with StatReloader
+2023-05-28 14:01:22,734 INFO     somebody on the main page
+2023-05-28 14:01:22,743 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-28 14:01:23,804 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-28 14:01:23,805 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-28 14:01:24,441 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-28 14:01:29,639 INFO     somebody enter the staff page
+2023-05-28 14:01:43,670 INFO     somebody enter the staff page
+2023-05-28 14:03:55,963 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:03:56,536 INFO     Watching for file changes with StatReloader
+2023-05-28 14:04:00,847 INFO     somebody enter the staff page
+2023-05-28 14:04:09,174 INFO     somebody enter the staff page
+2023-05-28 14:04:09,185 DEBUG    phone +375(29)6814885
+2023-05-28 14:04:46,456 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:04:47,049 INFO     Watching for file changes with StatReloader
+2023-05-28 14:05:10,134 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:05:10,736 INFO     Watching for file changes with StatReloader
+2023-05-28 14:05:11,116 INFO     somebody enter the staff page
+2023-05-28 14:05:11,126 DEBUG    phone +375(29)6814885
+2023-05-28 14:05:11,129 DEBUG    not existing user
+2023-05-28 14:05:11,136 INFO     somebody enter the staff page
+2023-05-28 14:05:41,987 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:05:42,624 INFO     Watching for file changes with StatReloader
+2023-05-28 14:05:58,791 INFO     somebody enter the staff page
+2023-05-28 14:05:58,802 DEBUG    phone +375(29)6814885
+2023-05-28 14:05:58,806 DEBUG    not existing user Тимофеев Кир Андрейчич +375(29)6814885
+2023-05-28 14:05:58,816 INFO     somebody enter the staff page
+2023-05-28 14:10:20,735 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:10:21,322 INFO     Watching for file changes with StatReloader
+2023-05-28 14:14:08,896 INFO     Watching for file changes with StatReloader
+2023-05-28 14:14:11,008 INFO     somebody on the main page
+2023-05-28 14:14:11,014 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-28 14:14:12,074 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-28 14:14:12,078 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-28 14:14:12,525 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-28 14:14:33,255 INFO     somebody enter the staff page
+2023-05-28 14:14:41,378 INFO     somebody enter the staff page
+2023-05-28 14:14:41,386 DEBUG    phone +375(29)6814885
+2023-05-28 14:14:43,579 DEBUG    phone +375(29)6814885
+2023-05-28 14:14:46,479 DEBUG    phone +375(29)6814885
+2023-05-28 14:15:05,518 ERROR    Internal Server Error: /userinfo
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 39, in _
+    return func(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 235, in userinfo
+    return stopOrder(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 39, in _
+    return func(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 252, in stopOrder
+    ordr.auto.carModel.save(['usageCount'])
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "D:\Python 3\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python 3\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python 3\lib\site-packages\django\db\models\sql\compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Python 3\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
+2023-05-28 14:16:05,584 ERROR    Internal Server Error: /userinfo
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 39, in _
+    return func(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 235, in userinfo
+    return stopOrder(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 39, in _
+    return func(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 252, in stopOrder
+    ordr.auto.carModel.save(['usageCount'])
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "D:\Python 3\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python 3\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python 3\lib\site-packages\django\db\models\sql\compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Python 3\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
+2023-05-28 14:16:34,732 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:16:35,256 INFO     Watching for file changes with StatReloader
+2023-05-28 14:16:38,318 ERROR    Internal Server Error: /userinfo
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 39, in _
+    return func(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 235, in userinfo
+    return stopOrder(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 39, in _
+    return func(request)
+  File "D:\SCI2\SCI\lab4\mainapp\views.py", line 252, in stopOrder
+    ordr.auto.carModel.save(['usageCount'])
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "D:\Python 3\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "D:\Python 3\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python 3\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\Python 3\lib\site-packages\django\db\models\sql\compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Python 3\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Python 3\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Python 3\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
+2023-05-28 14:19:07,713 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:19:08,224 INFO     Watching for file changes with StatReloader
+2023-05-28 14:19:13,376 DEBUG    phone +375(29)6814885
+2023-05-28 14:19:16,914 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-28 14:19:17,435 INFO     Watching for file changes with StatReloader
+2023-05-28 14:47:11,143 INFO     somebody on the main page
+2023-05-28 14:47:11,150 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-28 14:47:12,210 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-28 14:47:12,219 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-28 14:47:12,811 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-28 14:47:22,243 INFO     somebody enter the staff page
+2023-05-28 14:47:30,795 INFO     somebody enter the staff page
+2023-05-28 14:47:30,803 DEBUG    phone +375(29)6814885
+2023-05-28 14:47:32,997 DEBUG    phone +375(29)6814885
+2023-05-28 14:47:37,179 DEBUG    phone +375(29)6814885
+2023-05-28 14:47:39,304 DEBUG    phone +375(29)6814885
+2023-05-28 14:48:01,327 INFO     somebody on the order page
+2023-05-28 14:48:10,810 INFO     somebody on the order page
+2023-05-29 12:34:49,391 INFO     Watching for file changes with StatReloader
+2023-05-29 12:34:53,588 INFO     somebody on the main page
+2023-05-29 12:34:53,595 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-29 12:34:57,771 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-29 12:34:57,775 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-29 12:35:01,868 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 13:07:40,100 INFO     Watching for file changes with StatReloader
+2023-05-30 13:07:46,603 DEBUG    Adding auto model by brand Mercedes
+2023-05-30 13:07:47,074 WARNING  Not Found: /favicon.ico
+2023-05-30 13:07:51,911 DEBUG    Adding auto model by brand Mercedes
+2023-05-30 13:07:55,759 DEBUG    Adding auto model by brand Mercedes
+2023-05-30 13:15:00,216 DEBUG    Adding auto model by brand Mercedes

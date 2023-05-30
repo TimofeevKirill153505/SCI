@@ -8,7 +8,7 @@ import pytest as p_t
 
 @p_t.fixture(autouse=True)
 def django_db_setup():
-    settings.configure()
+    # settings.configure()
     settings.DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'db.sqlite3',

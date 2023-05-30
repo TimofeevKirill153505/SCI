@@ -217,11 +217,12 @@ def userinfo(request:HttpRequest):
         i = request.GET.get('i')
         o = request.GET.get('o')
         phone = '+' + request.GET.get('phone')
-
+        log.log(DEBUG, f"phone {phone}")
         try:
             clt = ClientModel.objects.get(f=f, i=i, o=o, phone=phone)
         except ClientModel.DoesNotExist:
-            return HttpResponseRedirect("staff")
+            log.log(DEBUG, f"not existing user {f} {i} {o} {phone}")
+            return HttpResponseRedirect("searchuser")
 
         ordrs = OrderModel.objects.filter(client=clt)
         ordrsUnactive = ordrs.filter(isActive=False, dateEndFact=None)
@@ -241,14 +242,14 @@ def stopOrder(request:HttpRequest):
     o = pst.get('o')
     phone = pst.get('phone')
     # print(pst)
-    ordr = OrderModel.objects.get(id=pst.get('id'))
+    ordr = OrderModel.objects.get(id=int(pst.get('id')))
     ordr.isActive = False
 
     ordr.dateEndFact = datetime.datetime.now()
     ordr.auto.status = AutoModel.FREE
     ordr.auto.usageCount += 1
     ordr.auto.carModel.usageCount += 1
-    ordr.auto.carModel.save(['usageCount'])
+    ordr.auto.carModel.save(update_fields=['usageCount'])
     ordr.auto.save(update_fields=["status", 'usageCount'])
 
     ps = list()

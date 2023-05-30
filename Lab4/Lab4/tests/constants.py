@@ -7,6 +7,6 @@ BASE_VIEWS = [
 
 SPECIFIC_VIEWS = [
     'user',
-    'staff', 
-    'ordr'
+    'staff',
+    'order'
 ]
