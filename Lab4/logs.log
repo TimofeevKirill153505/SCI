@@ -724,3 +724,119 @@ django.db.utils.IntegrityError: UNIQUE constraint failed: mainapp_carmodel.id
 2023-05-30 13:07:51,911 DEBUG    Adding auto model by brand Mercedes
 2023-05-30 13:07:55,759 DEBUG    Adding auto model by brand Mercedes
 2023-05-30 13:15:00,216 DEBUG    Adding auto model by brand Mercedes
+2023-05-30 14:11:02,983 INFO     Watching for file changes with StatReloader
+2023-05-30 14:11:05,598 INFO     somebody on the main page
+2023-05-30 14:11:05,643 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 14:11:10,195 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 14:11:10,236 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 14:11:15,326 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 14:11:33,197 INFO     somebody on the main page
+2023-05-30 14:11:33,203 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 14:11:37,851 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 14:11:37,859 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 14:11:42,462 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 14:11:53,632 INFO     somebody on the main page
+2023-05-30 14:11:53,637 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 14:11:58,145 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 14:11:58,151 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 14:12:02,950 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 14:12:44,294 INFO     somebody on the main page
+2023-05-30 14:12:44,299 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 14:12:48,713 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 14:12:48,719 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 14:12:53,835 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 14:48:35,659 INFO     Watching for file changes with StatReloader
+2023-05-30 14:48:37,893 INFO     somebody on the main page
+2023-05-30 14:48:37,903 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 14:48:43,620 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 14:48:43,626 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 14:48:48,211 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 14:48:51,405 INFO     somebody on the main page
+2023-05-30 14:48:51,410 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 14:48:56,060 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 14:48:56,135 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 14:49:01,173 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:20:20,823 INFO     D:\SCI2\SCI\Lab4\mainapp\models.py changed, reloading.
+2023-05-30 15:20:21,883 INFO     Watching for file changes with StatReloader
+2023-05-30 15:20:37,401 INFO     D:\SCI2\SCI\Lab4\mainapp\models.py changed, reloading.
+2023-05-30 15:20:38,355 INFO     Watching for file changes with StatReloader
+2023-05-30 15:21:33,701 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.
+2023-05-30 15:21:34,781 INFO     Watching for file changes with StatReloader
+2023-05-30 15:24:25,192 INFO     D:\SCI2\SCI\Lab4\manage.py changed, reloading.
+2023-05-30 15:24:26,228 INFO     Watching for file changes with StatReloader
+2023-05-30 15:24:30,165 INFO     D:\SCI2\SCI\Lab4\mainapp\models.py changed, reloading.
+2023-05-30 15:24:31,464 INFO     Watching for file changes with StatReloader
+2023-05-30 15:31:51,211 INFO     Watching for file changes with StatReloader
+2023-05-30 15:31:54,589 INFO     somebody on the main page
+2023-05-30 15:31:54,597 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:31:58,045 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:31:58,050 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:32:01,671 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:32:39,476 INFO     somebody on the main page
+2023-05-30 15:32:39,482 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:32:42,909 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:32:42,917 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:32:46,524 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:36:40,434 INFO     new client created
+2023-05-30 15:37:03,941 INFO     somebody on the main page
+2023-05-30 15:37:03,946 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:37:08,163 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:37:08,176 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:37:11,916 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:38:08,152 INFO     somebody on the order page
+2023-05-30 15:38:51,719 INFO     somebody on the order page
+2023-05-30 15:38:51,750 INFO     somebody on the order page
+2023-05-30 15:39:05,869 INFO     somebody on the order page
+2023-05-30 15:39:05,887 INFO     somebody on the order page
+2023-05-30 15:39:20,552 INFO     somebody on the order page
+2023-05-30 15:39:38,012 INFO     somebody on the order page
+2023-05-30 15:39:48,538 INFO     somebody on the order page
+2023-05-30 15:39:48,561 INFO     somebody on the order page
+2023-05-30 15:40:06,078 INFO     somebody on the order page
+2023-05-30 15:40:30,888 INFO     somebody on the main page
+2023-05-30 15:40:30,893 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:40:35,037 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:40:35,041 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:40:38,749 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:45:43,363 INFO     somebody on the main page
+2023-05-30 15:45:43,367 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:45:47,609 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:45:47,615 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:45:51,291 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:46:13,750 INFO     somebody on the main page
+2023-05-30 15:46:13,756 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:46:18,015 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:46:18,021 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:46:21,602 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:46:41,831 INFO     somebody enter the staff page
+2023-05-30 15:47:17,675 INFO     somebody enter the staff page
+2023-05-30 15:47:17,691 DEBUG    phone +375(29)1234567
+2023-05-30 15:47:19,894 DEBUG    phone +375(29)1234567
+2023-05-30 15:48:23,691 DEBUG    phone +375(29)1234567
+2023-05-30 15:48:26,012 DEBUG    phone +375(29)1234567
+2023-05-30 15:48:35,385 INFO     somebody on the main page
+2023-05-30 15:48:35,391 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:48:39,370 INFO     somebody on the main page
+2023-05-30 15:48:39,377 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:48:39,465 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:48:39,471 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:48:40,455 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:48:40,463 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:48:43,016 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:48:43,018 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:48:55,158 INFO     somebody on the main page
+2023-05-30 15:48:55,164 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:48:59,385 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:48:59,391 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:49:02,987 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:49:24,557 INFO     somebody on the main page
+2023-05-30 15:49:24,562 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:49:28,791 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:49:28,798 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:49:32,341 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-30 15:49:43,047 INFO     somebody on the main page
+2023-05-30 15:49:43,053 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-05-30 15:49:47,223 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-05-30 15:49:47,230 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-05-30 15:49:50,803 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-05-31 15:15:34,468 INFO     D:\SCI2\SCI\Lab4\mainapp\views.py changed, reloading.

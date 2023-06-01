@@ -89,6 +89,7 @@ def index(request: HttpRequest):
 #                 request, 'Некорректный логин ИЛИ пароль. Проверьте введённые давнные.')
 #     return render(request, "login.html", {'form':form})
 
+@userpage
 def logout_out(request:HttpRequest):
     logout(request)
     return HttpResponseRedirect('main')

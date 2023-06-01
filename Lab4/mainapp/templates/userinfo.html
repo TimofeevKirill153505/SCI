@@ -4,7 +4,7 @@
 <h1>Кабинет сотрудника</h1>
 <p>Клиент: {{client}}</p>
 <h3>Список доступных скидок</h3>
-<select name="penalties" multiple="multiple" form="form{{o.id}}">
+<select name="discounts" multiple="multiple" form="form{{o.id}}">
     {%for d in discs%}
     <option> {{d}} </option>
 {%endfor%}

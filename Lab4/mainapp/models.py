@@ -14,6 +14,10 @@ def car_number_validator(numb:str)->bool:
         return True
     else:
         raise ValidationError("Введенный номер не подходит ни под один разрешенный формат")
+    
+def phone_number_validator(numb:str):
+    if not re.match(r'\+375\(\d\d\)\d{7}', numb):
+        raise ValidationError("Неправильный формат телефона (+375(XX)XXXXXXX)")
 
 class CarModel(models.Model):   
     SEDAN = "Седан"
@@ -112,7 +116,7 @@ class ClientModel(models.Model):
     o = models.CharField(max_length=30)
     id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=15, validators=[phone_number_validator])
     adress = models.CharField(max_length=100)
     discounts = models.ManyToManyField(DiscountModel, null=True, default=None, blank=True)
     def __str__(self):
