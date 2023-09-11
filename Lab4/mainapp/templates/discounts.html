@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Акции{% endblock title%}
+
+{% block content %}
+<h1>Акции и скидки</h1>
+<main>
+<section style="overflow: hidden;">
+    <h3>Акция <i>"Акция"</i> </h3>
+    <i>10.09.2023 - 16.12.2023</i>
+    <br/>   
+    <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
+    <article>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit elit eget nisi scelerisque, 
+        eget eleifend justo lobortis. Duis auctor nunc ac felis mollis, eget lobortis velit hendrerit. Orci varius natoque 
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mattis, diam vitae blandit rutrum, tortor 
+        urna tempus nulla, sagittis commodo dolor ligula sit amet sem.
+    </article>
+
+</section>
+<hr/>
+<section style="overflow: hidden;">
+    <h3>Купон <i>"Купон"</i></h3>
+    <i>11.09.2023 - 10.12.2023</i>
+    <br/>
+    <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
+    <article>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit elit eget nisi scelerisque, 
+        eget eleifend justo lobortis. Duis auctor nunc ac felis mollis, eget lobortis velit hendrerit. Orci varius natoque 
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mattis, diam vitae blandit rutrum, tortor 
+        urna tempus nulla, sagittis commodo dolor ligula sit amet sem.
+    </article>
+    <a href="main">Получить купон</a>
+</section>
+</main>
+{%endblock content%}

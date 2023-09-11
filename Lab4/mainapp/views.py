@@ -512,3 +512,27 @@ def editauto(request: HttpRequest):
     cars = [mod for mod in CarModel.objects.all() if mod.id != id]
     car = auto.carModel
     return render(request, "editauto.html", {'cars':cars, 'fail':fail, "car":car, "obj":auto, "id":id})
+
+def news(request:HttpRequest):
+    return render(request, "news.html")
+
+def reviews(request:HttpRequest):
+    return render(request, "reviews.html", {"title":'Отзывы'})
+
+def faq(request:HttpRequest):
+    return render(request, "faq.html", {"title":'FAQ'})
+
+def discounts(request:HttpRequest):
+    return render(request, "discounts.html", {"title":'Акции'})
+
+def politic(request:HttpRequest):
+    return render(request, "politic.html", {"title":'Политика конфиденциальности'})
+
+def contacts(request:HttpRequest):
+    return render(request, "contacts.html", {"title":'Контакты'})
+
+def about(request:HttpRequest):
+    return render(request, "placeholder.html", {"title":'О конторе'})
+
+def newspage(request:HttpRequest):
+    return render(request, "newspage.html")

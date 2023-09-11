@@ -45,5 +45,13 @@ urlpatterns = [
     path('modellist', views.modellist),
     path('delete', views.delete),
     path('autolist', views.autolist),
-    path('editauto', views.editauto)
+    path('editauto', views.editauto),
+    path('news', views.news),
+    path('reviews',views.reviews),
+    path('faq', views.faq),
+    path('discounts', views.discounts),
+    path('politic', views.politic),
+    path('contacts', views.contacts),
+    path('about', views.about),
+    path('newspage', views.newspage)
 ]

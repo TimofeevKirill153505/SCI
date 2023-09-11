@@ -1,0 +1,32 @@
+{%extends "base.html" %}
+{%load static%}
+{%block title%}Отзывы{% endblock title %}
+{%block content%}
+<h1>Отзывы</h1>
+<main>
+<hr/>
+<section style="overflow: hidden;">
+    <address>Пользователь оставивший отзыв</address>
+    <i>4/5</i>
+    <img src="{%static "anonym.jpg"%}" width=100px height=100px align="left">
+    <article>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit elit eget nisi scelerisque, 
+        eget eleifend justo lobortis. Duis auctor nunc ac felis mollis, eget lobortis velit hendrerit. Orci varius natoque 
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mattis, diam vitae blandit rutrum, tortor 
+        urna tempus nulla, sagittis commodo dolor ligula sit amet sem.
+    </article>
+</section>
+<hr/>
+<section style="overflow: hidden;">
+    <address>Пользователь оставивший второй отзыв</address>
+    <i>3/5</i>
+    <img src="{%static "anonym.jpg"%}" width=100px height=100px align="left">
+    <article>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit elit eget nisi scelerisque, 
+        eget eleifend justo lobortis. Duis auctor nunc ac felis mollis, eget lobortis velit hendrerit. Orci varius natoque 
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mattis, diam vitae blandit rutrum, tortor 
+        urna tempus nulla, sagittis commodo dolor ligula sit amet sem.
+    </article>
+</section>
+</main>
+{%endblock content%}

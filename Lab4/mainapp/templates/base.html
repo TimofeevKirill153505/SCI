@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="ru">
 
 <head>
     <title>{%block title%} {%endblock title%}</title>
     <meta charset="utf-8" />
-
+    <link rel="shortcut icon" href="{%static "icon.png"%}" type="image/png">
     <script>
         function updateDateTime()
         {
@@ -16,12 +16,25 @@
         }
         setInterval(updateDateTime, 1000);
     </script>
+    <style>
+        ol{
+            list-style: none;
+            counter-reset: li;
+        }
+
+        ol li:before {
+        counter-increment: li;
+        content: counters(li, ".") ". ";
+        }
+        
+    </style>
 
 </head>
 
 <body>
-    <p style="text-align:center;" id="current-datetime"></p>
-
+    <!--Table will be changed to grid in the next work-->
+    <header>
+    <nav>
     <table>
         <tr>
             <td>
@@ -30,6 +43,19 @@
             <td>
                 <a href="catalog">Каталог</a>
             </td>
+            <td>
+                <a href="news">Новости</a>
+            </td>
+            <td>
+                <a href="faq">FAQ</a>
+            </td>
+            <td>
+                <a href="reviews">Отзывы</a>
+            </td>
+            <td>
+                <a href="discounts">Акции</a>
+            </td>
+
             {%if request.user.is_staff%}
             <td>
                 <a href="diagram">Диаграмма</a>
@@ -41,6 +67,7 @@
                 <a href="staff">Кабинет сотрудника</a>
             </td>
             {%endif%}
+        
             {% if request.user.is_authenticated %}
             <td>
                 <a href="user">Личный кабинет</a>
@@ -59,9 +86,32 @@
 
         </tr>
     </table>
-    <hr />
+    </nav>
+    </header>
+    <hr/>
 
     {%block content%}{%endblock content%}
+    <hr/>
+    <footer>
+    <nav>
+        <table> 
+            <tr>
+                <td>
+                    <a href="politic">Политика конфиденциальности</a>
+                </td>
+                <td>
+                    <a href="contacts">Контакты</a>
+                </td>
+                <td>
+                    <a href="about">О конторе</a>
+                </td>
+                <td>
+                    <span style="text-align:center;" id="current-datetime"></span>
+                </td>
+            </tr>
+        </table>
+    </nav>
+    </footer>
 
 </body>
 
