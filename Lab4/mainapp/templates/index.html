@@ -4,10 +4,10 @@
 {%block content%}
 {%with src="хуй"%}
 <h1>Главная</h1>
-<img src="{%static "little_joke.jpg"%}" alt="Небольшая шутка" />
+<!--<img src="{%static "little_joke.jpg"%}" alt="Небольшая шутка" />
 <h2> {{setup}} </h2>
 <h3>{{punchline}}</h3>
-<h5>{{fact}}</h5>
+<h5>{{fact}}</h5> -->
 <img src="{%static "banner.jpg"%}" align="center" width=100% height=100%/>
 <h2>Последние новости</h2>
 <!--Change to grid-->
@@ -44,7 +44,26 @@
     <hr/>
     </table>
     <h2>Наши партнёры</h2>
-    
-
+    <table>
+    <tr>
+    <td>
+        <img src="{%static "BMW_logo.ico"%}"  width=200p height=200p alt="BMW logo"/>
+        <br/>
+        <center><a href="https://bmw.com">BMW</a></center>
+    </td>
+    <td>
+        <img src="{%static "volvo_logo.ico"%}" width=200p height=200p alt="Volvo logo"/>
+        <br/>
+        <center><a href="https://volvo.com">Volvo</a></center>
+    </td>
+    <td>
+        <img src="{%static "audi_logo.ico"%}" width=200p height=200p alt="Audi logo"/>
+        <br/>
+        <center><a href="https://audi.com">Audi</a></center>    
+    </td>
+    </tr>
+    <hr/>
+    </table>
+    <a href="main"> <img src="{%static "ad.png"%}" alt="ad banner" style="max-width:90%"/> </a>
 {%endwith%}
 {%endblock content%}

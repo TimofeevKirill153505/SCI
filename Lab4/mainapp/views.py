@@ -517,7 +517,16 @@ def news(request:HttpRequest):
     return render(request, "news.html")
 
 def reviews(request:HttpRequest):
-    return render(request, "reviews.html", {"title":'Отзывы'})
+    if request.method == "GET":
+        return render(request, "reviews.html", {"title":'Отзывы'})
+    else:
+        print(f'{request.POST["grade"]}/5')
+        print(request.POST["text"])
+        if request.user.is_authenticated:
+            return render(request, "reviews.html", {"title":'Отзывы'})
+        else:
+            return HttpResponseRedirect("login")
+
 
 def faq(request:HttpRequest):
     return render(request, "faq.html", {"title":'FAQ'})
@@ -532,7 +541,7 @@ def contacts(request:HttpRequest):
     return render(request, "contacts.html", {"title":'Контакты'})
 
 def about(request:HttpRequest):
-    return render(request, "placeholder.html", {"title":'О конторе'})
+    return render(request, "about.html", {"title":'О конторе'})
 
 def newspage(request:HttpRequest):
     return render(request, "newspage.html")
