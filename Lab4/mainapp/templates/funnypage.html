@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{%load static%}
+{%block title%} Страница ради страницы {% endblock title %}
+{%block content%}
+<h1>Страница ради страницы</h1>
+<h2>Таблица</h2>
+<table id="tabl" border=2>
+    <tr>
+    <th></th>
+    <th id="images">Картинки</th>
+    <th id="videos">Видео</th>
+    <th id="audios">Аудио</th>
+    <th id="downloads">Скачивание файлов</th>
+    </tr>
+    
+    <tr>
+        <th id="cars">Машины</th>
+        <td rowspan=2 headers="cats cars images"><img src="{%static "funnypage/cat_in_a_car.jpg"%}" width=100 height=100/></td>
+        <td headers="cars videos"><iframe src="https://www.youtube.com/embed/GkoSo97cJn4"></iframe></td>
+        <td headers="cars audios"><audio controls src="{%static "funnypage/bmw_sound.mp3"%}"></audio></td>
+        <td headers="cars downloads">123</td>
+    </tr>
+    <tr>
+        <th id="cats">Коты</th>
+        <td>123</td>
+        <td>123</td>
+        <td>123</td>
+    </tr>
+    <tr>
+        <th>Русская литература</th>
+        <td>123</td>
+        <td>123</td>
+        <td colspan=2><a download href="{%static "funnypage/idiot.mp3"%}"> фрагмент аудиокниги</a></td>
+    </tr>
+</table>
+<video src="{%static "funnypage/video.mp4"%}" controls></video>
+<br/>
+<a href="#tabl">Перейти к таблице</a>
+<h3>Листинг</h3>
+    <code>
+        <pre>
+def cancelOrder(request:HttpRequest):
+    if request.method == "GET":
+        gt = request.GET
+        f = gt.get('f')
+        i = gt.get('i')
+        o = gt.get('o')
+        phone = gt.get('phone')
+        # print(gt)
+        ordr = OrderModel.objects.get(id=gt.get('id'))
+        ordr.auto.status = AutoModel.FREE
+        ordr.auto.save(update_fields=["status"])
+        ordr.delete()
+        return HttpResponseRedirect(f"userinfo?f={f}&i={i}&o={o}&phone={phone}")
+        </pre>
+    </code>
+<h3>Сокращение</h3>
+<dfn><abbr title="Application Programming Interface">API</abbr></dfn> -- ляляля тополя
+<h3>Цитата</h3>
+<blockquote cite="https://lifedeeper.ru/pics/mayk-tajson-esli-chelovek-vstaet-posle-padeniya-eto-ne-fizika-eto-harakter/">
+    Если человек встает после падения — это не физика. Это характер
+</blockquote> 
+<cite>Джейсон Стетхем</cite>
+<h3> Время</h3>
+<time>21:59</time>
+<h3> Стихи </h3>
+<div>
+<pre style="font-family:arial;">
+Я помню чудное мгновенье:
+Передо мной явилась ты,
+Как мимолетное виденье,
+Как гений чистой красоты.
+
+В томленьях грусти безнадежной,
+В тревогах шумной суеты,
+Звучал мне долго голос нежный
+И снились милые черты.
+
+Шли годы. Бурь порыв мятежный
+Рассеял прежние мечты,
+И я забыл твой голос нежный,
+Твои небесные черты.
+
+В глуши, во мраке заточенья
+Тянулись тихо дни мои
+Без божества, без вдохновенья,
+Без слез, без жизни, без любви.
+
+Душе настало пробужденье:
+И вот опять явилась ты,
+Как мимолетное виденье,
+Как гений чистой красоты.
+
+И сердце бьется в упоенье,
+И для него воскресли вновь
+И божество, и вдохновенье,
+И жизнь, и слезы, и любовь.
+</pre>
+</div>
+<h3>Фигура</h3>
+<figure>
+    <img src="{%static "funnypage/python_logo.jpg"%}" width=250 height=250/>
+    <figcaption> Лого питона</figcaption>
+</figure>
+{%endblock content%}

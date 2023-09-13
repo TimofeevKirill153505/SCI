@@ -545,3 +545,6 @@ def about(request:HttpRequest):
 
 def newspage(request:HttpRequest):
     return render(request, "newspage.html")
+
+def funnypage(request:HttpRequest):
+    return render(request, "funnypage.html")

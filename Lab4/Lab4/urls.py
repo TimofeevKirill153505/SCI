@@ -53,5 +53,6 @@ urlpatterns = [
     path('politic', views.politic),
     path('contacts', views.contacts),
     path('about', views.about),
-    path('newspage', views.newspage)
+    path('newspage', views.newspage),
+    path("funnypage", views.funnypage)
 ]
