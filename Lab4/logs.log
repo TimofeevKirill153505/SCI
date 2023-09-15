@@ -2632,3 +2632,15 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 17: 's
 2023-09-13 15:28:08,594 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
 2023-09-13 15:28:08,598 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
 2023-09-13 15:28:09,351 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-09-15 10:34:29,106 INFO     Watching for file changes with StatReloader
+2023-09-15 10:34:36,519 INFO     somebody on the main page
+2023-09-15 10:34:36,546 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-09-15 10:34:38,647 INFO     somebody on the main page
+2023-09-15 10:34:38,651 DEBUG    Starting new HTTPS connection (1): official-joke-api.appspot.com:443
+2023-09-15 10:34:38,808 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-09-15 10:34:38,812 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-09-15 10:34:40,098 DEBUG    https://official-joke-api.appspot.com:443 "GET /random_joke HTTP/1.1" 200 None
+2023-09-15 10:34:40,100 DEBUG    Starting new HTTPS connection (1): catfact.ninja:443
+2023-09-15 10:34:44,317 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-09-15 10:34:44,318 DEBUG    https://catfact.ninja:443 "GET /fact HTTP/1.1" 200 None
+2023-09-15 10:39:55,270 INFO     Watching for file changes with StatReloader
