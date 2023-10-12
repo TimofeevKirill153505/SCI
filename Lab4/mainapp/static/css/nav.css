@@ -1,0 +1,41 @@
+.nav {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 2fr repeat(12, 1fr);
+    height: 3em;
+}
+
+.nav a {
+    text-decoration: none;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.nav a:visited {
+    color: white;
+}
+
+.nav .nav-header {
+    font-size: 2em;
+    text-align: center;
+}
+
+footer nav {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(70px, auto));
+
+}
+
+footer a {
+    color: black;
+    margin: 1em;
+}
+
+footer nav>span {
+    grid-column-start: 6;
+    grid-column-end: 7;
+    margin: 1em;
+}

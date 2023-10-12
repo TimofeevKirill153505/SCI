@@ -6,35 +6,23 @@
 <main>
     <!--Change to grid-->
     <table>
+    {%for pair in news%}
     <tr>
+    {%for new in pair%}
     <td>
     <section style="overflow: hidden;">
-        <h3>Новость</h3>
-        <address>Автор новости</address>
+        <h3>{{new.name}}</h3>
+        <address>{{new.author}}</address>
         <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
         <article>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit elit eget nisi scelerisque, 
-            eget eleifend justo lobortis. Duis auctor nunc ac felis mollis, eget lobortis velit hendrerit. Orci varius natoque 
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mattis, diam vitae blandit rutrum, tortor 
-            urna tempus nulla, sagittis commodo dolor ligula sit amet sem.
+            {{new.article}}
         </article>
-        <a href="newspage">Читать далее</a>
-    </section>
-    <td>
-    <section style="overflow: hidden;">
-        <h3>Новость</h3>
-        <address>Автор новости</address>
-        <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
-        <article>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit elit eget nisi scelerisque, 
-            eget eleifend justo lobortis. Duis auctor nunc ac felis mollis, eget lobortis velit hendrerit. Orci varius natoque 
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mattis, diam vitae blandit rutrum, tortor 
-            urna tempus nulla, sagittis commodo dolor ligula sit amet sem.
-        </article>
-        <a href="newspage">Читать далее</a>
-    </section>
+        <a href="newspage?id={{new.id}}">Читать далее</a>
     </td>
+    </section>
+    {%endfor%}
     </tr>
+    {%endfor%}
     <hr/>
     </table>
 </main>

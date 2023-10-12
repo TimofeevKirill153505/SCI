@@ -6,6 +6,10 @@
     <title>{%block title%} {%endblock title%}</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="{%static "icon.png"%}" type="image/png">
+    <link rel="stylesheet" href="{%static "css/nav.css"%}"/>
+    <link rel="stylesheet" href="{%static "css/globals.css"%}"/>
+    <link rel="stylesheet" href="{%static "css/newsstyles.css"%}"/>
+    <link rel="stylesheet" href="{%static "css/partners.css"%}"/>
     <script>
         function updateDateTime()
         {
@@ -34,86 +38,58 @@
 <body>
     <!--Table will be changed to grid in the next work-->
     <header>
-    <nav>
-    <table>
-        <tr>
-            <td>
-                <a href="main">Главная</a>
-            </td>
-            <td>
-                <a href="catalog">Каталог</a>
-            </td>
-            <td>
-                <a href="news">Новости</a>
-            </td>
-            <td>
-                <a href="faq">FAQ</a>
-            </td>
-            <td>
-                <a href="reviews">Отзывы</a>
-            </td>
-            <td>
-                <a href="discounts">Акции</a>
-            </td>
-
-            <td>
-                <a href="funnypage">funnypage</a>
-            </td>
-
-            {%if request.user.is_staff%}
-            <td>
-                <a href="diagram">Диаграмма</a>
-            </td>
-            <td>
-                <a href="statistics">Статистика</a>
-            </td>
-            <td>
-                <a href="staff">Кабинет сотрудника</a>
-            </td>
-            {%endif%}
+    <nav class="nav">
+        <a href="main" class="nav-header">Контора</a>
         
-            {% if request.user.is_authenticated %}
-            <td>
-                <a href="user">Личный кабинет</a>
-            </td>
-            <td>
-                <a href="logout">Выход</a>
-            </td>
-            {%else%}
-            <td>
-                <a href="login">Вход</a>
-            </td>
-            <td>
-                <a href="registration">Регистрация</a>
-            </td>
-            {%endif%}
+        <a href="main">Главная</a>
 
-        </tr>
-    </table>
+        <a href="catalog">Каталог</a>
+
+        <a href="news">Новости</a>
+
+        <a href="faq">FAQ</a>
+
+        <a href="reviews">Отзывы</a>
+
+        <a href="discounts">Акции</a>
+
+        <a href="funnypage">funnypage</a>
+
+
+        {%if request.user.is_staff%}
+
+        <a href="diagram">Диаграмма</a>
+
+        <a href="statistics">Статистика</a>
+
+        <a href="staff">Кабинет сотрудника</a>
+
+        {%endif%}
+        
+        {% if request.user.is_authenticated %}
+        <a href="user">Личный кабинет</a>
+
+        <a href="logout">Выход</a>
+        {%else%}
+        <a href="login">Вход</a>
+
+        <a href="registration">Регистрация</a>
+        {%endif%}
     </nav>
     </header>
-    <hr/>
 
     {%block content%}{%endblock content%}
     <hr/>
     <footer>
     <nav>
-        <table> 
-            <tr>
-                <td>
-                    <a href="politic">Политика конфиденциальности</a>
-                </td>
-                <td>
-                    <a href="contacts">Контакты</a>
-                </td>
-                <td>
-                    <a href="about">О конторе</a>
-                </td>
-                <td>
-                    <span style="text-align:center;" id="current-datetime"></span>
-                </td>
-            </tr>
-        </table>
+            
+        <a href="politic">Политика конфиденциальности</a>
+                
+        <a href="contacts">Контакты</a>
+
+        <a href="about">О конторе</a>
+                
+        <span grid-column-start=5 grid-column-end=6 style="text-align:center;" id="current-datetime"></span>
     </nav>
     </footer>
 

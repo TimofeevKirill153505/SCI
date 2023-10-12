@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 import json
 from requests import get
 import django.http.request as req
-from .models import CarModel, ClientModel, AutoModel, OrderModel, DiscountModel, PenaltyModel
+from .models import CarModel, ClientModel, AutoModel, OrderModel, DiscountModel, PenaltyModel, NewsModel, ReviewModel
 from .forms import RegistrationForm, OrderForm
 from .forms import User
 from django.contrib.auth import authenticate, login, logout
@@ -50,14 +50,17 @@ def userpage(func):
 def index(request: HttpRequest):
     log.log(INFO, "somebody on the main page")
     if request.method == "GET":
-        resp = get("https://official-joke-api.appspot.com/random_joke")
-        joke = json.loads(resp.text)
-        fact = json.loads(get("https://catfact.ninja/fact").text)['fact']
+       # resp = get("https://official-joke-api.appspot.com/random_joke")
+       # joke = json.loads(resp.text)
+        # fact = json.loads(get("https://catfact.ninja/fact").text)['fact']
+
+        latest = NewsModel.objects.latest("time")
+        second = NewsModel.objects.exclude(id=latest.id).latest("time")
 
         return render(
             request,
             "index.html",
-            {"setup": joke["setup"], "punchline": joke["punchline"], "fact":fact},
+            {"news":[latest,second]}
         )
 
 
@@ -514,16 +517,34 @@ def editauto(request: HttpRequest):
     return render(request, "editauto.html", {'cars':cars, 'fail':fail, "car":car, "obj":auto, "id":id})
 
 def news(request:HttpRequest):
-    return render(request, "news.html")
+    lst = []
+    tmp_list = list()
+    i = 0
+    for new in NewsModel.objects.all():
+            if i % 2 == 0 and i != 0:
+                lst.append(tmp_list)
+                tmp_list = list()
+
+            tmp_list.append(new)
+            i += 1
+
+    if tmp_list:
+        lst.append(tmp_list)
+
+
+    return render(request, "news.html", {"news": lst})
 
 def reviews(request:HttpRequest):
     if request.method == "GET":
-        return render(request, "reviews.html", {"title":'Отзывы'})
+        return render(request, "reviews.html", {"title":'Отзывы', "reviews":ReviewModel.objects.all()})
     else:
-        print(f'{request.POST["grade"]}/5')
-        print(request.POST["text"])
+        # print(f'{request.POST["grade"]}/5')
+        # print(request.POST["text"])
         if request.user.is_authenticated:
-            return render(request, "reviews.html", {"title":'Отзывы'})
+            usr = ClientModel.objects.get(user=request.user)
+            review = ReviewModel(user=usr, text=request.POST["text"], grade=int(request.POST["grade"]))
+            review.save()
+            return render(request, "reviews.html", {"title":'Отзывы', "reviews":ReviewModel.objects.all()})
         else:
             return HttpResponseRedirect("login")
 
@@ -544,7 +565,9 @@ def about(request:HttpRequest):
     return render(request, "about.html", {"title":'О конторе'})
 
 def newspage(request:HttpRequest):
-    return render(request, "newspage.html")
+    id = request.GET['id']
+    new = NewsModel.objects.get(id=id)
+    return render(request, "newspage.html", {'new':new})
 
 def funnypage(request:HttpRequest):
     return render(request, "funnypage.html")

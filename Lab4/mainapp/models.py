@@ -19,6 +19,13 @@ def phone_number_validator(numb:str):
     if not re.match(r'\+375\(\d\d\)\d{7}', numb):
         raise ValidationError("Неправильный формат телефона (+375(XX)XXXXXXX)")
 
+class NewsModel(models.Model):
+    text = models.TextField()
+    article = models.TextField(max_length=400)
+    author = models.CharField(max_length=30)
+    name = models.CharField(max_length=50)
+    time = models.DateTimeField(default=datetime.datetime.now)
+
 class CarModel(models.Model):   
     SEDAN = "Седан"
     CROSS = "Кроссовер"
@@ -162,3 +169,7 @@ class OrderModel(models.Model):
         self.price = (hours * self.auto.carModel.price) * (1 + percent/100)
         # print(self.price)
         
+class ReviewModel(models.Model):
+    text = models.TextField()
+    user = models.ForeignKey(ClientModel, models.PROTECT)
+    grade = models.IntegerField()
