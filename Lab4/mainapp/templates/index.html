@@ -2,25 +2,31 @@
 {% load static %}
 {%block title%} Главная {% endblock title %}
 {%block content%}
-{%with src="хуй"%}
 <h1>Главная</h1>
 <!--<img src="{%static "little_joke.jpg"%}" alt="Небольшая шутка" />
 <h2> {{setup}} </h2>
 <h3>{{punchline}}</h3>
 <h5>{{fact}}</h5> -->
-<img src="{%static "banner.jpg"%}" align="center" width=100% height=100%/>
+<div class="banner">
+    <img src="{%static "banner.jpg"%}" class="img1"/>
+    <img src="{%static "banner2.jpg"%}" class="img2"/>
+</div>
 <h2>Последние новости</h2>
 <!--Change to grid-->
 <div class="recent-news">
     {%for new in news%}
-    <section>
+    <section class="news-cell">
         <h3>{{new.name}}</h3>
         <address>{{new.author}}</address>
-        <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
-        <article>
-            {{new.article}}
-        </article>
-        <a href="newspage?id={{new.id}}">Читать далее</a>
+        <div class="main-section">
+            <img src="{%static "newspaper.jpg"%}" alt="news picture"/>
+            <div>
+                <article>
+                    {{new.article}}
+                </article>
+                <a href="newspage?id={{new.id}}">Читать далее</a>
+            </div>
+        </div>
     </section>
     {%endfor%}
 </div>
@@ -44,6 +50,21 @@
         </div>
     </div>
 
+    <div class="last-news">
+    <section class="news-cell">
+        <h3>{{news.0.name}}</h3>
+        <address>{{news.0.author}}</address>
+        <div class="main-section">
+            <img src="{%static "newspaper.jpg"%}" alt="news picture"/>
+            <div>
+                <article>
+                    {{news.0.article}}
+                </article>
+                <a href="newspage?id={{news.0.id}}">Читать далее</a>
+            </div>
+        </div>
+    </section>
+</div>
+
     <a href="main"> <img src="{%static "ad.png"%}" alt="ad banner" style="max-width:90%"/> </a>
-{%endwith%}
 {%endblock content%}

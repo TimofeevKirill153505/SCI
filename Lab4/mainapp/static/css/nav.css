@@ -1,10 +1,21 @@
+header.sticky-bar {
+    position: sticky;
+    top: 1em;
+    z-index: 19;
+}
+
 .nav {
     background-color: black;
     color: white;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 2fr repeat(12, 1fr);
-    height: 3em;
+    grid-template-columns: 12em repeat(auto-fill, 6em);
+    grid-auto-rows: 3em;
+    min-height: 3em;
+    top: 1em;
+    width: 99%;
+    z-index: 20;
+
 }
 
 .nav a {

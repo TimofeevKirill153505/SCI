@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{%static "css/globals.css"%}"/>
     <link rel="stylesheet" href="{%static "css/newsstyles.css"%}"/>
     <link rel="stylesheet" href="{%static "css/partners.css"%}"/>
+    <link rel="stylesheet" href="{%static "css/banner.css"%}"/>
+    <link rel="stylesheet" href="{%static "css/about.css"%}"/>
     <script>
         function updateDateTime()
         {
@@ -37,7 +39,7 @@
 
 <body>
     <!--Table will be changed to grid in the next work-->
-    <header>
+    <header class="sticky-bar">
     <nav class="nav">
         <a href="main" class="nav-header">Контора</a>
         
@@ -64,6 +66,7 @@
 
         <a href="staff">Кабинет сотрудника</a>
 
+        <a href="admin">Admin</a>
         {%endif%}
         
         {% if request.user.is_authenticated %}

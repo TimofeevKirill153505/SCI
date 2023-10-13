@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'MegaFont';
+    src: url('../fonts/PinyonScript-Regular.ttf');
+}
+
+@keyframes anim {
+    0% {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: 1s;
+    }
+
+    20% {
+        transform: matrix(1.2, 0.2, -1, 0.9, 0, 20);
+        transition: 1s;
+    }
+
+    40% {
+        transform: matrix(0.4, 0, 0.5, 1.2, 60, 10);
+        transition: 1s;
+    }
+
+    60% {
+        transform: matrix(0, 1, 1, 0, 0, 0);
+        transition: 1s;
+    }
+
+    800% {
+        transform: matrix(0.1, 1, -0.3, 1, 0, 0);
+        transition: 1s;
+    }
+
+    100% {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: 1s;
+    }
+
+}
+
+img.logo {
+    width: 20%;
+    height: 20%;
+    animation: anim 6s infinite;
+}
+
+.sertificate {
+    text-align: center;
+    width: 50em;
+    height: 70em;
+    border: 50px solid;
+    -moz-border-image: url(../border.png) 300 round round;
+    -webkit-border-image: url(../border.png) 300 round round;
+    -o-border-image: url(../border.png) 300 round round;
+    border-image: url(../border.png) 300 round round;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-image: url(../coolcar4.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-blend-mode: color;
+}
+
+.sertificate .org {
+    margin: 3em 1em 3em 1em;
+    text-align: center;
+    font-family: "MegaFont";
+    font-size: 30px;
+    word-spacing: 10px;
+    color: blue;
+}
+
+.sertificate h2.urod {
+    font-family: 'Brush Script MT';
+    margin: 5em;
+}
+
+.sertificate .cert {
+    margin-top: 3em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    background-image: url(../fffire.jpg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 3em;
+}
+
+.sertificate .info {
+    text-decoration: underline dotted;
+}

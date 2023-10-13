@@ -1,14 +1,18 @@
 .partners-cont {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-
+    grid-template-columns: repeat(auto-fill, 30em);
+    grid-auto-rows: 30em;
     text-align: center;
-    background-color: rgb(0, 0, 0, 0.2);
-    background-blend-mode: color;
+    height: min-content;
 }
 
-.wrapper {}
+.wrapper {
+    overflow: hidden;
+    width: 30em;
+    height: 30em;
+    border-radius: 15em;
+    box-shadow: 5px 5px black;
+}
 
 .partner {
     width: 100%;
@@ -18,7 +22,7 @@
     position: relative;
     display: inline-block;
     background-blend-mode: color;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: rgb(0, 0, 0, 0.4);
     color: white;
     text-align: center;
     text-decoration: none;

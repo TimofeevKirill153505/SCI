@@ -1,0 +1,91 @@
+@keyframes banner-animation {
+    0% {
+        left: 0%;
+    }
+
+    39% {
+        left: 0%;
+    }
+
+    51% {
+        left: -100%;
+    }
+
+
+    89% {
+        left: -100%;
+        z-index: -1;
+    }
+
+    90% {
+        left: 100%;
+        z-index: -1;
+    }
+
+    100% {
+        left: 0%;
+        z-index: 1;
+    }
+
+}
+
+div.banner {
+    overflow: hidden;
+    width: 90em;
+    height: 20em;
+}
+
+div.banner>img {
+    width: 90em;
+    height: 20em;
+}
+
+div.banner .img1 {
+    position: absolute;
+    width: 90em;
+    height: 20em;
+    overflow: hidden;
+    z-index: 1;
+    animation: banner-animation 13s ease infinite;
+}
+
+@keyframes second-banner-animation {
+
+    0% {
+        left: 100%
+    }
+
+    39% {
+        left: 100%;
+    }
+
+    51% {
+        left: 0%;
+    }
+
+    89% {
+        left: 0%;
+    }
+
+
+    99% {
+        left: -100%;
+        z-index: 0;
+    }
+
+    100% {
+        left: 100%;
+        z-index: 0;
+    }
+}
+
+div.banner .img2 {
+    overflow: hidden;
+    position: relative;
+    width: 90em;
+    height: 20em;
+    z-index: 2;
+    left: 100%;
+    animation: second-banner-animation 13s ease infinite;
+
+}

@@ -3873,3 +3873,779 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='official-joke-api
 2023-10-12 13:05:02,404 INFO     somebody on the main page
 2023-10-12 13:05:10,859 INFO     somebody on the main page
 2023-10-12 13:05:15,794 INFO     somebody on the main page
+2023-10-12 13:06:50,669 INFO     Watching for file changes with StatReloader
+2023-10-12 13:06:55,793 INFO     somebody on the main page
+2023-10-12 13:07:22,697 INFO     somebody on the main page
+2023-10-12 13:07:23,531 INFO     somebody on the main page
+2023-10-12 13:08:38,353 INFO     somebody on the main page
+2023-10-12 13:08:39,738 INFO     somebody on the main page
+2023-10-12 13:08:54,482 INFO     somebody on the main page
+2023-10-12 13:09:13,288 INFO     somebody on the main page
+2023-10-12 13:09:44,591 INFO     somebody on the main page
+2023-10-12 13:09:58,071 INFO     somebody on the main page
+2023-10-12 13:10:08,933 INFO     somebody on the main page
+2023-10-12 13:25:06,350 INFO     somebody on the main page
+2023-10-12 13:25:16,371 INFO     somebody on the main page
+2023-10-12 13:25:23,483 INFO     somebody on the main page
+2023-10-12 13:26:02,730 INFO     somebody on the main page
+2023-10-12 13:26:51,658 INFO     somebody on the main page
+2023-10-12 13:27:10,356 INFO     somebody on the main page
+2023-10-12 13:27:17,631 INFO     somebody on the main page
+2023-10-12 13:27:26,740 INFO     somebody on the main page
+2023-10-12 13:27:42,674 INFO     somebody on the main page
+2023-10-12 13:28:02,526 INFO     somebody on the main page
+2023-10-12 13:28:12,766 INFO     somebody on the main page
+2023-10-12 13:28:47,306 INFO     somebody on the main page
+2023-10-12 13:29:03,631 INFO     somebody on the main page
+2023-10-12 13:29:26,537 INFO     somebody on the main page
+2023-10-12 13:33:40,493 INFO     somebody on the main page
+2023-10-12 13:33:59,271 INFO     somebody on the main page
+2023-10-12 13:34:08,696 INFO     somebody on the main page
+2023-10-12 13:34:24,143 INFO     somebody on the main page
+2023-10-12 13:34:56,883 INFO     somebody on the main page
+2023-10-12 13:35:10,876 INFO     somebody on the main page
+2023-10-12 13:35:35,305 INFO     somebody on the main page
+2023-10-12 13:36:27,088 INFO     somebody on the main page
+2023-10-12 13:36:45,510 INFO     somebody on the main page
+2023-10-12 13:37:13,063 INFO     somebody on the main page
+2023-10-12 13:37:57,709 INFO     somebody on the main page
+2023-10-12 13:38:48,972 INFO     somebody on the main page
+2023-10-12 13:38:55,630 INFO     somebody on the main page
+2023-10-12 13:39:06,649 INFO     somebody on the main page
+2023-10-12 13:39:12,489 INFO     somebody on the main page
+2023-10-12 13:40:39,743 INFO     somebody on the main page
+2023-10-12 13:41:14,854 INFO     somebody on the main page
+2023-10-12 13:41:23,056 INFO     somebody on the main page
+2023-10-12 13:41:43,708 INFO     somebody on the main page
+2023-10-12 13:42:27,395 INFO     somebody on the main page
+2023-10-12 13:42:52,595 INFO     somebody on the main page
+2023-10-12 13:59:28,353 INFO     somebody on the main page
+2023-10-12 13:59:29,397 INFO     somebody on the main page
+2023-10-12 13:59:41,929 INFO     somebody on the main page
+2023-10-12 13:59:42,716 INFO     somebody on the main page
+2023-10-12 13:59:56,466 INFO     somebody on the main page
+2023-10-12 13:59:57,367 INFO     somebody on the main page
+2023-10-12 14:00:15,294 INFO     somebody on the main page
+2023-10-12 14:00:16,290 INFO     somebody on the main page
+2023-10-12 14:00:40,442 INFO     somebody on the main page
+2023-10-12 14:00:46,577 INFO     somebody on the main page
+2023-10-12 14:00:47,396 INFO     somebody on the main page
+2023-10-12 14:01:24,804 INFO     somebody on the main page
+2023-10-12 14:02:13,272 INFO     somebody on the main page
+2023-10-12 14:03:04,419 INFO     somebody on the main page
+2023-10-12 14:03:12,552 INFO     somebody on the main page
+2023-10-12 14:04:00,331 INFO     somebody on the main page
+2023-10-12 14:06:16,928 INFO     somebody on the main page
+2023-10-12 14:06:59,053 INFO     somebody on the main page
+2023-10-12 14:07:13,911 INFO     somebody on the main page
+2023-10-12 14:17:05,530 INFO     somebody on the main page
+2023-10-12 14:18:34,352 INFO     somebody on the main page
+2023-10-12 14:19:25,199 INFO     somebody on the main page
+2023-10-12 14:21:09,625 INFO     somebody on the main page
+2023-10-12 14:21:47,404 INFO     somebody on the main page
+2023-10-12 14:22:16,200 INFO     somebody on the main page
+2023-10-12 14:23:06,434 INFO     somebody on the main page
+2023-10-12 14:24:42,286 INFO     somebody on the main page
+2023-10-12 14:28:46,368 INFO     somebody on the main page
+2023-10-12 14:29:05,614 INFO     somebody on the main page
+2023-10-12 14:29:27,017 INFO     somebody on the main page
+2023-10-12 14:30:07,632 INFO     somebody on the main page
+2023-10-12 14:30:20,924 INFO     somebody on the main page
+2023-10-12 17:38:32,380 INFO     somebody on the main page
+2023-10-12 17:39:45,157 INFO     somebody on the main page
+2023-10-12 17:43:40,625 WARNING  Not Found: /favicon.ico
+2023-10-12 17:44:54,353 INFO     somebody on the main page
+2023-10-12 17:46:31,725 INFO     somebody on the main page
+2023-10-12 17:47:35,608 INFO     somebody on the main page
+2023-10-12 17:49:40,773 INFO     somebody on the main page
+2023-10-12 17:50:20,232 INFO     somebody on the main page
+2023-10-12 17:50:30,640 INFO     somebody on the main page
+2023-10-12 17:50:50,141 INFO     somebody on the main page
+2023-10-12 17:52:30,841 INFO     somebody on the main page
+2023-10-12 17:59:11,675 INFO     somebody on the main page
+2023-10-12 17:59:23,296 INFO     somebody on the main page
+2023-10-12 18:00:12,717 INFO     somebody on the main page
+2023-10-12 18:01:42,189 INFO     somebody on the main page
+2023-10-12 18:05:08,453 INFO     somebody on the main page
+2023-10-12 18:18:35,583 INFO     somebody on the main page
+2023-10-12 18:18:49,282 INFO     somebody on the main page
+2023-10-12 18:19:06,378 INFO     somebody on the main page
+2023-10-12 18:19:18,958 INFO     somebody on the main page
+2023-10-12 18:20:00,404 INFO     somebody on the main page
+2023-10-12 18:20:10,613 INFO     somebody on the main page
+2023-10-12 18:20:41,078 INFO     somebody on the main page
+2023-10-12 18:20:55,729 INFO     somebody on the main page
+2023-10-12 18:22:31,416 INFO     somebody on the main page
+2023-10-12 18:22:39,643 INFO     somebody on the main page
+2023-10-12 18:22:48,015 INFO     somebody on the main page
+2023-10-12 18:22:53,221 INFO     somebody on the main page
+2023-10-12 18:26:37,149 INFO     somebody on the main page
+2023-10-12 18:30:50,690 INFO     somebody on the main page
+2023-10-12 18:33:05,358 INFO     somebody on the main page
+2023-10-12 18:33:31,371 INFO     somebody on the main page
+2023-10-12 18:33:44,223 INFO     somebody on the main page
+2023-10-12 18:33:50,680 INFO     somebody on the main page
+2023-10-12 18:34:08,104 INFO     somebody on the main page
+2023-10-12 18:34:25,973 INFO     somebody on the main page
+2023-10-12 18:35:06,245 INFO     somebody on the main page
+2023-10-12 18:35:21,679 INFO     somebody on the main page
+2023-10-12 18:35:30,878 INFO     somebody on the main page
+2023-10-12 18:36:03,875 INFO     somebody on the main page
+2023-10-12 18:37:33,926 INFO     somebody on the main page
+2023-10-12 18:45:55,936 INFO     somebody on the main page
+2023-10-12 18:46:06,229 INFO     somebody on the main page
+2023-10-12 18:46:11,373 INFO     somebody on the main page
+2023-10-12 18:47:02,946 INFO     somebody on the main page
+2023-10-12 18:47:09,659 INFO     somebody on the main page
+2023-10-12 18:47:26,938 INFO     somebody on the main page
+2023-10-12 18:47:48,716 INFO     somebody on the main page
+2023-10-12 18:49:44,386 INFO     somebody on the main page
+2023-10-12 18:51:42,724 INFO     somebody on the main page
+2023-10-12 18:51:55,377 INFO     somebody on the main page
+2023-10-12 18:52:57,035 INFO     somebody on the main page
+2023-10-12 18:53:08,528 INFO     somebody on the main page
+2023-10-12 18:54:34,678 INFO     somebody on the main page
+2023-10-12 18:55:15,151 INFO     somebody on the main page
+2023-10-12 18:55:27,542 INFO     somebody on the main page
+2023-10-12 18:57:26,286 INFO     somebody on the main page
+2023-10-12 18:57:43,561 INFO     somebody on the main page
+2023-10-12 18:58:17,917 INFO     somebody on the main page
+2023-10-12 18:58:47,114 INFO     somebody on the main page
+2023-10-12 18:59:10,435 INFO     somebody on the main page
+2023-10-12 18:59:38,493 INFO     somebody on the main page
+2023-10-12 18:59:39,157 INFO     somebody on the main page
+2023-10-12 18:59:39,481 INFO     somebody on the main page
+2023-10-12 18:59:46,149 INFO     somebody on the main page
+2023-10-12 19:00:21,925 INFO     somebody on the main page
+2023-10-12 19:03:26,004 INFO     somebody on the main page
+2023-10-12 19:04:08,076 INFO     somebody on the main page
+2023-10-12 19:05:12,909 INFO     somebody on the main page
+2023-10-12 19:07:26,164 INFO     somebody on the main page
+2023-10-12 19:07:41,553 INFO     somebody on the main page
+2023-10-12 19:07:54,111 INFO     somebody on the main page
+2023-10-12 19:08:18,176 INFO     somebody on the main page
+2023-10-12 19:08:25,487 INFO     somebody on the main page
+2023-10-12 19:09:45,241 INFO     somebody on the main page
+2023-10-12 19:10:02,005 INFO     somebody on the main page
+2023-10-12 19:10:05,316 INFO     somebody on the main page
+2023-10-12 19:10:45,722 INFO     somebody on the main page
+2023-10-12 19:11:07,698 INFO     somebody on the main page
+2023-10-12 19:11:49,771 INFO     somebody on the main page
+2023-10-12 19:11:57,492 INFO     somebody on the main page
+2023-10-12 19:16:53,205 INFO     somebody on the main page
+2023-10-12 19:17:47,604 INFO     somebody on the main page
+2023-10-12 19:19:00,713 INFO     somebody on the main page
+2023-10-12 19:20:07,566 INFO     somebody on the main page
+2023-10-12 19:20:08,689 INFO     somebody on the main page
+2023-10-12 19:20:21,899 INFO     somebody on the main page
+2023-10-12 19:20:56,888 INFO     somebody on the main page
+2023-10-12 19:21:02,657 INFO     somebody on the main page
+2023-10-12 19:21:37,528 INFO     somebody on the main page
+2023-10-12 19:21:46,873 INFO     somebody on the main page
+2023-10-12 19:23:15,443 INFO     somebody on the main page
+2023-10-12 19:23:15,841 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endwith'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 49: 'endwith', expected 'endblock'. Did you forget to register or load this tag?
+2023-10-12 19:23:16,222 INFO     somebody on the main page
+2023-10-12 19:23:16,390 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endwith'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 49: 'endwith', expected 'endblock'. Did you forget to register or load this tag?
+2023-10-12 19:23:23,426 INFO     somebody on the main page
+2023-10-12 19:23:23,590 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endwith'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 49: 'endwith', expected 'endblock'. Did you forget to register or load this tag?
+2023-10-12 19:23:43,381 INFO     somebody on the main page
+2023-10-12 19:24:12,806 INFO     somebody on the main page
+2023-10-12 19:25:37,481 INFO     somebody on the main page
+2023-10-12 19:25:40,417 INFO     somebody on the main page
+2023-10-12 19:25:49,414 INFO     somebody on the main page
+2023-10-12 19:26:04,397 INFO     somebody on the main page
+2023-10-12 19:26:09,735 INFO     somebody on the main page
+2023-10-12 19:26:10,711 INFO     somebody on the main page
+2023-10-12 19:26:24,161 INFO     somebody on the main page
+2023-10-12 19:26:38,662 INFO     somebody on the main page
+2023-10-12 19:26:45,609 INFO     somebody on the main page
+2023-10-12 19:26:50,211 INFO     somebody on the main page
+2023-10-12 19:26:57,575 INFO     somebody on the main page
+2023-10-12 19:27:02,399 INFO     somebody on the main page
+2023-10-12 19:27:03,338 INFO     somebody on the main page
+2023-10-12 19:27:11,903 INFO     somebody on the main page
+2023-10-12 23:47:19,495 INFO     somebody on the main page
+2023-10-12 23:47:19,702 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'static"banner2.jpg"'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 11: 'static"banner2.jpg"', expected 'endblock'. Did you forget to register or load this tag?
+2023-10-12 23:47:27,315 INFO     somebody on the main page
+2023-10-12 23:47:49,396 INFO     somebody on the main page
+2023-10-12 23:48:13,609 INFO     somebody on the main page
+2023-10-12 23:49:15,422 INFO     somebody on the main page
+2023-10-12 23:50:48,239 INFO     somebody on the main page
+2023-10-12 23:51:40,938 INFO     somebody on the main page
+2023-10-12 23:51:51,594 INFO     somebody on the main page
+2023-10-12 23:52:26,403 INFO     somebody on the main page
+2023-10-12 23:52:34,571 INFO     somebody on the main page
+2023-10-12 23:52:42,714 INFO     somebody on the main page
+2023-10-12 23:52:47,763 INFO     somebody on the main page
+2023-10-12 23:53:02,885 INFO     somebody on the main page
+2023-10-12 23:53:19,116 INFO     somebody on the main page
+2023-10-12 23:53:46,861 INFO     somebody on the main page
+2023-10-12 23:53:52,062 INFO     somebody on the main page
+2023-10-12 23:53:55,977 INFO     somebody on the main page
+2023-10-12 23:55:30,604 INFO     somebody on the main page
+2023-10-12 23:55:50,124 INFO     somebody on the main page
+2023-10-12 23:56:10,881 INFO     somebody on the main page
+2023-10-12 23:56:16,753 INFO     somebody on the main page
+2023-10-12 23:56:21,962 INFO     somebody on the main page
+2023-10-12 23:56:27,986 INFO     somebody on the main page
+2023-10-12 23:56:32,477 INFO     somebody on the main page
+2023-10-12 23:56:40,167 INFO     somebody on the main page
+2023-10-12 23:56:51,950 INFO     somebody on the main page
+2023-10-12 23:57:18,191 INFO     somebody on the main page
+2023-10-12 23:57:34,869 INFO     somebody on the main page
+2023-10-12 23:57:54,120 INFO     somebody on the main page
+2023-10-12 23:57:59,918 INFO     somebody on the main page
+2023-10-12 23:58:11,277 INFO     somebody on the main page
+2023-10-12 23:58:23,595 INFO     somebody on the main page
+2023-10-12 23:58:48,416 INFO     somebody on the main page
+2023-10-12 23:59:11,087 INFO     somebody on the main page
+2023-10-12 23:59:18,874 INFO     somebody on the main page
+2023-10-13 00:00:03,292 INFO     somebody on the main page
+2023-10-13 00:13:39,653 INFO     somebody on the main page
+2023-10-13 00:13:53,306 INFO     somebody on the main page
+2023-10-13 00:14:34,106 INFO     somebody on the main page
+2023-10-13 00:16:53,156 INFO     somebody on the main page
+2023-10-13 00:17:20,125 INFO     somebody on the main page
+2023-10-13 00:17:53,172 INFO     somebody on the main page
+2023-10-13 00:18:20,349 INFO     somebody on the main page
+2023-10-13 00:19:45,578 INFO     somebody on the main page
+2023-10-13 00:19:58,150 INFO     somebody on the main page
+2023-10-13 00:20:38,221 INFO     somebody on the main page
+2023-10-13 00:21:04,462 INFO     somebody on the main page
+2023-10-13 00:21:18,474 INFO     somebody on the main page
+2023-10-13 00:21:57,054 INFO     somebody on the main page
+2023-10-13 00:22:13,302 INFO     somebody on the main page
+2023-10-13 00:22:56,970 INFO     somebody on the main page
+2023-10-13 00:23:11,539 INFO     somebody on the main page
+2023-10-13 00:36:02,233 INFO     somebody on the main page
+2023-10-13 00:36:29,082 INFO     somebody on the main page
+2023-10-13 00:36:49,985 INFO     somebody on the main page
+2023-10-13 00:37:30,251 INFO     somebody on the main page
+2023-10-13 00:37:47,339 INFO     somebody on the main page
+2023-10-13 00:38:39,505 INFO     somebody on the main page
+2023-10-13 00:39:15,865 INFO     somebody on the main page
+2023-10-13 00:40:51,853 INFO     somebody on the main page
+2023-10-13 00:42:21,765 INFO     somebody on the main page
+2023-10-13 00:42:57,194 INFO     somebody on the main page
+2023-10-13 00:43:14,410 INFO     somebody on the main page
+2023-10-13 00:43:32,467 INFO     somebody on the main page
+2023-10-13 00:43:51,181 INFO     somebody on the main page
+2023-10-13 00:44:04,872 INFO     somebody on the main page
+2023-10-13 00:44:21,085 INFO     somebody on the main page
+2023-10-13 00:44:45,561 INFO     somebody on the main page
+2023-10-13 00:45:11,748 INFO     somebody on the main page
+2023-10-13 00:45:27,693 INFO     somebody on the main page
+2023-10-13 00:46:13,523 INFO     somebody on the main page
+2023-10-13 00:46:25,390 INFO     somebody on the main page
+2023-10-13 00:46:38,757 INFO     somebody on the main page
+2023-10-13 00:47:36,962 INFO     somebody on the main page
+2023-10-13 00:51:27,661 INFO     somebody on the main page
+2023-10-13 00:51:46,702 INFO     somebody on the main page
+2023-10-13 00:52:21,643 INFO     somebody on the main page
+2023-10-13 00:53:31,641 INFO     somebody on the main page
+2023-10-13 00:53:51,814 INFO     somebody on the main page
+2023-10-13 00:54:08,474 INFO     somebody on the main page
+2023-10-13 00:54:21,380 INFO     somebody on the main page
+2023-10-13 00:54:35,864 INFO     somebody on the main page
+2023-10-13 00:54:47,029 INFO     somebody on the main page
+2023-10-13 00:56:08,949 INFO     somebody on the main page
+2023-10-13 00:57:06,045 INFO     somebody on the main page
+2023-10-13 00:57:26,927 INFO     somebody on the main page
+2023-10-13 00:58:04,751 INFO     somebody on the main page
+2023-10-13 00:58:40,146 INFO     somebody on the main page
+2023-10-13 00:59:56,059 INFO     somebody on the main page
+2023-10-13 01:00:08,272 INFO     somebody on the main page
+2023-10-13 01:01:09,070 INFO     somebody on the main page
+2023-10-13 01:02:40,732 INFO     somebody on the main page
+2023-10-13 01:03:02,813 INFO     somebody on the main page
+2023-10-13 01:03:14,809 INFO     somebody on the main page
+2023-10-13 01:03:36,324 INFO     somebody on the main page
+2023-10-13 01:03:49,947 INFO     somebody on the main page
+2023-10-13 01:04:04,761 INFO     somebody on the main page
+2023-10-13 01:04:32,811 INFO     somebody on the main page
+2023-10-13 01:04:45,100 INFO     somebody on the main page
+2023-10-13 01:04:56,079 INFO     somebody on the main page
+2023-10-13 01:05:26,398 INFO     somebody on the main page
+2023-10-13 01:05:36,931 INFO     somebody on the main page
+2023-10-13 01:06:17,076 INFO     somebody on the main page
+2023-10-13 01:06:37,712 INFO     somebody on the main page
+2023-10-13 01:06:48,757 INFO     somebody on the main page
+2023-10-13 01:07:02,087 INFO     somebody on the main page
+2023-10-13 01:07:25,734 INFO     somebody on the main page
+2023-10-13 01:07:55,090 INFO     somebody on the main page
+2023-10-13 01:08:16,363 INFO     somebody on the main page
+2023-10-13 01:08:51,999 INFO     somebody on the main page
+2023-10-13 01:10:11,263 INFO     somebody on the main page
+2023-10-13 01:11:05,437 INFO     somebody on the main page
+2023-10-13 01:11:17,776 INFO     somebody on the main page
+2023-10-13 01:11:55,099 INFO     somebody on the main page
+2023-10-13 01:18:11,697 INFO     Watching for file changes with StatReloader
+2023-10-13 01:18:16,219 INFO     somebody on the main page
+2023-10-13 01:18:35,867 INFO     somebody on the main page
+2023-10-13 01:18:44,649 INFO     somebody on the main page
+2023-10-13 01:19:24,668 INFO     somebody on the main page
+2023-10-13 01:21:20,894 INFO     somebody on the main page
+2023-10-13 01:21:48,030 INFO     somebody on the main page
+2023-10-13 01:22:09,983 INFO     somebody on the main page
+2023-10-13 01:22:45,902 INFO     somebody on the main page
+2023-10-13 01:23:20,182 INFO     somebody on the main page
+2023-10-13 01:24:39,708 INFO     somebody on the main page
+2023-10-13 01:25:57,199 INFO     somebody on the main page
+2023-10-13 01:26:07,382 INFO     somebody on the main page
+2023-10-13 01:26:33,455 INFO     somebody on the main page
+2023-10-13 01:27:30,217 INFO     somebody on the main page
+2023-10-13 08:09:10,366 INFO     Watching for file changes with StatReloader
+2023-10-13 08:09:13,168 INFO     somebody on the main page
+2023-10-13 08:14:34,184 INFO     somebody on the main page
+2023-10-13 08:14:37,303 INFO     somebody on the main page
+2023-10-13 08:15:05,797 INFO     somebody on the main page
+2023-10-13 08:15:46,059 INFO     somebody on the main page
+2023-10-13 08:16:17,769 INFO     somebody on the main page
+2023-10-13 08:16:38,521 INFO     somebody on the main page
+2023-10-13 08:17:25,394 INFO     somebody on the main page
+2023-10-13 08:17:40,081 INFO     somebody on the main page
+2023-10-13 08:18:53,106 INFO     somebody on the main page
+2023-10-13 08:19:28,691 INFO     somebody on the main page
+2023-10-13 08:19:46,079 INFO     somebody on the main page
+2023-10-13 08:19:51,399 INFO     somebody on the main page
+2023-10-13 08:20:07,154 INFO     somebody on the main page
+2023-10-13 08:28:54,003 INFO     somebody on the main page
+2023-10-13 08:29:59,889 INFO     somebody on the main page
+2023-10-13 08:30:45,713 INFO     somebody on the main page
+2023-10-13 08:32:15,516 INFO     somebody on the main page
+2023-10-13 08:33:26,150 INFO     somebody on the main page
+2023-10-13 08:34:54,515 INFO     somebody on the main page
+2023-10-13 08:35:01,941 INFO     somebody on the main page
+2023-10-13 08:36:55,607 INFO     somebody on the main page
+2023-10-13 08:37:50,790 INFO     somebody on the main page
+2023-10-13 08:38:08,386 INFO     somebody on the main page
+2023-10-13 08:40:13,396 INFO     somebody on the main page
+2023-10-13 08:42:08,746 INFO     somebody on the main page
+2023-10-13 08:42:19,621 INFO     somebody on the main page
+2023-10-13 08:42:35,592 INFO     somebody on the main page
+2023-10-13 08:45:56,052 INFO     somebody on the main page
+2023-10-13 08:45:56,576 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 484, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[0].name' from 'new[0].name'
+2023-10-13 08:45:56,983 WARNING  Not Found: /favicon.ico
+2023-10-13 08:46:25,517 INFO     somebody on the main page
+2023-10-13 08:46:25,641 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 484, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[0].name' from 'news[0].name'
+2023-10-13 08:47:36,999 INFO     somebody on the main page
+2023-10-13 08:47:57,392 INFO     somebody on the main page
+2023-10-13 08:51:55,692 INFO     somebody on the main page
+2023-10-13 08:52:13,998 INFO     somebody on the main page
+2023-10-13 08:52:30,452 INFO     somebody on the main page
+2023-10-13 08:53:02,595 INFO     somebody on the main page
+2023-10-13 08:53:18,826 INFO     somebody on the main page
+2023-10-13 08:53:26,549 INFO     somebody on the main page
+2023-10-13 08:54:23,812 INFO     somebody on the main page
+2023-10-13 08:54:24,197 INFO     somebody on the main page
+2023-10-13 08:56:10,511 INFO     somebody on the main page
+2023-10-13 08:59:27,721 INFO     somebody on the main page
+2023-10-13 08:59:27,866 ERROR    Internal Server Error: /main
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'blocktrans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 60, in index
+    return render(
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 42: 'blocktrans'. Did you forget to register or load this tag?
+2023-10-13 09:00:07,861 INFO     somebody on the main page
+2023-10-13 09:00:14,367 ERROR    Internal Server Error: /about
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python 3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\Python 3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\SCI2\sci\lab4\mainapp\views.py", line 565, in about
+    return render(request, "about.html", {"title":'О конторе'})
+  File "D:\Python 3\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python 3\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python 3\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\Python 3\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python 3\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python 3\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 7: 'static', expected 'endblock'. Did you forget to register or load this tag?
+2023-10-13 09:01:01,148 INFO     somebody on the main page
+2023-10-13 09:01:12,465 INFO     somebody on the main page
+2023-10-13 10:17:10,613 INFO     Watching for file changes with StatReloader
+2023-10-13 10:17:13,557 INFO     somebody on the main page
