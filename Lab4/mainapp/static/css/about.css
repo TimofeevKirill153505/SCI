@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+
 @font-face {
     font-family: 'MegaFont';
     src: url('../fonts/PinyonScript-Regular.ttf');
@@ -51,8 +53,7 @@ img.logo {
     -webkit-border-image: url(../border.png) 300 round round;
     -o-border-image: url(../border.png) 300 round round;
     border-image: url(../border.png) 300 round round;
-    background-color: rgba(255, 255, 255, 0.3);
-    background-image: url(../coolcar4.png);
+    background-image: linear-gradient(rgba(206, 26, 26, 0.295), rgba(17, 206, 128, 0.185)), url(../coolcar4.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-blend-mode: color;
@@ -85,4 +86,29 @@ img.logo {
 
 .sertificate .info {
     text-decoration: underline dotted;
+}
+
+.city {
+    float: left;
+    margin-top: 10em;
+    margin-left: 2em;
+}
+
+.date {
+    margin-top: 10em;
+    float: right;
+}
+
+.ooo {
+    margin-top: 8em;
+    font-family: "MegaFont";
+    font-size: 2em;
+}
+
+.imp {
+    float: left;
+    margin-top: 5em;
+    margin-left: 3em;
+    color: red;
+    font-family: "Martian Mono", serif;
 }
