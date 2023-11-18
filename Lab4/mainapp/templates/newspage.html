@@ -3,16 +3,22 @@
 {%block title%} Новости {% endblock title %}
 {%block content%}
 <h1>Новости</h1>
-<main itemscope itemtype="https://schema.org/NewsArticle">
-    <section style="overflow: hidden;">
+<div class="many-column">
+<div class="left">left</div>
+<main>
+    <section class="news">
         <h3>{{new.name}}</h3>
-        <address itemprop="author">{{new.author}}</address>
-        <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
-        <article itemprop="about">
-            {{new.text}}
-        </article>
-        <a href="main">Читать далее</a>
+        <address>{{new.author}}</address>
+        <div class="main-section">
+            <img src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px />
+            <div>
+                <article>
+                    {{new.text}}
+                </article>
+            </div>
+        </div>
     </section>
-    <hr/>
 </main>
+<div class="right">right</div>
+</div>
 {%endblock content%}

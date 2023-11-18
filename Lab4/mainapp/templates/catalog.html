@@ -2,11 +2,9 @@
 {%block title%} Каталог {% endblock title %}
 {% block content %}
 <h1>Каталог</h1>
-<table>
-    {%for modelsRaw in models%}
-    <tr>
-    {%for model in modelsRaw%}
-    <td>
+<div class="catalog-grid">
+    {%for model in models%}
+    <div>
         <ul>
             <li>Марка: {{model.brand}}</li>
             <li>Кузов: {{model.body}}</li>
@@ -14,9 +12,7 @@
             <li>Стоимость: {{model.price}}</li>
             <a href="order?id={{model.id}}">Заказать</a>
         </ul>
-    </td>
+    </div>
     {%endfor%}
-    </tr>
-    {%endfor%}
-</table>
+</div>
 {% endblock content %}

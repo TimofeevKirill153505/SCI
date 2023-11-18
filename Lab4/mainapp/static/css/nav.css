@@ -45,8 +45,16 @@ footer a {
     margin: 1em;
 }
 
+footer a:visited {
+    color: black
+}
+
 footer nav>span {
     grid-column-start: 6;
     grid-column-end: 7;
     margin: 1em;
+}
+
+nav.nav a:hover {
+    color: rgb(173, 230, 173);
 }

@@ -7,3 +7,146 @@
 body {
     overflow-x: hidden;
 }
+
+details {
+    padding: 0.5em;
+}
+
+summary {
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+}
+
+
+details[open] summary {
+    margin-bottom: 0.5em;
+}
+
+.stuff-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.stuff-card {
+    display: grid;
+    grid-template-rows: 200px 2fr 1fr;
+}
+
+.stuff-card img {
+    margin: 25px;
+}
+
+.vacancy-cont .left {
+    float: left;
+}
+
+.vacancy-cont .right {
+    float: right;
+}
+
+.vacancy-cont .big {
+    height: 300px;
+    width: 300px;
+}
+
+.vacancy-cont .small {
+    height: 200px;
+    width: 200px;
+}
+
+.vacancy-cont img:nth-child(2) {
+    outline: 2px red solid;
+}
+
+.left-clear {
+    clear: left;
+}
+
+.right-clear {
+    clear: right;
+}
+
+section.deprecated h3 i,
+section.deprecated a {
+    text-decoration: line-through black solid;
+}
+
+section.deprecated article {
+    color: grey;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.review-form select[name="grade"] {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.review-form textarea[name="text"] {
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px black solid;
+    border-radius: 5px;
+    width: 700px;
+    height: 200px;
+    font-size: larger;
+}
+
+button[type="submit"] {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.review {
+    overflow: hidden;
+}
+
+.review img {
+    margin: 1em;
+}
+
+#tabl {
+    border-collapse: collapse;
+    text-align: center;
+    empty-cells: show;
+}
+
+[headers~="cars"] {
+    background-color: rgb(165, 235, 235);
+}
+
+#tabl td:empty {
+    background-color: rgb(230, 162, 162);
+}
+
+th {
+    text-align: left;
+    padding: 1em;
+}
+
+td:nth-child(3)::before {
+    content: "ziziiziiz";
+}
+
+.table-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+[class^="stuff"] div {
+    font-family: 'Times New Roman' !important;
+}
+
+[selected] {
+    font-weight: bolder;
+}

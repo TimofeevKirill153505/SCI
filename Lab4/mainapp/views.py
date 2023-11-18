@@ -148,20 +148,10 @@ def order(request: HttpRequest):
 def catalog(request: HttpRequest):
     if request.method == "GET":
         lst = []
-        tmp_list = list()
-        i = 0
         for carModel in CarModel.objects.all():
-            print(carModel)
-            if i % columnCount == 0 and i != 0:
-                lst.append(tmp_list)
-                tmp_list = list()
             if AutoModel.objects.filter(status=AutoModel.FREE, carModel=carModel):
-                tmp_list.append(carModel)
-                i += 1
+                lst.append(carModel)
 
-        if tmp_list:
-            lst.append(tmp_list)
-        print(lst)
         return render(request, "catalog.html", {"models": lst})
 
 
@@ -517,20 +507,7 @@ def editauto(request: HttpRequest):
     return render(request, "editauto.html", {'cars':cars, 'fail':fail, "car":car, "obj":auto, "id":id})
 
 def news(request:HttpRequest):
-    lst = []
-    tmp_list = list()
-    i = 0
-    for new in NewsModel.objects.all():
-            if i % 2 == 0 and i != 0:
-                lst.append(tmp_list)
-                tmp_list = list()
-
-            tmp_list.append(new)
-            i += 1
-
-    if tmp_list:
-        lst.append(tmp_list)
-
+    lst = NewsModel.objects.all()
 
     return render(request, "news.html", {"news": lst})
 
@@ -559,7 +536,7 @@ def politic(request:HttpRequest):
     return render(request, "politic.html", {"title":'Политика конфиденциальности'})
 
 def contacts(request:HttpRequest):
-    return render(request, "contacts.html", {"title":'Контакты'})
+    return render(request, "contacts.html", {"title":'Контакты', "ran":range(1,11)})
 
 def about(request:HttpRequest):
     return render(request, "about.html", {"title":'О конторе'})
@@ -571,3 +548,6 @@ def newspage(request:HttpRequest):
 
 def funnypage(request:HttpRequest):
     return render(request, "funnypage.html")
+
+def vacances(request:HttpRequest):
+    return render(request, "vacances.html")

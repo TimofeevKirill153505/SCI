@@ -4,7 +4,9 @@
 {%block content%}
 <h1>Страница ради страницы</h1>
 <h2>Таблица</h2>
+<div class="table-cont">
 <table id="tabl" border=2>
+    <caption>Caption</caption>
     <tr>
     <th></th>
     <th id="images">Картинки</th>
@@ -22,17 +24,18 @@
     </tr>
     <tr>
         <th id="cats">Коты</th>
-        <td>123</td>
-        <td>123</td>
-        <td>123</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <th>Русская литература</th>
-        <td>123</td>
-        <td>123</td>
+        <td></td>
+        <td></td>
         <td colspan=2><a download href="{%static "funnypage/idiot.mp3"%}"> фрагмент аудиокниги</a></td>
     </tr>
 </table>
+</div>
 <video src="{%static "funnypage/video.mp4"%}" controls></video>
 <br/>
 <a href="#tabl">Перейти к таблице</a>

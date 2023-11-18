@@ -112,3 +112,12 @@ img.logo {
     color: red;
     font-family: "Martian Mono", serif;
 }
+
+ul.history {
+    list-style-type: none;
+}
+
+ul.history span.year {
+    font-weight: bold;
+    font-style: italic;
+}

@@ -4,26 +4,23 @@
 {%block content%}
 <h1>Новости</h1>
 <main>
-    <!--Change to grid-->
-    <table>
-    {%for pair in news%}
-    <tr>
-    {%for new in pair%}
-    <td>
-    <section style="overflow: hidden;">
-        <h3>{{new.name}}</h3>
-        <address>{{new.author}}</address>
-        <img align="left" src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px/>
-        <article>
-            {{new.article}}
-        </article>
-        <a href="newspage?id={{new.id}}">Читать далее</a>
-    </td>
-    </section>
-    {%endfor%}
-    </tr>
-    {%endfor%}
-    <hr/>
-    </table>
+    <div class="news-cont">
+        {%for new in news%}
+        <section class="news-cell">
+            <h3>{{new.name}}</h3>
+            <address>{{new.author}}</address>
+            <div class="main-section">
+                <img src="{%static "newspaper.jpg"%}" alt="news picture" width=200px height=200px />
+                <div>
+                    <article>
+                        {{new.article}}
+                    </article>
+                    <a href="newspage?id={{new.id}}">Читать далее</a>
+                </div>
+            </div>
+            <hr/>
+        </section>
+        {%endfor%}
+    </div>
 </main>
 {%endblock content%}

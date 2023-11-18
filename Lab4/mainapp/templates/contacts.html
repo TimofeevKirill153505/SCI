@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%load static%}
 {%block title%} Контакты {% endblock title %}
 {% block content %}
 <h1>Контакты</h1>
@@ -13,5 +14,14 @@
         <li>Официальный салон Audi в Беларуси: <a href="tel:+375295553535">+375 29 5553535</a></li>
         <li>Официальный салон Volvo в Беларуси: <a href="tel:+375295553535">+375 29 5553535</a></li>
     </ul>
+    <div class="stuff-list">
+        {%for i in ran%}
+        <div class="stuff-card">
+            <img src="{%static "stuff.png"%}" width=150px height=150px></img>
+            <div>Иван Иванович Иванов</div>
+            <a href="tel:+375295553535">+375 29 5553535</a>
+        </div>
+        {%endfor%}
+    </div>
 </main>
 {%endblock content%}

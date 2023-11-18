@@ -6,7 +6,7 @@
 <main>
 {%for review in reviews%}
 <hr/>
-<section style="overflow: hidden;">
+<section class="review">
     <address>{{review.user.f}} {{review.user.i}}</address>
     <i>{{review.grade}}/5</i>
     <img src="{%static "anonym.jpg"%}" width=100px height=100px align="left">
@@ -18,14 +18,14 @@
 <hr/>
 <br/>
 <br/>
-<form method="post">
+<form class="review-form" method="post">
     {% csrf_token %}
-    <select name="grade">
+    <select name="grade" required>
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
-        <option>5</option>
+        <option selected>5</option>
     </select>
     <textarea name="text" required max-length=200> </textarea>
     <button type="submit">Отправить отзыв</button>

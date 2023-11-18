@@ -54,5 +54,6 @@ urlpatterns = [
     path('contacts', views.contacts),
     path('about', views.about),
     path('newspage', views.newspage),
-    path("funnypage", views.funnypage)
+    path("funnypage", views.funnypage),
+    path("vacances", views.vacances)
 ]
