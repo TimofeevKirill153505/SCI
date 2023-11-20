@@ -132,7 +132,7 @@ th {
     padding: 1em;
 }
 
-td:nth-child(3)::before {
+#tabl td:nth-child(3)::before {
     content: "ziziiziiz";
 }
 

@@ -4899,3 +4899,151 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 2023-10-23 16:05:32,966 INFO     somebody on the main page
 2023-10-23 16:09:21,577 INFO     somebody on the main page
 2023-10-23 16:15:55,484 INFO     somebody on the main page
+2023-11-18 15:18:52,683 INFO     Watching for file changes with StatReloader
+2023-11-18 15:18:55,504 INFO     somebody on the main page
+2023-11-18 15:55:48,089 INFO     Watching for file changes with StatReloader
+2023-11-18 15:55:53,911 INFO     somebody on the main page
+2023-11-18 15:57:28,800 INFO     somebody on the main page
+2023-11-18 15:57:35,007 INFO     Watching for file changes with StatReloader
+2023-11-18 15:57:36,912 INFO     somebody on the main page
+2023-11-18 15:58:46,449 INFO     somebody on the main page
+2023-11-18 15:58:47,962 INFO     somebody on the main page
+2023-11-18 15:58:52,218 INFO     somebody on the main page
+2023-11-18 16:00:08,555 INFO     somebody on the main page
+2023-11-18 16:00:09,004 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:01:20,752 INFO     somebody on the main page
+2023-11-18 16:01:20,902 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:01:27,557 INFO     somebody on the main page
+2023-11-18 16:01:27,662 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:01:59,351 INFO     somebody on the main page
+2023-11-18 16:01:59,478 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:02:33,875 INFO     somebody on the main page
+2023-11-18 16:02:33,990 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:03:18,402 INFO     somebody on the main page
+2023-11-18 16:03:18,507 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:03:19,759 INFO     somebody on the main page
+2023-11-18 16:03:19,846 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:04:04,499 INFO     somebody on the main page
+2023-11-18 16:04:04,609 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:04:16,701 INFO     somebody on the main page
+2023-11-18 16:04:16,797 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:04:17,105 INFO     somebody on the main page
+2023-11-18 16:04:17,170 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:04:17,773 INFO     somebody on the main page
+2023-11-18 16:04:17,856 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:04:18,460 INFO     somebody on the main page
+2023-11-18 16:04:18,568 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:04:20,291 INFO     somebody on the main page
+2023-11-18 16:04:20,406 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:05:49,787 INFO     somebody on the main page
+2023-11-18 16:05:49,909 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:06:17,231 WARNING  Not Found: /favicon.ico
+2023-11-18 16:07:40,788 INFO     somebody on the main page
+2023-11-18 16:07:40,908 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:07:57,361 INFO     somebody on the main page
+2023-11-18 16:07:57,515 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:08:20,148 INFO     Watching for file changes with StatReloader
+2023-11-18 16:08:22,733 INFO     somebody on the main page
+2023-11-18 16:08:22,883 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:10:58,291 INFO     somebody on the main page
+2023-11-18 16:10:58,858 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:11:40,064 INFO     somebody on the main page
+2023-11-18 16:11:40,200 WARNING  Not Found: /jquery-1.10.1.min.js
+2023-11-18 16:14:28,079 INFO     somebody on the main page
+2023-11-18 16:16:49,566 INFO     somebody on the main page
+2023-11-18 16:17:08,334 INFO     somebody on the main page
+2023-11-18 16:17:27,853 INFO     somebody on the main page
+2023-11-18 16:17:41,143 INFO     somebody on the main page
+2023-11-18 16:18:08,007 INFO     somebody on the main page
+2023-11-18 16:18:45,282 INFO     somebody on the main page
+2023-11-18 16:18:58,445 INFO     somebody on the main page
+2023-11-18 16:20:17,394 INFO     somebody on the main page
+2023-11-18 16:28:25,541 INFO     somebody on the main page
+2023-11-18 16:29:03,120 INFO     somebody on the main page
+2023-11-18 16:29:38,315 INFO     somebody on the main page
+2023-11-18 16:31:52,095 INFO     somebody on the main page
+2023-11-18 16:32:25,027 INFO     somebody on the main page
+2023-11-18 16:32:54,049 INFO     somebody on the main page
+2023-11-18 16:32:55,242 INFO     somebody on the main page
+2023-11-18 16:32:55,882 INFO     somebody on the main page
+2023-11-18 16:33:21,802 INFO     Watching for file changes with StatReloader
+2023-11-18 16:33:25,786 INFO     somebody on the main page
+2023-11-18 16:33:53,344 INFO     somebody on the main page
+2023-11-18 16:34:51,554 INFO     somebody on the main page
+2023-11-18 16:35:15,401 INFO     somebody on the main page
+2023-11-18 16:38:26,459 INFO     somebody on the main page
+2023-11-18 16:39:19,287 INFO     somebody on the main page
+2023-11-18 16:41:27,926 INFO     somebody on the main page
+2023-11-18 16:41:44,630 INFO     somebody on the main page
+2023-11-18 16:45:40,799 INFO     somebody on the main page
+2023-11-18 16:47:47,733 INFO     somebody on the main page
+2023-11-18 16:47:48,913 WARNING  Not Found: /youtube.com
+2023-11-18 16:48:01,731 INFO     somebody on the main page
+2023-11-18 16:50:29,098 INFO     somebody on the main page
+2023-11-18 16:52:08,942 INFO     somebody on the main page
+2023-11-18 16:53:51,105 INFO     somebody on the main page
+2023-11-18 16:55:06,804 INFO     somebody on the main page
+2023-11-18 17:32:40,545 INFO     Watching for file changes with StatReloader
+2023-11-18 17:32:42,265 INFO     somebody on the main page
+2023-11-18 17:33:03,268 INFO     somebody on the main page
+2023-11-18 17:33:30,757 INFO     somebody on the main page
+2023-11-18 17:35:46,192 INFO     somebody on the main page
+2023-11-18 17:37:16,086 INFO     somebody on the main page
+2023-11-18 17:38:11,619 INFO     somebody on the main page
+2023-11-18 17:39:16,478 INFO     somebody on the main page
+2023-11-18 17:42:19,758 INFO     somebody on the main page
+2023-11-18 17:44:31,467 INFO     somebody on the main page
+2023-11-18 17:45:28,622 INFO     somebody on the main page
+2023-11-18 17:46:35,048 INFO     somebody on the main page
+2023-11-18 17:47:55,972 INFO     somebody on the main page
+2023-11-18 17:48:42,401 INFO     somebody on the main page
+2023-11-18 17:49:22,531 INFO     somebody on the main page
+2023-11-18 17:50:06,427 INFO     somebody on the main page
+2023-11-18 17:51:01,737 INFO     somebody on the main page
+2023-11-18 17:51:34,480 INFO     somebody on the main page
+2023-11-18 17:52:33,839 INFO     somebody on the main page
+2023-11-18 17:53:13,949 INFO     somebody on the main page
+2023-11-18 17:53:46,989 INFO     somebody on the main page
+2023-11-18 17:54:24,249 INFO     somebody on the main page
+2023-11-18 17:55:27,051 INFO     somebody on the main page
+2023-11-18 17:55:44,793 INFO     somebody on the main page
+2023-11-18 17:55:54,048 INFO     somebody on the main page
+2023-11-18 22:37:52,694 INFO     somebody on the main page
+2023-11-18 22:38:14,942 INFO     somebody on the main page
+2023-11-18 22:39:17,727 INFO     somebody on the main page
+2023-11-18 22:39:35,260 INFO     somebody on the main page
+2023-11-18 22:39:53,486 INFO     somebody on the main page
+2023-11-18 22:39:54,642 INFO     somebody on the main page
+2023-11-18 22:40:40,165 INFO     somebody on the main page
+2023-11-18 22:41:20,907 INFO     somebody on the main page
+2023-11-18 22:42:34,770 INFO     somebody on the main page
+2023-11-18 22:42:48,474 INFO     somebody on the main page
+2023-11-18 22:42:51,694 INFO     somebody on the main page
+2023-11-18 22:43:02,811 INFO     somebody on the main page
+2023-11-18 22:43:12,892 INFO     somebody on the main page
+2023-11-18 22:45:53,097 INFO     somebody on the main page
+2023-11-18 22:46:29,745 INFO     somebody on the main page
+2023-11-18 22:50:00,976 INFO     somebody on the main page
+2023-11-18 22:52:12,356 INFO     somebody on the main page
+2023-11-18 22:52:42,089 INFO     somebody on the main page
+2023-11-18 22:53:42,103 INFO     somebody on the main page
+2023-11-18 22:54:01,283 INFO     somebody on the main page
+2023-11-18 22:54:13,095 INFO     somebody on the main page
+2023-11-19 14:34:44,573 INFO     somebody on the main page
+2023-11-19 14:35:04,139 INFO     somebody on the main page
+2023-11-19 14:35:13,314 INFO     somebody on the main page
+2023-11-19 14:35:16,773 INFO     somebody on the main page
+2023-11-19 14:38:42,140 INFO     somebody on the main page
+2023-11-19 16:04:34,492 INFO     Watching for file changes with StatReloader
+2023-11-20 10:19:45,901 INFO     Watching for file changes with StatReloader
+2023-11-20 10:20:08,374 INFO     Watching for file changes with StatReloader
+2023-11-20 10:20:10,394 INFO     somebody on the main page
+2023-11-20 10:23:18,900 INFO     somebody on the main page
+2023-11-20 10:23:53,518 INFO     somebody on the main page
+2023-11-20 10:27:50,492 INFO     somebody on the main page
+2023-11-20 12:18:00,210 INFO     Watching for file changes with StatReloader
+2023-11-20 15:59:54,277 INFO     Watching for file changes with StatReloader
+2023-11-20 15:59:58,917 INFO     somebody on the main page
+2023-11-20 21:14:22,432 INFO     Watching for file changes with StatReloader
+2023-11-20 21:14:24,616 INFO     somebody on the main page
+2023-11-20 21:32:13,823 INFO     Watching for file changes with StatReloader

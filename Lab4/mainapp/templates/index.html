@@ -8,8 +8,10 @@
 <h3>{{punchline}}</h3>
 <h5>{{fact}}</h5> -->
 <div class="banner">
-    <img src="{%static "banner.jpg"%}" class="img1"/>
-    <img src="{%static "banner2.jpg"%}" class="img2"/>
+    <a href="https://vk.com">
+        <img src="{%static "banner.jpg"%}" class="img">
+        <img src="{%static "banner2.jpg"%}" class="img2"/>
+    </a>
 </div>
 <h2>Последние новости</h2>
 <!--Change to grid-->
@@ -67,4 +69,6 @@
 </div>
 
     <a href="main"> <img src="{%static "ad.png"%}" alt="ad banner" style="max-width:90%"/> </a>
+    <script src="../static/js/banner.js"></script>
+
 {%endblock content%}

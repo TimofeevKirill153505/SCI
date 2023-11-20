@@ -4,6 +4,64 @@
 {%block content%}
 <h1>Страница ради страницы</h1>
 <h2>Таблица</h2>
+
+<div id="view-change">
+    <div class="parameterblock">
+        <label for="fontsize"> Размер шрифта </label>
+        <input type="checkbox" name="fontsize">
+    </div>
+    <div class="parameterblock">
+        <label for="fontsize"> Цвет шрифта </label>
+        <input type="checkbox" name="fontcolor">
+         <pre>     </pre>
+            <form id="fontcolor-form" style="display:none;">
+                <label for="r" >r</label>
+                <input type="number" name="r" max=255 min=0 value=255>
+                <label for="g" >g</label>
+                <input type="number" name="g" max=255 min=0 value=255>
+                <label for="b" >b</label>
+                <input type="number" name="b" max=255 min=0 value=255>
+
+                <button id="changeFontColor" type="button">Применить</button>
+                <button id="defaultFontColor" type="button">Сбросить</button>
+            </form>
+    </div>
+    <div class="parameterblock" >
+        <label for="fontsize"> Цвет фона страницы </label>
+        <input type="checkbox" name="background">
+        <pre>     </pre>
+            <form id="background-form" style="display:none;">
+                <label for="r" >r</label>
+                <input type="number" name="r" max=255 min=0 value=255>
+                <label for="g" >g</label>
+                <input type="number" name="g" max=255 min=0 value=255>
+                <label for="b" >b</label>
+                <input type="number" name="b" max=255 min=0 value=255>
+                <label for="a" >a</label>
+                
+                <input type="number" name="a" max=255 min=0 value=255>
+                <button id="changeBackgroundColor" type="button">Применить</button>
+                <button id="defaultColor" type="button">Сбросить</button>
+            </form>
+    </div>
+
+</div>
+<div id="countdown">
+    
+</div>
+<div class="moving-things">
+    <div class="red-square left"> </div>
+
+    <div class="white-wrapper left">
+        <div class="white-square left"> </div>
+    </div>
+
+    <div class="white-wrapper right">
+        <div class="white-square right"> </div>
+    </div>
+
+    <div class="red-square right"> </div>
+</div>
 <div class="table-cont">
 <table id="tabl" border=2>
     <caption>Caption</caption>
@@ -105,4 +163,29 @@ def cancelOrder(request:HttpRequest):
     <img src="{%static "funnypage/python_logo.jpg"%}" width=250 height=250/>
     <figcaption> Лого питона</figcaption>
 </figure>
+<div class="cards-wrapper">
+    <div class="card"> 
+        Текст чтобы заполнить карточку. Текст чтобы заполнить карточку. Текст чтобы заполнить карточку. 
+    </div>
+    <div class="card"> 
+         Текст чтобы заполнить карточку. Текст чтобы заполнить карточку. Текст чтобы заполнить карточку. 
+    </div>
+</div>
+<div id="prototype"></div>
+<div id="extends"></div>
+<div >
+    <pre id="dates"></pre>
+</div>
+<button id="generateTable"> Сгенерировать таблицу</button>
+<label for="tableN"> N </label>
+<input id="tableN" type="number" min=2 max=10 value=2>
+<button id="transpon">Транспонировать</button>
+<script src="../static/js/funnypage.js"></script>
+<script src="../static/js/changes.js"></script>
+<script src="../static/js/timer.js"></script>
+<script src="../static/js/table.js"></script>
+<script src="../static/js/birthdate.js"></script>   
+<script src="../static/js/prototype.js"></script>   
+<script src="../static/js/normal.js"></script>   
+<script src="../static/js/dates.js"></script>
 {%endblock content%}

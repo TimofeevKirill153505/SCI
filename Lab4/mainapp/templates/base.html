@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="{%static "css/partners.css"%}"/>
     <link rel="stylesheet" href="{%static "css/banner.css"%}"/>
     <link rel="stylesheet" href="{%static "css/about.css"%}"/>
+    <link rel="stylesheet" href="{%static "css/jslab.css"%}"/>
+<script src="../static/js/jquery.js"></script>
+
+
     <script>
         function updateDateTime()
         {
@@ -38,6 +42,13 @@
 </head>
 
 <body>
+    <div class="modal-view" id="modal">
+        <div class="modal-window">
+            <h1>ВВедите вашу дату рождения</h1>
+            <input type="date" id="birthdate-input"/>
+            <button id="birthdate-button" type="button"> Подтвердить </button>
+        </div>
+    </div>
     <!--Table will be changed to grid in the next work-->
     <header class="sticky-bar">
     <nav class="nav">
@@ -82,7 +93,7 @@
     </header>
 
     {%block content%}{%endblock content%}
-    <hr/>
+    <hr id="hr"/>
     <footer>
     <nav>
             
